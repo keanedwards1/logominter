@@ -10,7 +10,7 @@ def query(payload):
     return response.content
 
 image_bytes = query({
-    "inputs": "LogoRedmAF, Icons, Mint Leaf, black and white",
+    "inputs": "LogoRedmAF, Icons, create a circle of this back-ground color: rgb(242, 234, 214), with a complementary color as the leaf of a mint plant, rounded and animation like leaves, simple leaves",
 })
 
     # Use detailed, minimalist, colorful, black and white as tags

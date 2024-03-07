@@ -85,7 +85,11 @@ nav {
 }
 
 .nav-links a:hover {
-  transform: scale(1.05);
+/*   text-decoration: underline;
+ */}
+
+.arrow {
+  font-family: "Arial", sans-serif; /* Replace with the desired font name */
 }
 
 /* Main Content Styles */
