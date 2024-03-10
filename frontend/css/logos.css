@@ -1,0 +1,7 @@
+header {
+    background-color: rgb(244, 241, 233);
+    box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.1); /* Example shadow */
+}
+body {
+    background-color: rgb(247, 244, 238);
+}
