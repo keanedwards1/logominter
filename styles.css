@@ -14,6 +14,13 @@
   --footer-color: rgb(255, 255, 255);
 }
 
+* img {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none; 
+}
+
 a:visited {
   color: black;
   text-decoration: none;
@@ -25,6 +32,10 @@ a {
 
 a:-webkit-any-link {
   color: black;
+}
+
+main {
+  padding: 0;
 }
 
 /* @font-face {
@@ -141,13 +152,9 @@ nav {
 
 .arrow {
   font-family: "Arial", sans-serif;
-  /* Replace with the desired font name */
 }
 
 /* Main Content Styles */
-main {
-  padding: 20px;
-}
 
 #hero-wrapper {
   width: 100%;
@@ -183,15 +190,6 @@ main {
   margin-bottom: 30px;
   width: 80%;
 }
-
-/* .hero button {
-  background-color: #333;
-  color: #ffffff;
-  border-radius: 7px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-} */
 
 #home-button-wrapper {
   width: 80%;
@@ -235,26 +233,47 @@ main {
   /* Push the button downwards when pressed */
   transform: translateY(0);
 } 
-.marquee {
-  width: 100%;
-  height: 200px;
+logo-slider {
   overflow: hidden;
-  position: relative;
-  background-color: black;
-}
-
-.marquee img {
-  height: 200px;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-.marquee-content {
+  max-width: 1920px;
+  min-width: 320px;
+  width: 100%;
   display: flex;
-  will-change: transform;
+  padding-block: 5px;
+  height: 200px;
 }
-
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+/*    for gap /*  transform: translateX(calc(-50% - (var(--slider-gap, max(16px, max(16px, 2vw))) * 2.0)));
+ */  }
+}
+logo-slider > div {
+  display: flex;
+  align-items: center;
+  animation: marquee calc(var(--slider-duration, 56s) + (var(--variable-duration, 0s) * 10)) linear infinite;
+  justify-content: space-between;
+/*   gap: var(--slider-gap, max(16px, max(16px, 2vw)));
+ */}
+logo-slider > div img {
+  height: clamp(50%, 10vw, 100%);
+  max-width: 150px;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+/* logo-slider > div:hover {
+  animation-play-state: paused;
+} */
+@media (min-width: 1920px) {
+  logo-slider {
+    -webkit-mask-image: linear-gradient(to right, transparent, white 10vw, white calc(100% - 10vw), transparent);
+    mask-image: linear-gradient(to right, transparent, white 10vw, white calc(100% - 10vw), transparent);
+  }
+}
 
 .pricing {
   padding: 2rem;
@@ -441,4 +460,12 @@ footer {
     margin-bottom: 10px;
     /* Adjust spacing for smaller screens */
   }
+}
+
+.pricing-title {
+  font-family: libre;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
