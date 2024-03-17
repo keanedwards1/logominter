@@ -31,14 +31,35 @@
   <link rel="apple-touch-icon" href="/frontend/images/logos/favicon_io/apple-touch-icon.png" />
   <script type="application/ld+json">
     {
-        "@context": "http://schema.org",
-        "@type": "WebSite",
-        "name": "LogoMinter",
-        "url": "https://logominter.com/",
-        "logo": "https://logominter.com/assets/images/logo.png",
-        "sameAs": []
-    }
-    </script>
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "LogoMinter",
+      "url": "https://logominter.com/",
+      "logo": "https://logominter.com/assets/images/logo.png", /* this needs to be changed so that favicon is in root of project */
+      "sameAs": [],
+      "description": "Create and design your logo for free using our logo maker tool.", /* change this to sound better */
+      "publisher": {
+        "@type": "Organization",
+        "name": "LogoMinter Inc.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://logominter.com/assets/images/logo.png"
+        }
+      },
+      "inLanguage": "en",
+      "isAccessibleForFree": "False",
+      "dateCreated": "2024-02-13",
+      "dateModified": "2024-02-16"
+    }      
+  </script>
+
+  <!-- can add to script:
+    /* for google to use if we implement search feature */
+          "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://logominter.com/search?query={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }, -->
 </head>
 
 <body>
