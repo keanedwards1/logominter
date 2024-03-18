@@ -8,6 +8,7 @@
   --header-color: rgb(255, 255, 255);
   --body-color: #072406;
   --body-color: #ded9c3;
+  --body-color: #f3f1e5;
   --analogous-1: #D6DEC3;
   --analogous-2: #DECBC3;
 
@@ -64,6 +65,8 @@ header {
   color: #ffffff;
   padding: 10px;
   background-color: var(--header-color);
+  box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.1); /* Example shadow */
+
 }
 
 /* header::after {
@@ -392,6 +395,10 @@ footer {
   flex-wrap: wrap;
 }
 
+.footer-bottom {
+  padding: 0 70px 30px 50px;
+}
+
 .footer-top {
   flex-direction: column;
   margin-bottom: 20px;
@@ -439,7 +446,8 @@ footer {
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-links {
@@ -454,6 +462,8 @@ footer {
   .footer-top,
   .footer-bottom {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .footer-icons a {
