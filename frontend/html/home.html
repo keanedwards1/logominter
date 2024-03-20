@@ -84,13 +84,31 @@
           <img id="logo" src="/frontend/images/logos/logo.png" alt="LogoMinter">
         </a>
       </div> -->
+
       <div class="nav-links">
-        <a href="#">Samples</a>
-        <a href="#">Prices</a>
-        <a href="#">How It Works</a>
-        <a href="#"><span class="arrow-font">Make A Logo <span
-              class="arrow">→</span></a><!-- Get started </span><span class="arrow">→</span> -->
+        <a href="#" data-menu="samples-dropdown">Samples</a>
+        <div class="dropdown" id="samples-dropdown">
+          <!-- Unique layout content for Samples -->
+        </div>
+      
+        <a href="#" data-menu="prices-dropdown">Prices</a>
+        <div class="dropdown" id="prices-dropdown">
+          <!-- Unique layout content for Prices -->
+        </div>
+      
+        <a href="#" data-menu="how-it-works-dropdown">How It Works</a>
+        <div class="dropdown" id="how-it-works-dropdown">
+          <h1>How It Works</h1>
+          <!-- Unique layout content for How It Works -->
+        </div>
+      
+        <a href="#" data-menu="make-a-logo-dropdown"><span class="arrow-font">Make A Logo <span class="arrow">→</span></span></a>
+<!--         <div class="dropdown" id="make-a-logo-dropdown">
+        </div> -->
+        <div class="dynamic-arrow"></div>
+        <div class="dynamic-arrow-shadow"></div>
       </div>
+      
     </nav>
   </header>
 
@@ -133,14 +151,14 @@
             <ul>
               <li>5 Logos</li>
               <li>$0.75 off</li>
-              <li>Great To Experiment <br>With Different Looks</li>
+              <li>Experiment With Different Looks</li>
             </ul>
             <a href="/frontend/components/pricing-01/standard.html" class="button-link" target="_blank"
               rel="noopener">Choose</a>
           </div>
 
           <div class="pricing-card">
-            <h2>A Basket Of Logos</h2>
+            <h2>A Bushel Of Logos</h2>
             <p class="price">$9.00</p>
             <ul>
               <li>10 Logos</li>
@@ -217,10 +235,11 @@
  -->      </p>
       <div class="footer-icons">
         <!-- Social media icons -->
-        <a href="#"><img src="/frontend/images/social/youtube-logo.svg" alt="YouTube"></a>
-        <a href="#"><img src="/frontend/images/social/intagram-logo.svg" alt="Instagram"></a>
-        <a href="#"><img src="/frontend/images/social/x-logo.svg.png" alt="X"></a>
-        <a href="#"><img src="/frontend/images/social/tiktok-logo.svg" alt="TikTok"></a>
+        <a class="footer-icon" href="#"><img src="/frontend/images/social/youtube-logo.svg" alt="YouTube"></a>
+        <a class="footer-icon" target="_blank" rel="noopener" href="https://www.instagram.com/logominter_/">
+          <img src="/frontend/images/social/intagram-logo.svg" alt="Instagram"></a>
+        <a class="footer-icon" href="#"><img src="/frontend/images/social/x-logo.svg.png" alt="X"></a>
+        <a class="footer-icon" href="#"><img src="/frontend/images/social/tiktok-logo.svg" alt="TikTok"></a>
 
       </div>
     </div>
@@ -256,6 +275,7 @@
  -->      </div>
     </div>
   </footer>
+  <script defer src="/frontend/js/menu-dropdown.js"></script>
 <script defer src="/scripts.js"></script>
 <!--   <script defer src="/frontend/js/sample-logos-marquee.js"></script>
  --></body>
