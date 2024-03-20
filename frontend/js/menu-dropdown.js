@@ -36,8 +36,8 @@ function handleMenuItemEnter(menuItem) {
       const dropdown = document.getElementById(menuId);
   
       // Example: Adjust these values to move the dropdown left/right (-value/+value) and up/down (-value/+value)
-      const horizontalOffset = -50; // Move dropdown 20px to the right from its calculated left position
-      const verticalOffset = 1;  // Move dropdown 10px down from its calculated top position
+      const horizontalOffset = -50; // Move dropdown right or left
+      const verticalOffset = 1;  // Move dropdown up or down
   
       // Calculate and adjust the left position relative to the nav-links container, including the horizontalOffset
       const adjustedLeft = (rect.left - navLinksRect.left) + horizontalOffset;
@@ -57,7 +57,6 @@ function handleMenuItemEnter(menuItem) {
   }
   
   
-
 function scheduleDropdownHideImmediate() {
   clearHideTimeout(); // Clear any existing timeout
   hideTimeout = setTimeout(() => {
@@ -65,11 +64,11 @@ function scheduleDropdownHideImmediate() {
     if (activeDropdown) {
       const dropdown = document.getElementById(activeDropdown);
       if (dropdown) { // Check if the dropdown exists before attempting to hide it
-        dropdown.style.display = 'none';
+        dropdown.style.opacity = 'none';
       }
       activeDropdown = null; // Reset active dropdown
     }
-  }, 0); // Immediate hide without delay
+  }, 100); // Immediate hide without delay
 }
 
 document.querySelectorAll('.nav-links a').forEach(item => {
@@ -115,11 +114,11 @@ document.addEventListener('DOMContentLoaded', function() {
           const newLeft = linkRect.left + linkRect.width / 2 - navLinksRect.left;
   
           // Move the arrow
-          dynamicArrow.style.left = `${newLeft - 10}px`; // Center the arrow based on its width
+          dynamicArrow.style.left = `${newLeft - 15}px`; // Center the arrow based on its width
           dynamicArrow.style.opacity = 1; // Show the arrow
   
           // Move the shadow to match the arrow's position
-          dynamicArrowShadow.style.left = `${newLeft - 27}px`; // Center the shadow based on its width
+          dynamicArrowShadow.style.left = `${newLeft - 32}px`; // Center the shadow based on its width
           dynamicArrowShadow.style.opacity = 1; // Show the shadow
         } else {
           // Hide the arrow and shadow when hovering over the last link
