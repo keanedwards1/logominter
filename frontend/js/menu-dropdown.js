@@ -1,7 +1,8 @@
+// Global variables for managing state
 let activeDropdown = null; // Currently active (visible) dropdown
 let hideTimeout = null; // Timeout for hiding dropdown
 
-// Function to clear the hide timeout
+// Clears the hide timeout
 function clearHideTimeout() {
   if (hideTimeout) {
     clearTimeout(hideTimeout);
@@ -9,130 +10,108 @@ function clearHideTimeout() {
   }
 }
 
-// Function to set the active dropdown
+// Sets the active dropdown and hides the previous one if necessary
 function setActiveDropdown(dropdownId) {
-  // Hide the currently active dropdown
   if (activeDropdown && activeDropdown !== dropdownId) {
     const activeDropdownElement = document.getElementById(activeDropdown);
-    if (activeDropdownElement) { // Check if the element exists before hiding
+    if (activeDropdownElement) {
       activeDropdownElement.style.display = 'none';
     }
   }
-  // Show the new dropdown and update the activeDropdown variable
+
   if (dropdownId) {
     const dropdown = document.getElementById(dropdownId);
-    if (dropdown) { // Ensure the dropdown exists before attempting to show it
+    if (dropdown) {
       activeDropdown = dropdownId;
       dropdown.style.display = 'block';
     }
   }
 }
 
+// Handles menu item mouse enter to set active dropdown
 function handleMenuItemEnter(menuItem) {
-    const menuId = menuItem.getAttribute('data-menu');
-    if (menuId && document.getElementById(menuId)) { // Check if the dropdown exists
-      const rect = menuItem.getBoundingClientRect();
-      const navLinksRect = document.querySelector('.nav-links').getBoundingClientRect();
-      const dropdown = document.getElementById(menuId);
-  
-      // Example: Adjust these values to move the dropdown left/right (-value/+value) and up/down (-value/+value)
-      const horizontalOffset = -50; // Move dropdown right or left
-      const verticalOffset = 1;  // Move dropdown up or down
-  
-      // Calculate and adjust the left position relative to the nav-links container, including the horizontalOffset
-      const adjustedLeft = (rect.left - navLinksRect.left) + horizontalOffset;
-  
-      // Calculate the adjusted top position, including the verticalOffset
-      const adjustedTop = (rect.bottom - navLinksRect.top) + verticalOffset;
-  
-      // Set the adjusted top and left positions
-      dropdown.style.left = `${adjustedLeft}px`;
-      dropdown.style.top = `${adjustedTop}px`;
-    
+  const menuId = menuItem.getAttribute('data-menu');
+  if (menuId) {
+    const dropdown = document.getElementById(menuId);
+    if (dropdown) {
+      adjustDropdownPosition(menuItem, dropdown);
       setActiveDropdown(menuId);
-    } else {
-      // If hovering over an item without a dropdown, hide any active dropdown
-      scheduleDropdownHideImmediate();
     }
+  } else {
+    scheduleDropdownHideImmediate();
   }
-  
-  
-function scheduleDropdownHideImmediate() {
-  clearHideTimeout(); // Clear any existing timeout
-  hideTimeout = setTimeout(() => {
-    // Hide any active dropdown
-    if (activeDropdown) {
-      const dropdown = document.getElementById(activeDropdown);
-      if (dropdown) { // Check if the dropdown exists before attempting to hide it
-        dropdown.style.opacity = 'none';
-      }
-      activeDropdown = null; // Reset active dropdown
-    }
-  }, 100); // Immediate hide without delay
 }
 
-document.querySelectorAll('.nav-links a').forEach(item => {
-  item.addEventListener('mouseenter', function() {
-    clearHideTimeout(); // Cancel any scheduled hide action
-    handleMenuItemEnter(this); // Handle entering the menu item
-  });
-});
+// Adjusts dropdown position based on nav-links
+function adjustDropdownPosition(menuItem, dropdown) {
+  const rect = menuItem.getBoundingClientRect();
+  const navLinksRect = document.querySelector('.nav-links').getBoundingClientRect();
+  const horizontalOffset = -50;
+  const verticalOffset = 1;
+  dropdown.style.left = `${rect.left - navLinksRect.left + horizontalOffset}px`;
+  dropdown.style.top = `${rect.bottom - navLinksRect.top + verticalOffset}px`;
+}
 
-// Schedule the dropdown to hide when leaving the nav-links container
-document.querySelector('.nav-links').addEventListener('mouseleave', scheduleDropdownHideImmediate);
+// Schedules immediate dropdown hide
+function scheduleDropdownHideImmediate() {
+  clearHideTimeout();
+  hideTimeout = setTimeout(() => {
+    if (activeDropdown) {
+      const dropdown = document.getElementById(activeDropdown);
+      if (dropdown) {
+        dropdown.style.display = 'none';
+        activeDropdown = null;
+      }
+    }
+  }, 100);
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Assuming .dropdown is always next to .nav-links a you want to target
-    const dropdowns = document.querySelectorAll('.dropdown');
-
-    dropdowns.forEach(dropdown => {
-      let navLink = dropdown.previousElementSibling; // Gets the <a> element before .dropdown
-
-      dropdown.addEventListener('mouseenter', function() {
-        navLink.classList.add('hover-effect'); // Adds the class to simulate hover
-      });
-
-      dropdown.addEventListener('mouseleave', function() {
-        navLink.classList.remove('hover-effect'); // Removes the class when mouse leaves
-      });
+// Adds event listeners for dropdown functionality
+function setupDropdownListeners() {
+  document.querySelectorAll('.nav-links a').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      clearHideTimeout();
+      handleMenuItemEnter(item);
     });
   });
-  
-  document.addEventListener('DOMContentLoaded', function() {
+
+  document.querySelector('.nav-links').addEventListener('mouseleave', scheduleDropdownHideImmediate);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const navLink = dropdown.previousElementSibling;
+      dropdown.addEventListener('mouseenter', () => navLink.classList.add('hover-effect'));
+      dropdown.addEventListener('mouseleave', () => navLink.classList.remove('hover-effect'));
+    });
+
     const navLinks = document.querySelectorAll('.nav-links a');
     const dynamicArrow = document.querySelector('.dynamic-arrow');
-    const dynamicArrowShadow = document.querySelector('.dynamic-arrow-shadow'); // Get the shadow element
-  
+    const dynamicArrowShadow = document.querySelector('.dynamic-arrow-shadow');
+
     navLinks.forEach((link, index) => {
-      link.addEventListener('mouseenter', function() {
-        // Only proceed if the hovered link is not the last child
-        if (index !== navLinks.length - 1) {
-          const linkRect = link.getBoundingClientRect();
-          const navLinksRect = link.closest('.nav-links').getBoundingClientRect();
-  
-          // Calculate the new position of the arrow and shadow
-          const newLeft = linkRect.left + linkRect.width / 2 - navLinksRect.left;
-  
-          // Move the arrow
-          dynamicArrow.style.left = `${newLeft - 15}px`; // Center the arrow based on its width
-          dynamicArrow.style.opacity = 1; // Show the arrow
-  
-          // Move the shadow to match the arrow's position
-          dynamicArrowShadow.style.left = `${newLeft - 32}px`; // Center the shadow based on its width
-          dynamicArrowShadow.style.opacity = 1; // Show the shadow
-        } else {
-          // Hide the arrow and shadow when hovering over the last link
-          dynamicArrow.style.opacity = 0;
-          dynamicArrowShadow.style.opacity = 0;
-        }
-      });
-  
-      link.closest('.nav-links').addEventListener('mouseleave', function() {
-        // Hide the arrow and shadow when not hovering over the links
+      link.addEventListener('mouseenter', () => adjustArrowAndShadow(link, index, navLinks.length, dynamicArrow, dynamicArrowShadow));
+      link.closest('.nav-links').addEventListener('mouseleave', () => {
         dynamicArrow.style.opacity = 0;
         dynamicArrowShadow.style.opacity = 0;
       });
     });
   });
-  
-  
+}
+
+// Adjusts the arrow and shadow position
+function adjustArrowAndShadow(link, index, totalLinks, arrow, shadow) {
+  if (index !== totalLinks - 1) {
+    const linkRect = link.getBoundingClientRect();
+    const navLinksRect = link.closest('.nav-links').getBoundingClientRect();
+    const newLeft = linkRect.left + linkRect.width / 2 - navLinksRect.left;
+    arrow.style.left = `${newLeft - 15}px`;
+    arrow.style.opacity = 1;
+    shadow.style.left = `${newLeft - 32}px`;
+    shadow.style.opacity = 1;
+  } else {
+    arrow.style.opacity = 0;
+    shadow.style.opacity = 0;
+  }
+}
+
+setupDropdownListeners();
