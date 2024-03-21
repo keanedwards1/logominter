@@ -16,7 +16,7 @@ if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 
 image_bytes = query({
-    "inputs": "antique Baroque Painting of a girl laughing with background blue wheelbarrow by Akihito Yoshida, Front Light, Black and white",
+    "inputs": "LogoRedmAF, Icons Stunning Hawaii Sunset",
 })
 
 # Load the image from bytes

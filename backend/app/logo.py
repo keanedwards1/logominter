@@ -1,3 +1,7 @@
+# program to choose random prompts from an array of prompts 
+# outputs images into the images folder with name of the prompt
+# 
+
 import os
 import io
 import requests
@@ -13,7 +17,7 @@ def query(payload):
 
 def generate_logo(prompt):
     image_bytes = query({
-        "inputs": f"LogoRedmAF, Icons, {prompt}"
+        "inputs": f"Icons, {prompt}"
     })
     return image_bytes
 
@@ -29,11 +33,22 @@ def save_image(image_bytes, filename):
 def generate_prompt():
     # Define a list of common phrases for logo generation
     phrases = [
-        'letter p',
+        'Dogs', 'dolphins', 'pandas', 'butterflies', 'birds', 'yoga', 
+        'surfurs', 'boxing', 'skateboarding', 'tennis', 'harmony', 'zen vibes',
+        'coffee', 'to go coffee mug warm and comfy coffee shop vibes, wooden colors, with views of nature',
+        'cup of tea with steam', 'cup of coffee with steam',
+        'hot coffee cozy vibes', 'nurses', 'doctor', 'film producer', 'programmer',
+        'lawyer firm stark colors very professional', 'vet', 'teacher', 'flowers', 'hawaii beaches', 'hawaii mountains',
+        'hawaii sunset', 'astrology signs', 'travel', 'plane', 'car', 'sailboat',
+        'beach', 'beach with surf', 'beach with waves', 'beach with waves and surf',
+        'passport', 'airplane in clouds'
     ]
 
     # Select a random phrase from the list
     prompt = choice(phrases)
+
+    # single prompt:
+    # prompt = 'ancient Anamorphosis Painting of a Film Producer, daylight, black & white'
 
     return prompt
 
