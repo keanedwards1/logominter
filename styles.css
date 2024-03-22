@@ -134,6 +134,7 @@ nav {
   font-weight: 400;
   font-size: 16px;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .nav-links a {
@@ -261,11 +262,11 @@ nav {
   visibility: hidden;
 }
 
-.nav-links a:hover ~ .dropdown,
+/* .nav-links a:hover ~ .dropdown,
 .dropdown:hover {
 opacity: 1;
 visibility: visible;
-}
+} */
 
 /* Main Content Styles */
 
@@ -334,7 +335,7 @@ visibility: visible;
   background: var(--button_color);
   color: var(--button_outline_color);
   transform: translateY(-0.2em);
-  transition: transform 0.15s ease;
+  transition: transform 200ms ease;
 }
 
 .button-link:hover .button-top {
@@ -346,6 +347,9 @@ visibility: visible;
   /* Push the button downwards when pressed */
   transform: translateY(0);
 } 
+
+/* Slider Styles */
+
 logo-slider {
   overflow: hidden;
   max-width: 1920px;
@@ -354,7 +358,13 @@ logo-slider {
   display: flex;
   padding-block: 5px;
   height: 200px;
+  background-color: var(--body-color, #f3f1e5); /* Ensure the slider has a background color */
+
+  /* Adjusting mask to fade out closer to the center */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, transparent 100%);
 }
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -461,7 +471,11 @@ text-align: center;
   margin-bottom: 0.5rem;
 }
 
-.pricing-card .button-link {
+.pricing-grid-button {
+  margin-top: 15px;
+}
+
+/* .pricing-card .button-link {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
@@ -475,7 +489,7 @@ text-align: center;
 .pricing-card:hover .button-link {
   background-color: #787b87;
   color: white;
-}
+} */
 
 @media (max-width: 768px) {
   .pricing-grid {
@@ -591,7 +605,14 @@ footer {
   }
 }
 
-button {
+
+
+/* Different button options */
+
+
+
+/* 
+.pricing-grid-button {
   position: relative;
   height: 50px;
   padding: 0 30px;
@@ -606,53 +627,142 @@ button {
   cursor: default;
  }
  
- button:before, button:after {
+ .pricing-grid-button:before, .pricing-grid-button:after {
   content: "";
   position: absolute;
   background: #f8f8f8;
   transition: all .2s linear;
  }
  
- button:before {
+ .pricing-grid-button:before {
   width: calc(100% + 16px);
   height: calc(100% - 16px);
   top: 8px;
   left: -3px;
  }
  
- button:after {
+ .pricing-grid-button:after {
   width: calc(100% - 16px);
   height: calc(100% + 10px);
   top: -3px;
   left: 8px;
  }
 
- button:hover {
+ .pricing-grid-button:hover {
   cursor: pointer;
  }
  
- button:active {
+ .pricing-grid-button:active {
   transform: scale(0.95);
  }
  
- button:hover:before {
+ .pricing-grid-button:hover:before {
   height: calc(100% - 32px);
   top: 16px;
  }
  
- button:hover:after {
+ .pricing-grid-button:hover:after {
   width: calc(100% - 32px);
   left: 16px;
  }
  
- button span {
+ .pricing-grid-button span {
   font-size: 15px;
   z-index: 3;
   position: relative;
   font-weight: 600;
- }
+ } */
 
- .pricing-title {
+
+
+/*  .pricing-grid-button {
+  font-size: 18px;
+  color: #1b1b1b;
+  font-family: inherit;
+  font-weight: 300;
+  font-style: bold;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+.pricing-grid-button:focus,
+.pricing-grid-button:hover {
+  color: #000000;
+}
+
+.pricing-grid-button:focus:after,
+.pricing-grid-button:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.pricing-grid-button:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #000000;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+} */
+
+/* .pricing-grid-button {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,rgba(45, 35, 66, 0.15) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 43px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+  margin-top: 20px;
+ }
+ 
+ .pricing-grid-button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+ }
+ 
+ .pricing-grid-button:hover {
+  box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px, rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+ }
+ 
+ .pricing-grid-button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+ } */
+
+/*  .pricing-grid-button {
   width: 100%;
   height: 20vh;
   margin-top: -10px;
@@ -661,7 +771,100 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+} */
+
+/* .pushable {
+  position: relative;
+  background: transparent;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  outline-offset: 4px;
+  outline-color: deeppink;
+  transition: filter 650ms;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0); /* For non-webkit browsers 
 }
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: hsl(226, 25%, 69%);
+  border-radius: 8px;
+  filter: blur(2px);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: linear-gradient(
+    to right,
+    hsl(248, 39%, 39%) 0%,
+    hsl(248, 39%, 49%) 8%,
+    hsl(248, 39%, 39%) 92%,
+    hsl(248, 39%, 29%) 100%
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  border-radius: 8px;
+  background: hsl(248, 53%, 58%);
+  background: hsl(240, 20%, 98%);
+  padding: 16px 32px;
+  color: rgb(0, 0, 0);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.pushable:hover {
+  filter: brightness(110%);
+}
+
+.pushable:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.pushable:hover .shadow {
+  transform: translateY(6px);
+  transition: transform 650ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+ */
+
+
+
 
 .pricing-title h1 {
   font-size: 90px;
@@ -694,13 +897,13 @@ button {
 .logo-menu h1 {
   width: 80%;
   margin-top: 0px;
-  font-size: 40px;
+  font-size: 50px;
   font-family: 'Gambetta', serif !important;
   text-transform: uppercase;
   letter-spacing: 0px;
-  transition: 700ms ease;
+  transition: 1500ms ease;
   font-variation-settings: "wght" 311;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .logo-menu h1:hover {
