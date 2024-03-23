@@ -7,9 +7,12 @@ import io
 import requests
 from PIL import Image
 from random import choice
+from dotenv import load_dotenv
+
+load_dotenv()
 
 API_URL = "https://api-inference.huggingface.co/models/artificialguybr/LogoRedmond-LogoLoraForSDXL-V2"
-headers = {"Authorization": "Bearer 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"}
+headers = {"Authorization": "Bearer {os.getenv('API_KEY')}"}
 
 def query(payload):
     response = requests.post(API_URL, headers=headers, json=payload)

@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# Update the target directory to your specified path
+# Adjust the source path to find the .env file relative to the script location
+# This assumes the .env file is in the root directory, two levels up from the script's directory
+source "$(dirname "$0")/../../.env"
+
 IMAGE_DIR="/Users/kean.edwards/Desktop/logo-minter/logominter/backend/app/images"
 IMAGE_NAME="logo.png"
 API_URL="https://api-inference.huggingface.co/models/artificialguybr/LogoRedmond-LogoLoraForSDXL-V2"
-AUTH_TOKEN="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"
+# Use the AUTH_TOKEN from the sourced .env file
+AUTH_TOKEN="$AUTH_TOKEN"
 
 # Ensure the target directory exists
 mkdir -p "$IMAGE_DIR"
