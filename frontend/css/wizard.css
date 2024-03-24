@@ -1,0 +1,114 @@
+.wizard-card-title-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+  flex-direction:column;
+}
+
+.wizard-card-title {
+  font-size: 25px;
+  color: var(--font-color);
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.wizard-card-subtitle {
+  color: var(--font-color-sub);
+  font-weight: 600;
+  font-size: 17px;}
+
+.wizard-form {
+    --input-focus: #bd2dd6;
+    --input-focus: #C7CDF7;
+    --font-color: #323232;
+    --font-color-sub: #494949;
+    --bg-color: #fff;
+    --main-color: #323232;
+    padding: 20px;
+    background: rgb(244, 223, 67);
+    background: #f7f1c7;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 25px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    height: 70%;
+  }
+  
+  .input {
+    width: 95%;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 10px;
+    outline: none;
+  }
+  
+  .input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+  }
+  
+  .input:focus {
+    border: 2px solid var(--input-focus);
+  }
+
+  .logo-creation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    width: 100%;
+  }
+
+  @media (max-width: 1050px) {
+    .logo-creation-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .input-wrapper {
+    width: 100%;
+  }
+
+  .input-wrapper > * {
+    width: 95%;
+  }
+  
+  .login-with {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .button-log:active, .button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+  }
+  
+  .button-confirm {
+    margin: 50px auto 0 auto;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Ensure smooth transitions */
+  }
+  
+  .button-confirm:hover {
+    box-shadow: 6px 6px var(--main-color);
+    transform: translateY(-5px); /* Move the button upwards */
+  }
+  
