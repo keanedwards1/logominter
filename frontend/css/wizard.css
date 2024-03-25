@@ -1,8 +1,10 @@
+
+
 .wizard-card-title-container {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   flex-direction:column;
 }
 
@@ -14,6 +16,9 @@
   margin-bottom: 5px;
 }
 
+.card {
+}
+
 .wizard-card-subtitle {
   color: var(--font-color-sub);
   font-weight: 600;
@@ -22,6 +27,8 @@
 .wizard-form {
     --input-focus: #bd2dd6;
     --input-focus: #C7CDF7;
+    --input-focus: #F7C7E5;
+    --input-focus: rgb(29, 29, 29);
     --font-color: #323232;
     --font-color-sub: #494949;
     --bg-color: #fff;
@@ -29,6 +36,7 @@
     padding: 20px;
     background: rgb(244, 223, 67);
     background: #f7f1c7;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -37,7 +45,8 @@
     border-radius: 25px;
     border: 2px solid var(--main-color);
     box-shadow: 4px 4px var(--main-color);
-    height: 70%;
+    height: 82%;
+    font-family: Tiempos, sans-serif;
   }
   
   .input {
@@ -67,6 +76,7 @@
     display: grid;
     grid-template-columns: repeat(2, 2fr);
     width: 100%;
+    gap: 1rem;
   }
 
   @media (max-width: 1050px) {
@@ -82,10 +92,43 @@
   .input-wrapper > * {
     width: 95%;
   }
+
+  .input-title {
+    font-weight: 800;
+    font-style: bold;
+  }
   
   .login-with {
     display: flex;
     gap: 20px;
+  }
+
+  .input-logo-design-1-wrapper {
+    width: 96%;
+  }
+
+  .input-logo-design-1 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to the transition */
+    margin-top: 5px;
+    width: 100%;
+    box-shadow: 1px 3px var(--main-color); /* Larger shadow to appear higher */
+  }
+  
+  .input-logo-design-1:hover {
+    transform: translateY(-2px);
+    box-shadow: 1px 5px var(--main-color); /* Smaller shadow to mimic stationary shadow */
+  }
+
+  .input-logo-design-2 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to the transition */
+    margin-top: 5px;
+    width: 100%;
+    box-shadow: 1px 3px var(--main-color); /* Larger shadow to appear higher */
+  }
+  
+  .input-logo-design-2:hover {
+    transform: translateY(-2px);
+    box-shadow: 1px 5px var(--main-color); /* Smaller shadow to mimic stationary shadow */
   }
   
   .button-log:active, .button-confirm:active {
@@ -93,13 +136,13 @@
   }
   
   .button-confirm {
-    margin: 50px auto 0 auto;
-    width: 120px;
+    margin: 10px auto 0 auto;
+    -moz-fit-content: fit-content;
     height: 40px;
     border-radius: 5px;
     border: 2px solid var(--main-color);
     background-color: var(--bg-color);
-    box-shadow: 4px 4px var(--main-color);
+    box-shadow: 2px 3px var(--main-color);
     font-size: 17px;
     font-weight: 600;
     color: var(--font-color);
@@ -108,7 +151,10 @@
   }
   
   .button-confirm:hover {
-    box-shadow: 6px 6px var(--main-color);
-    transform: translateY(-5px); /* Move the button upwards */
+    box-shadow: 2px 5px var(--main-color);
+    transform: translateY(-2px); /* Move the button upwards */
   }
   
+select.input {
+  width: 97%;
+}

@@ -29,7 +29,7 @@ body {
   border-radius: 20px;
   background: #f8f5f0;
   transition: box-shadow 0.3s ease-in-out;
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px rgb(247, 247, 247);
 }
 
 .card:hover {
@@ -105,7 +105,7 @@ body {
   bottom: -5px; /* Distance of the underline from the text */
   left: 0;
   background-color: var(--black-color); /* Color of the underline */
-  transition: width 0.4s ease-in-out; /* Animates the width of the underline */
+  transition: width 0.25s ease-in-out; /* Animates the width of the underline */
 }
 
 .next a:hover::after {
