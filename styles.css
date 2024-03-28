@@ -285,8 +285,8 @@ visibility: visible;
 
 .hero {
   text-align: center;
-  padding: 50px 0;
-  margin: 0 0 100px 0;
+  padding: 50px 0 20px 0;
+  margin: 0 0 80px 0;
   color: rgb(26, 26, 26);
 }
 
@@ -403,9 +403,10 @@ logo-slider > div img {
 }
 
 .pricing {
-  padding: 2rem;
   text-align: center;
   padding: 1rem 0;
+  padding: 2rem 0 8rem 0;
+
   font-family: libre;
 }
 
