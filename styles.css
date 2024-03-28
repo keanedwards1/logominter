@@ -159,6 +159,10 @@ nav {
   text-decoration: underline;
 } */
 
+.samples-menu {
+  cursor: pointer;
+}
+
  .dynamic-arrow {
   position: absolute;
   bottom: -22px; /* Adjust based on your layout */
@@ -305,7 +309,7 @@ visibility: visible;
   width: 80%;
 }
 
-#home-button-wrapper {
+.home-button-wrapper {
   width: 80%;
   display: flex;
   justify-content: flex-start;
@@ -440,6 +444,7 @@ logo-slider > div img {
   border-radius: 8px;
   background-color: #f8f8f8;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  z-index: 1;
 }
 
 .pricing-card p, .pricing-card p.price {
@@ -578,6 +583,10 @@ footer {
   color: #575757;
   margin-bottom: 5px;
   font-weight: 300;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
 }
 
 .footer-section a:hover {
@@ -932,5 +941,35 @@ hero.logo-menu {
 .sample-logos h1 {
   font-size: 50px;
   text-decoration: none;
+}
+
+
+
+
+
+.sample-card {
+  position:absolute;
+  padding: 20px 40px 40px 40px;
+  width: 80%;
+  height: 75vh;
+  border-radius: 20px;
+  margin-bottom: -80px;
+  background: #f8f5f0;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px rgb(247, 247, 247);
+  z-index: 999;
+}
+
+.sample-card:hover {
+  box-shadow: 20px 20px 70px #bebebe, -20px -20px 70px #ededed;
+}
+
+@media (max-width: 768px) {
+  .sample-card {
+    width: 70%;
+  }
+  #hero-wrapper {
+    height: 100%;
+  }
 }
 
