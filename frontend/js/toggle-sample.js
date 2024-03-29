@@ -3,37 +3,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const sampleCard = document.querySelector('.sample-card');
     const mainContent = document.querySelector('main');
     const overlay = document.createElement('div');
-    const header = document.querySelector('header');
     
+    // Initialize overlay styles
+    overlay.className = 'overlay'; // Ensure this class is applied for initial CSS styling
     overlay.style.position = 'absolute';
     overlay.style.top = '63px';
     overlay.style.left = '0';
     overlay.style.width = '100%';
-    overlay.style.height = '100%';
+    overlay.style.height = '96%';
     overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
-    overlay.style.zIndex = '1000';
-    overlay.style.display = 'none';
-    overlay.style.zIndex = 998;
+    overlay.style.zIndex = '998';
     document.body.appendChild(overlay);
 
-    sampleCard.style.display = 'none'; // Initially hide the sample card
-
+    // Toggle visibility of the sample card and overlay
     toggleSampleCardLink.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent the default link action
-        if (sampleCard.style.display === 'none' || sampleCard.style.display === '') {
-            sampleCard.style.display = 'flex'; // Show the sample card
-            overlay.style.display = 'block'; // Show the overlay
+        e.preventDefault();
+        sampleCard.classList.toggle('show');
+        overlay.classList.toggle('show');
+        if (sampleCard.classList.contains('show')) {
             mainContent.style.position = 'relative';
             sampleCard.style.zIndex = '999';
-        } else {
-            sampleCard.style.display = 'none'; // Hide the sample card
-            overlay.style.display = 'none'; // Hide the overlay
         }
     });
 
+    // Hide sample card and overlay when overlay is clicked
     overlay.addEventListener('click', function() {
-        sampleCard.style.display = 'none'; // Hide the sample card when overlay is clicked
-        overlay.style.display = 'none'; // Hide the overlay
+        sampleCard.classList.remove('show');
+        overlay.classList.remove('show');
     });
-
 });
