@@ -15,6 +15,7 @@
   font-size: 28px;
   margin-bottom: 5px;
   text-decoration: underline;
+  margin-left: -4rem;
 }
 
 .card {
@@ -49,6 +50,12 @@
     box-shadow: 4px 4px var(--main-color);
     height: 82%;
     font-family: Tiempos, sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .wizard-form:hover {
+    box-shadow: 4px 6px var(--main-color);
+    transform: translateY(-2px);
   }
   
   .input {
