@@ -60,20 +60,8 @@ def generate_and_save_image(prompt):
 
 def get_phrases():
     return [
-        "A minimalist climbing logo featuring a silhouette scaling a sharp peak, in monochrome shades to symbolize simplicity and focus.",
-        "A vibrant, action-packed logo with a climber ascending colorful geometric shapes, drawing inspiration from pop art to convey energy and fun.",
-        "An abstract climbing logo with intertwining ropes in shades of blue and white, reflecting a modern, sleek design ethos for elegance and safety.",
-        "A vintage-inspired climbing logo, showcasing a classic mountaineer with an axe, set against a muted earth-toned background for a retro feel.",
-        "A futuristic climbing logo, illustrating a climber with holographic gear against a dark, neon-lit background, merging technology with adventure.",
-        "An eco-friendly climbing logo, composed of green and brown earth tones, incorporating leaf patterns to emphasize sustainability and connection to nature.",
-        "A whimsical climbing logo, featuring a cartoonish climber and whimsical elements like floating islands, in pastel colors to express joy and imagination.",
-        "A bold, street-art style climbing logo with a graffiti-inspired climber on a textured urban wall background, mixing rebellion with urban culture.",
-        "A serene, watercolor climbing logo, depicting a peaceful climb in a mountainous landscape, using soft washes of color to evoke calm and tranquility.",
-        "A high-contrast, noir-inspired climbing logo, with a spotlight on a climber against a pitch-black background, highlighting drama and the climber’s determination."
-    ]
-
-
-def run_program_concurrently(times=10):
+        "Easter eggs with angry faces. They are beating up a rabbit with a baseball bat"]
+def run_program_concurrently(times=1):
     phrases = get_phrases()
     shuffle(phrases)
     selected_prompts = phrases[:times]
@@ -83,4 +71,4 @@ def run_program_concurrently(times=10):
 
 
 # Example usage
-run_program_concurrently(10)
+run_program_concurrently(1)

@@ -546,6 +546,107 @@ text-align: center;
 }
 
 
+/* second section */
+
+.second-section {
+  background-color: #f6f5f2;
+  height: 100vh;
+  width: 100%;
+  font-family: libre;
+}
+
+.second-section h1 {
+  text-align: center;
+  padding: 120px 0 40px 0; 
+  font-size: 48px;
+  color: rgb(56, 56, 56);
+  font-weight: 800
+}
+
+.comparison {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+/*   width: 324px !important;
+ */}
+
+.column h1 {
+  font-style: bold;
+  font-weight: 800;
+}
+
+.negative {
+  color: rgb(190, 18, 60);
+  background-color: rgba(255,228,230,.75); /* Light pink */
+  width: 424px !important;
+
+}
+
+.positive {
+  color: rgb(4, 120, 87);
+  background-color: rgba(209,250,229,.7); /* Light green */
+  width: 424px !important;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.testimonial {
+  padding: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.quote {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .comparison {
+      flex-direction: column;
+  }
+
+  .second-section h1 {
+    font-size: 30px;
+  }
+}
+
+
+/* third section */
+
+.third-section {
+  background-color: #f3f1e5;
+  height: 100vh;
+  width: 100%;
+}
+
+
 /* Footer Styles */
 footer {
   background-color: var(--footer-color);
@@ -964,6 +1065,36 @@ footer {
 }
 
 hero.logo-menu {
+  margin-bottom: 0px;
+}
+
+.logo-menu-under-heading {
+  width: 100%;
+  margin-bottom: 0px;
+  padding: 20px 0 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-menu-under-heading h1 {
+  width: 80%;
+  margin-top: 60px;
+  margin-bottom: -60px;
+  font-size: 30px;
+  font-family: 'Gambetta', serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  transition: 1000ms ease;
+  font-variation-settings: "wght" 311;
+  text-decoration: none;
+}
+
+.logo-menu-under-heading h1:hover {
+  font-variation-settings: "wght" 782; 
+  letter-spacing: 3px;
+}
+
+hero.logo-menu-under-heading  {
   margin-bottom: 0px;
 }
 
