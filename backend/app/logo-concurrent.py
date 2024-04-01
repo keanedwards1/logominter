@@ -60,8 +60,16 @@ def generate_and_save_image(prompt):
 
 def get_phrases():
     return [
-        "Easter eggs with angry faces. They are beating up a rabbit with a baseball bat"]
-def run_program_concurrently(times=1):
+        "the world is your oyster",
+        "a ravishing girl with dark brown hair and blonde higlights greets people as they enter her restaurant, she is loved by her coworkers and treats all her customers with kindness and a smile",
+        "a woman wearing black and white tuxedo and a leather jacket and boots",
+        "an art deco painting of a white calico cat in ancient egypy perched on a stone wall wearing a golden crown",
+        "twice thought of and twice removed, site quitely like something that has never been seen before",
+        "ages ago and never before or since seen, a quite egg is laying lavishly in the sun",
+    ]
+
+
+def run_program_concurrently(times=6):
     phrases = get_phrases()
     shuffle(phrases)
     selected_prompts = phrases[:times]
@@ -71,4 +79,4 @@ def run_program_concurrently(times=1):
 
 
 # Example usage
-run_program_concurrently(1)
+run_program_concurrently(6)

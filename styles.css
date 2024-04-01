@@ -570,12 +570,11 @@ text-align: center;
 }
 
 .column {
-  flex: 1;
   padding: 20px;
-  margin: 10px;
+  margin: 20px;
   border-radius: 8px;
-/*   width: 324px !important;
- */}
+  width: 324px !important;
+}
 
 .column h1 {
   font-style: bold;
@@ -583,15 +582,15 @@ text-align: center;
 }
 
 .negative {
-  color: rgb(190, 18, 60);
-  background-color: rgba(255,228,230,.75); /* Light pink */
+  color: rgb(190, 17, 60);
+  background-color: rgba(247, 221, 223, 0.75); /* Light pink */
   width: 424px !important;
 
 }
 
 .positive {
-  color: rgb(4, 120, 87);
-  background-color: rgba(209,250,229,.7); /* Light green */
+  color: rgb(3, 116, 84);
+  background-color: rgba(208, 250, 228, 0.7); /* Light green */
   width: 424px !important;
 }
 
