@@ -610,6 +610,7 @@ text-align: center;
 }
 
 #hfour-flex {
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -706,13 +707,20 @@ text-align: center;
   }
 
   .compare > * {
+    margin-top: -196px;
+  }
+
+  .second-section > * {
     transform: scale(0.499);
-    margin-top: -156px;
   }
 
   .second-section h1 {
     font-size: 30px;
-    padding: 50px 30px 40px 30px; 
+    padding: 10px 30px 20px 30px; 
+  }
+
+  .second-section-button {
+    margin-bottom: 
   }
 }
 
