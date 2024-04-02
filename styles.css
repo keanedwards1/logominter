@@ -68,8 +68,7 @@ header {
   color: #ffffff;
   padding: 10px;
   background-color: var(--header-color);
-  box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.1); /* Example shadow */
-
+  box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo-title-container {
@@ -555,12 +554,20 @@ text-align: center;
   font-family: libre;
 }
 
+
+
 .second-section h1 {
   text-align: center;
-  padding: 120px 0 40px 0; 
-  font-size: 48px;
+  padding: 120px 30px 20px 30px; 
+  font-size: 44px;
   color: rgb(56, 56, 56);
-  font-weight: 800
+  font-weight: 800;
+}
+
+.second-section h4 {
+  text-align: center;
+  margin-top: -30px;
+  padding: 0 30px 0 30px;
 }
 
 .comparison {
@@ -576,22 +583,36 @@ text-align: center;
   width: 324px !important;
 }
 
-.column h1 {
+.column h2 {
   font-style: bold;
   font-weight: 800;
+  text-align: center;
 }
 
 .negative {
   color: rgb(190, 17, 60);
   background-color: rgba(247, 221, 223, 0.75); /* Light pink */
   width: 424px !important;
+  transition: all 0.3s ease;
+}
 
+.negative:hover {
+  transform: scale(1.01);
+  transform: translateY(-4px);
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.15);
 }
 
 .positive {
   color: rgb(3, 116, 84);
   background-color: rgba(208, 250, 228, 0.7); /* Light green */
   width: 424px !important;
+  transition: all 0.3s ease;
+}
+
+.positive:hover {
+  transform: scale(1.01);
+  transform: translateY(-4px);
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.15);
 }
 
 h2 {
@@ -615,6 +636,10 @@ li {
   padding: 20px;
   margin-top: 30px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .quote {
@@ -624,6 +649,52 @@ li {
 
 .author {
   font-weight: bold;
+  transition: all 0.3s
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  cursor: pointer;
+  font-size: 30px;
+  color: #e8e8e8;
+}
+
+.rating:not(:checked) > label:before {
+  content: '★';
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #f9ce8d;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #f9ce8d;
+}
+
+.rating > input:checked ~ label {
+  color: #f1ba66;
+}
+
+@media (max-width: 1190px) {
+  .second-section {
+    height: 107vh;
+  }
+}
+
+@media (max-width: 867px) {
+  .second-section {
+    height: 110vh;
+  }
 }
 
 @media (max-width: 768px) {
@@ -631,8 +702,13 @@ li {
       flex-direction: column;
   }
 
+  .second-section {
+    height: 140vh;
+  }
+
   .second-section h1 {
     font-size: 30px;
+    padding: 50px 30px 40px 30px; 
   }
 }
 
@@ -640,9 +716,11 @@ li {
 /* third section */
 
 .third-section {
-  background-color: #f3f1e5;
+  background-color: #f4f3ef;
   height: 100vh;
   width: 100%;
+  box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 
