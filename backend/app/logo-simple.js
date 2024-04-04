@@ -33,13 +33,13 @@ async function query(data) {
     const result = await response.buffer(); // Use buffer() instead of blob()
 
     // Save the image to /images folder
-    const path = "./images/image.png"; // Specify the path where you want to save the image
+    const path = "/Users/kean.edwards/Desktop/logo-minter/logominter/backend/app/images"; // Specify the path where you want to save the image
     fs.writeFileSync(path, result); // Write the image to the specified path
     
     return path; // Return the path of the saved image
 }
 
-query({"inputs": "LogoRedmAF, Icons " + "Fitness app logo, depicting an abstract figure in motion, vibrant colors"}).then((path) => {
+query({"inputs": "LogoRedmAF, Icons " + "modern and illustrative, with a minimalist approach. It features soft pastel colors and clean lines, giving it a calming and serene aesthetic. The use of flat colors and minimal shading suggests an influence from the contemporary digital art scene. There's also a noticeable absence of intricate detail which lends to its modern simplicity. The character's closed eyes and relaxed posture evoke a sense of tranquility. This style is often associated with modern editorial illustrations that you might find in lifestyle magazines or as part of branding for wellness and beauty products."}).then((path) => {
     console.log("Image saved at: ", path);
 }).catch((error) => {
     console.error("Error saving image: ", error);

@@ -55,7 +55,7 @@ def generate_prompt():
 
     return prompt
 
-def run_program(times=1):
+def run_program(times=3):
     used_prompts = []
     for _ in range(times):
         # Generate a unique prompt

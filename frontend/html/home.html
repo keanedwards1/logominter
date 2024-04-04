@@ -96,7 +96,7 @@
         <!--  <div class="dropdown" id="prices-dropdown">
         </div> -->
 
-        <a href="#" data-menu="how-it-works-dropdown">How It Works</a>
+        <a id="info-image" data-menu="how-it-works-dropdown">How It Works</a>
         <!--         <div class="dropdown" id="how-it-works-dropdown">
           <h1>How It Works</h1>
         </div> -->
@@ -295,6 +295,10 @@
 
 
     <section class="second-section">
+ 
+    </section>
+
+    <section class="third-section">
       <h1>How does LogoMinter work?</h1>
       <div id="hfour-flex">
         <button class="second-section-button" data-text="Awesome">
@@ -318,9 +322,6 @@
         </section>
         <input type="range" id="range" step="0.1">
       </div>
-    </section>
-
-    <section class="third-section">
       
     </section>
 
@@ -374,12 +375,41 @@
  -->
       </div>
     </div>
-
   </footer>
+
+  <div id="infoContainer">
+    <div id="rectangle">
+      <button id="closeButton">x</button>
+      <div id="popup-writing">
+        <h3>
+          <div class="website-tips">cmnd + i toggles the info page</div>
+        </h3>
+        <h3>
+          <div class="website-tips">cmnd + k toggles light/dark theme</div>
+        </h3>
+        <h3>
+          <div id="toggle-tooltip-container" class="website-tips">
+            <div id="toggle-tooltip">toggle hover boxes:</div>
+            <label class="switch">
+              <input type="checkbox" id="toggleCheckbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </h3>
+      </div>
+
+      <div class="flex-container">
+        <button class="custom-button" onclick="window.open('https://drawing.garden/', '_blank')">Click
+          me
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script defer src="/scripts.js"></script>
   <script defer src="/frontend/js/toggle-sample.js"></script>
   <script defer src="/frontend/js/comparison.js"></script>
+  <script defer src="/frontend/js/info-container.js"></script>
 
 </body>
 

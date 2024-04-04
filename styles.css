@@ -525,6 +525,11 @@ text-align: center;
 } */
 
 /* Media Queries */
+@media  (min-width: 1200px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 1250px) {
   .pricing-grid {
@@ -747,7 +752,7 @@ text-align: center;
   margin-bottom: 51px;
 }
 
-.second-section h1 {
+.third-section h1 {
   text-align: center;
   padding: 60px 30px 20px 30px; 
   font-size: 44px;
@@ -1256,6 +1261,176 @@ hero.logo-menu-under-heading  {
   transition-delay: 0s; /* Apply transition immediately when showing */
 }
 
+/* InfoContainer */
+
+#infoContainer {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  /* Start off-screen */
+  width: 275px;
+  height: 540px;
+  margin-top: 150px;
+  margin-right: 20px;
+  transition: right 0.7s ease;
+  z-index: 9999;
+}
+
+#rectangle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #525555;
+  animation: normal-pulsate 5s infinite;
+  background: linear-gradient(to bottom, var(--body-color), #0b0e13);
+  /* Gradient colors */
+  border-radius: 10px;
+  /* Rounded corners */
+}
+
+#closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-family: monospace;
+  margin-right: 4px;
+  margin-top: -2px;
+  color: rgb(57, 71, 96);
+}
+
+.custom-button {
+  background-color: #9d9d9d;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.15s;
+  margin-top: 20px;
+}
+
+.custom-button:hover {
+  background-color: #494949;
+  color: white;
+}
+
+.custom-button:active {
+  background-color: #494949;
+  color: white;
+}
+
+#popup-writing {
+  display: grid;
+  gap: 3px;
+  padding: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.website-tips {
+  border: 5px solid;
+  border-image: var(--background-color-light);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+#toggle-tooltip-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#toggle-tooltip {
+  width: 95%;
+  margin-left: -20px;
+  line-height: 1.5em;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  /* Variables */
+  --switch_width: 2.2em;
+  --switch_height: 1em;
+  --thumb_color: #e8e8e8;
+  --track_color: #e8e8e8;
+  --track_active_color: #888;
+  --outline_color: #000;
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: var(--switch_width);
+  height: var(--switch_height);
+  transform: scale(0.8);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  box-sizing: border-box;
+  border: 2px solid var(--outline_color);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--track_color);
+  transition: .15s;
+  border-radius: var(--switch_height);
+}
+
+.slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  height: var(--switch_height);
+  width: var(--switch_height);
+  border: 2px solid var(--outline_color);
+  border-radius: 100%;
+  left: -2px;
+  bottom: -2px;
+  background-color: var(--thumb_color);
+  transform: translateY(-0.2em);
+  box-shadow: 0 0.2em 0 var(--outline_color);
+  transition: .15s;
+}
+
+input:checked+.slider {
+  background-color: var(--track_active_color);
+}
+
+input:focus-visible+.slider {
+  box-shadow: 0 0 0 2px var(--track_active_color);
+}
+
+/* Raise thumb when hovered */
+input:hover+.slider:before {
+  transform: translateY(-0.3em);
+  box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+input:checked+.slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.2em);
+}
+
+/* Raise thumb when hovered & checked */
+input:hover:checked+.slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
+  box-shadow: 0 0.3em 0 var(--outline_color);
+}
 
 
 

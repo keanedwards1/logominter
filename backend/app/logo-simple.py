@@ -19,7 +19,7 @@ if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 
 image_bytes = query({
-    "inputs": "LogoRedmAF, Icons Stunning Hawaii Sunset",
+    "inputs": "LogoRedmAF,  modern and illustrative, with a minimalist approach. It features soft pastel colors and clean lines, giving it a calming and serene aesthetic. ",
 })
 
 # Load the image from bytes
