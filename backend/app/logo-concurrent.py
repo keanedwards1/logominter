@@ -36,7 +36,7 @@ def save_image(image_bytes, prompt):
         return
 
     # Extract the first five words from the prompt for the filename
-    filename = '_'.join(prompt.split()[:5])
+    filename = '_'.join(prompt.split()[:10])
 
     # Get the directory of the current script
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -66,16 +66,16 @@ def generate_and_save_image(prompt):
 
 def get_phrases():
     return [
-        "A contemporary illustration with a minimalist style, soft pastel palette, and clean lines for a tranquil atmosphere. Flat colors with minimal shading reflect modern digital art influences.",
-        "Minimalist design in a modern art style, using muted pastels and simple lines to evoke a sense of peace. The lack of complex detail underscores its sleek, contemporary look.",
-        "Modern editorial-style illustration, characterized by a minimalist approach, soft pastels, and crisp lines, providing a soothing visual experience with a flat color scheme.",
-        "Simplistic and modern artwork with gentle pastel hues and neat lines, offering a serene and restful vibe. The artwork avoids detailed shading for a contemporary feel.",
-        "An illustration in a modern and streamlined style, featuring a palette of soft pastels and straightforward lines for a calming effect. The artwork captures the essence of current digital design trends.",
-        "A modern, illustrative creation with a focus on minimalism, using a soft pastel color range and neat lines to promote tranquility. The flat color application hints at digital art's influence.",
-        "An image with a minimalist and modern flair, sporting subdued pastel shades and uncluttered lines that calm the viewer. The piece reflects the modern digital art movement with its simplicity.",
-        "Illustrative art piece in a modern and minimalist vein, utilizing a pastel color spectrum and clean line work for a serene visual. Flat colors and a lack of detail modernize the style.",
-        "An editorial-style visual with a modern minimalist approach, showcasing soft pastels and straightforward lines for a calming presence. The style is indicative of contemporary illustration found in lifestyle branding.",
-        "Artistic representation in a minimalist and modern fashion, comprising soft pastel tones and clear-cut lines, offering a serene ambiance. The artwork's flat colors and simplicity are inspired by modern digital art."
+        "Stick Figure of a monstera with yellow background, Soft Light, colorful",
+        "Stick Figure of a monstera with yellow green background, Soft Light, colorful",
+        "Stick Figure of a monstera with blue green background, Soft Light, colorful",
+        "Stick Figure of a monstera with blue background, Soft Light, colorful",
+        "Stick Figure of a monstera with blue violet background, Soft Light, colorful",
+        "Stick Figure of a monstera with violet background, Soft Light, colorful",
+        "Stick Figure of a monstera with red violet background, Soft Light, colorful",
+        "Stick Figure of a monstera with red orange background, Soft Light, colorful",
+        "Stick Figure of a monstera with orange background, Soft Light, colorful",
+        "Stick Figure of a monstera with yellow orange background, Soft Light, colorful",
     ]
 
 
