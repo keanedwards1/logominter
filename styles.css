@@ -631,6 +631,24 @@ text-align: center;
   margin-bottom: 51px;
 }
 
+.home-second-card-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.home-second-card {
+  width: 50%;
+  height: 254px;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe,
+              -20px -20px 60px #ffffff;
+ }
+
 @layer demo {
   .compare {
     display: grid;

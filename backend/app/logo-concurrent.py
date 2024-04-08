@@ -66,20 +66,30 @@ def generate_and_save_image(prompt):
 
 def get_phrases():
     return [
-        "Stick Figure of a monstera with yellow background, Soft Light, colorful",
-        "Stick Figure of a monstera with yellow green background, Soft Light, colorful",
-        "Stick Figure of a monstera with blue green background, Soft Light, colorful",
-        "Stick Figure of a monstera with blue background, Soft Light, colorful",
-        "Stick Figure of a monstera with blue violet background, Soft Light, colorful",
-        "Stick Figure of a monstera with violet background, Soft Light, colorful",
-        "Stick Figure of a monstera with red violet background, Soft Light, colorful",
-        "Stick Figure of a monstera with red orange background, Soft Light, colorful",
-        "Stick Figure of a monstera with orange background, Soft Light, colorful",
-        "Stick Figure of a monstera with yellow orange background, Soft Light, colorful",
+        "dadaism painting of a runner with background blue , highly detailed, daylight, colorful",
+        "de stijl Painting of a runner with background blue , highly detailed, daylight, colorful",
+        "der blaue Painting of a runner with background blue , highly detailed, daylight, colorful",
+        "digital Painting of a runner with background blue , highly detailed, daylight, colorful",
+        "drIp Painting of a runner with background blue , highly detailed, daylight, colorful",
+        "enamel Painting of a runner with background blue , highly detailed, daylight, colorful",
+        "encaustic painting Painting of a runner with background blue , highly detailed, daylight, colorful",
+        "expressionism Painting of a runner with background blue , highly detailed, daylight, colorful",
+        "figurativism Painting of a runner with background blue , highly detailed, daylight, colorful",
+        "finger Painting of a runner with background blue , highly detailed, daylight, colorful",
+        "fresco secco of a runner with background blue , highly detailed, daylight, colorful"
+        "futurism painting of a runner with background blue , highly detailed, daylight, colorful"
+        "genre Painting of a runner with background blue , highly detailed, daylight, colorful"
+        "glitter glue Painting of a runner with background blue , highly detailed, daylight, colorful"
+        "gothic Painting of a runner with background blue , highly detailed, daylight, colorful"
+        "gouache Painting of a runner with background blue , highly detailed, daylight, colorful"
+        "history Painting of a runner with background blue , highly detailed, daylight, colorful"
+        "hot wax Painting of a runner with background blue , highly detailed, daylight, colorful"
+        "impressionsim Painting of a runner with background blue , highly detailed, daylight, colorful"
+        "ink wash Painting of a runner with background blue , highly detailed, daylight, colorful"
     ]
 
 
-def run_program_concurrently(times=10):
+def run_program_concurrently(times=20):
     phrases = get_phrases()
     shuffle(phrases)
     selected_prompts = phrases[:times]
@@ -89,4 +99,4 @@ def run_program_concurrently(times=10):
 
 
 # Example usage
-run_program_concurrently(10)
+run_program_concurrently(20)
