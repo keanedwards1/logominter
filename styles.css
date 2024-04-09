@@ -637,16 +637,19 @@ text-align: center;
   width: 100%;
   align-items: center;
   justify-content: center;
+  gap: 20px;
 
 }
 
 .home-second-card {
-  width: 50%;
-  height: 254px;
+  width: 30%;
+  height: 30vh;
+  margin-top: 3rem;
   border-radius: 50px;
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe,
               -20px -20px 60px #ffffff;
+  text-align: center;
  }
 
 @layer demo {
@@ -735,7 +738,7 @@ text-align: center;
   }
 
   .compare > * {
-    margin-top: -196px;
+    
   }
 
   .second-section > * {
@@ -745,8 +748,8 @@ text-align: center;
   .second-section h1 {
     font-size: 30px;
     padding: 10px 30px 20px 30px; 
-    margin-top: -25px;
-    margin-left: -100px;
+/*     margin-top: -25px;
+    margin-left: -100px; */
     white-space: nowrap;
   }
 
@@ -758,6 +761,20 @@ text-align: center;
 
   #hfour-flex {
     margin-left: -100px;
+  }
+
+  .home-second-card-wrapper {
+    flex-direction: column;
+    margin-top: -200px;
+  }
+
+  .home-second-card {
+    width: 100%;
+    margin-top: 0;
+  }
+  
+  .home-second-card p {
+    font-size: 20px;
   }
 }
 
@@ -781,6 +798,25 @@ text-align: center;
   font-size: 44px;
   color: rgb(56, 56, 56);
   font-weight: 800;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .third-section > * {
+    transform: scale(0.499);
+  }
+
+  .third-section h1 {
+    font-size: 35px;
+  }
+
+  .compare {
+    margin-top: -100px;
+    margin-bottom: -100px;
+  }
+  .footer {
+    margin-top: -280px;
+  }
 }
 
 
@@ -834,10 +870,12 @@ footer {
 
 .footer-icon img {
   opacity: 0.7;
+  transition: transform 0.3s ease;
 }
 
 .footer-icon img:hover {
   opacity: 1;
+  transform: scale(1.05);
 }
 
 .footer-section {
