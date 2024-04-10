@@ -43,6 +43,10 @@ main {
   padding: 0;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /* @font-face {
   font-family: Grid;
   src: url('/frontend/fonts/RomanGridCaps.ttf') format('truetype');
@@ -849,6 +853,9 @@ text-align: center;
   }
   .footer {
     margin-top: -280px;
+  }
+  .footer-index {
+    margin-top: 220px;
   }
 }
 
