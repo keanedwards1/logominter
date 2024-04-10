@@ -464,8 +464,8 @@ logo-slider > div img {
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 2rem;
-  column-gap: 1rem;
+  row-gap: 3rem;
+  column-gap: 3rem;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto 60px auto;
@@ -488,7 +488,7 @@ logo-slider > div img {
   background-color: #f8f8f8;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   z-index: 1;
-  width: 90%;
+  width: 100%;
 }
 
 .pricing-card p, .pricing-card p.price {
@@ -562,6 +562,8 @@ text-align: center;
 @media (max-width: 600px) {
   .pricing-grid {
     grid-template-columns: 1fr;
+    transform: scale(0.9);
+    gap: 2.5rem;
   }
 }
 
@@ -632,7 +634,7 @@ text-align: center;
 }
 
 #hfour-flex {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -644,13 +646,13 @@ text-align: center;
 }
 
 .home-second-card-wrapper {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   width: 100%;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-
+  gap: 4rem;
+  padding: 0 6rem 0 6rem;
 }
 
 .home-second-card {
@@ -663,6 +665,10 @@ text-align: center;
               -20px -20px 60px #ffffff;
   text-align: center;
  }
+
+ .shift-down {
+  margin-top: 30px;
+}
 
 @layer demo {
   .compare {
@@ -727,6 +733,13 @@ text-align: center;
   }
 }
 
+@media (max-width: 1050px) {
+  .home-second-card-wrapper {
+    gap: 2rem;
+    padding: 0 2.5rem 0 2.5rem;
+  }
+}
+
 
 @media (min-width: 768px) {
   .second-section {
@@ -742,8 +755,8 @@ text-align: center;
 
 @media (max-width: 768px) {
   .comparison {
-      flex-direction: column;
-  }
+    flex-direction: column;
+    }
 
   .second-section {
     height: 60vh;
@@ -753,9 +766,9 @@ text-align: center;
     
   }
 
-  .second-section > * {
+/*   .second-section > * {
     transform: scale(0.499);
-  }
+  } */
 
   .second-section h1 {
     font-size: 30px;
@@ -773,11 +786,14 @@ text-align: center;
 
   #hfour-flex {
     margin-left: -100px;
+    transform: scale(0.4);
   }
 
   .home-second-card-wrapper {
-    flex-direction: column;
-    margin-top: -200px;
+/*     margin-top: -200px;
+ */   grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      padding: 0 1.5rem 0 1.5rem;
   }
 
   .home-second-card {
@@ -834,6 +850,13 @@ text-align: center;
   }
   .footer {
     margin-top: -280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .compare {
+    margin-top: -70px;
+    margin-bottom: -150px;
   }
 }
 
@@ -1510,6 +1533,8 @@ input:hover:checked+.slider:before {
   transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
   box-shadow: 0 0.3em 0 var(--outline_color);
 }
+
+
 
 
 
