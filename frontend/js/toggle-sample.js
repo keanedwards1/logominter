@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.style.top = '63px';
     overlay.style.left = '0';
     overlay.style.width = '100%';
-    overlay.style.height = '96%';
+    overlay.style.height = '97.75%';
     overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
     overlay.style.zIndex = '998';
     document.body.appendChild(overlay);
