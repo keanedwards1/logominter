@@ -785,8 +785,7 @@ text-align: center;
   }
 
   #hfour-flex {
-    margin-left: -100px;
-    transform: scale(0.4);
+    transform: scale(0.6);
   }
 
   .home-second-card-wrapper {
@@ -854,9 +853,9 @@ text-align: center;
 }
 
 @media (max-width: 600px) {
-  .compare {
-    margin-top: -70px;
-    margin-bottom: -150px;
+  #hfour-flex {
+    margin-left: 0px;
+    transform: scale(0.4);
   }
 }
 
