@@ -825,6 +825,12 @@ box-shadow: 20px 20px 60px #bebebe,
   }
 }
 
+@media (max-width: 600px) {
+  .second-section {
+    height: 130vh;
+  }
+}
+
 
 /* third section */
 
