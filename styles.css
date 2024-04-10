@@ -609,6 +609,14 @@ text-align: center;
   color: transparent;
   -webkit-text-stroke: 1px var(--text-stroke-color);
 }
+
+.example-img {
+margin: 20px;
+border-radius: 20px;
+box-shadow: 20px 20px 60px #bebebe,
+-20px -20px 60px #ffffff;
+}
+
 /* this is the text, when you hover on button */
 .hover-text {
   position: absolute;
@@ -672,6 +680,14 @@ text-align: center;
 
  .shift-down {
   margin-top: 30px;
+}
+
+.alt-pricing-card {
+  padding: 35px;
+}
+
+.use-p {
+  font-size: 30px;
 }
 
 @layer demo {
@@ -747,13 +763,13 @@ text-align: center;
 
 @media (min-width: 768px) {
   .second-section {
-    height: 100vh;
+    height: 70vh;
   }
 }
 
 @media (max-width: 867px) {
   .second-section {
-    height: 100vh;
+    height: 70vh;
   }
 }
 
@@ -763,7 +779,7 @@ text-align: center;
     }
 
   .second-section {
-    height: 60vh;
+    height: 150vh;
   }
 
   .compare > * {
@@ -779,8 +795,8 @@ text-align: center;
     padding: 10px 30px 20px 30px; 
 /*     margin-top: -25px;
     margin-left: -100px; */
-    white-space: nowrap;
-  }
+/*     white-space: nowrap;
+ */  }
 
   .second-section-button {
     margin-top: -50px;
