@@ -854,6 +854,14 @@ box-shadow: 20px 20px 60px #bebebe,
   white-space: nowrap;
 }
 
+@media (max-width: 1000px) {
+  #hfour-flex {
+    gap: 6rem;
+    transform:scale(0.7);
+    margin-left: -100px;
+  }
+}
+
 @media (max-width: 768px) {
   .third-section > * {
     transform: scale(0.729);
