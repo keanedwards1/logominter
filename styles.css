@@ -172,6 +172,12 @@ nav {
   transition: all 0.3s ease;
 }
 
+@media (max-width: 868px) {
+  .nav-links {
+    display: none;
+  }
+}
+
 .nav-links a {
   color: #505050;
   color: black;
@@ -195,6 +201,10 @@ nav {
 } */
 
 .samples-menu {
+  cursor: pointer;
+}
+
+.pricing-menu {
   cursor: pointer;
 }
 
@@ -690,6 +700,15 @@ box-shadow: 20px 20px 60px #bebebe,
   font-size: 30px;
 }
 
+.use-2 {
+  margin: 35px 0 35px 0;
+  transform: scale(1.1);
+}
+
+.use-3 {
+  margin: 20px 0 10px 0;
+}
+
 @layer demo {
   .compare {
     display: grid;
@@ -769,7 +788,7 @@ box-shadow: 20px 20px 60px #bebebe,
 
 @media (max-width: 867px) {
   .second-section {
-    height: 80vh;
+    height: 70vh;
   }
 }
 
@@ -802,10 +821,6 @@ box-shadow: 20px 20px 60px #bebebe,
     margin-top: -50px;
     margin-right: 40px;
     margin-left: 40px;
-  }
-
-  #hfour-flex {
-    transform: scale(0.6);
   }
 
   .home-second-card-wrapper {
@@ -872,11 +887,6 @@ box-shadow: 20px 20px 60px #bebebe,
     padding: 20px 30px 60px 30px;
   }
 
-  #hfour-flex {
-    margin-top: -10px;
-    margin-bottom: 10px;
-  }
-
   .compare {
     margin-top: -100px;
     margin-bottom: -100px;
@@ -886,6 +896,13 @@ box-shadow: 20px 20px 60px #bebebe,
   }
   .footer-index {
     margin-top: 220px;
+  }
+
+  #hfour-flex {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    transform: scale(0.5);
+    margin-left: -150px;
   }
 }
 
@@ -1369,7 +1386,7 @@ hero.logo-menu-under-heading  {
   width: 80%;
   height: 75vh;
   border-radius: 20px;
-  margin-bottom: -420px;
+  margin-bottom: -450px;
   background: #f8f5f0;
   transition: box-shadow 0.3s ease-in-out;
   box-shadow: 20px 20px 60px rgb(190, 190, 190), -20px -20px 60px rgb(247, 247, 247);
@@ -1380,9 +1397,10 @@ hero.logo-menu-under-heading  {
   box-shadow: 20px 20px 70px rgb(190, 190, 190), -20px -20px 70px rgb(237, 237, 237);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   .sample-card {
-    width: 70%
+    width: 90%;
+    margin-bottom: -370px;
   }
   #hero-wrapper {
     height: 100%;
@@ -1396,6 +1414,65 @@ hero.logo-menu-under-heading  {
 }
 
 .sample-card.show, .overlay.show {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s; /* Apply transition immediately when showing */
+}
+
+/* pricing-card */
+
+.pricing-popup {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 20px 40px 40px 40px;
+  width: 80%;
+  height: 75vh;
+  border-radius: 20px;
+  margin-bottom: -450px;
+  background: #f8f5f0;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 20px 20px 60px rgb(190, 190, 190), -20px -20px 60px rgb(247, 247, 247);
+  z-index: 999;
+}
+
+.pricing-popup:hover {
+  box-shadow: 20px 20px 70px rgb(190, 190, 190), -20px -20px 70px rgb(237, 237, 237);
+}
+
+@media (max-width: 868px) {
+  .pricing-popup {
+    width: 90%;
+    margin-bottom: -370px;
+  }
+  #hero-wrapper {
+    height: 100%;
+  }
+}
+
+.pricing-menu-popup {
+  margin-top: -100px;
+  transform: scale(0.8);
+}
+
+@media (max-width: 600px) {
+  .pricing-popup {
+    height: 145vh;
+    margin-bottom: -970px;
+  }
+  
+  .pricing-menu-popup {
+    margin-top: -170px;
+  }
+}
+
+.pricing-popup, .overlay {
+  transition: all 0.3s ease; /* Smooth transition for opacity and delay visibility change */
+  opacity: 0; /* Start with invisible */
+  visibility: hidden; /* Start with hidden */
+}
+
+.pricing-popup.show, .overlay.show {
   opacity: 1;
   visibility: visible;
   transition-delay: 0s; /* Apply transition immediately when showing */
