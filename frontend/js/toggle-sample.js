@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const togglePricingCardLink = document.querySelector('.pricing-menu');
     const toggleSampleCardLink = document.querySelector('.samples-menu');
     const sampleCard = document.querySelector('.sample-card');
     const mainContent = document.querySelector('main');
@@ -28,6 +29,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Hide sample card and overlay when overlay is clicked
     overlay.addEventListener('click', function() {
+        sampleCard.classList.remove('show');
+        overlay.classList.remove('show');
+    });
+
+    // Hide sample card and overlay when Sample Menu is clicked
+    togglePricingCardLink.addEventListener('click', function() {
         sampleCard.classList.remove('show');
         overlay.classList.remove('show');
     });
