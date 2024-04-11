@@ -916,6 +916,30 @@ box-shadow: 20px 20px 60px #e8e7e6;
   }
 }
 
+/* fourth section */
+
+.fourth-section {
+  position: relative;
+  background-color: #f3f1e8;
+  height: 10vh;
+}
+
+#fourth-section-div-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+#fourth-section-div-1 {
+  width: 50%;
+  height: 100%;
+}
+
+#fourth-section-div-2 {
+  width: 50%;
+  height: 100%;
+}
 
 /* Footer Styles */
 footer {
