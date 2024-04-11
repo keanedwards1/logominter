@@ -11,8 +11,10 @@
   --body-color: #f3f1e5;
   --analogous-1: #D6DEC3;
   --analogous-2: #DECBC3;
-
   --footer-color: rgb(255, 255, 255);
+  --webkit-font-smoothing: antialiased;
+  --moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
 }
 
 * img {
