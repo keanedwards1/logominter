@@ -769,7 +769,7 @@ box-shadow: 20px 20px 60px #bebebe,
 
 @media (max-width: 867px) {
   .second-section {
-    height: 70vh;
+    height: 80vh;
   }
 }
 
@@ -779,7 +779,7 @@ box-shadow: 20px 20px 60px #bebebe,
     }
 
   .second-section {
-    height: 150vh;
+    height: 200vh;
   }
 
   .compare > * {
@@ -827,7 +827,7 @@ box-shadow: 20px 20px 60px #bebebe,
 
 @media (max-width: 600px) {
   .second-section {
-    height: 130vh;
+    height: 160vh;
   }
 }
 
