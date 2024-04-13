@@ -38,11 +38,21 @@ body {
 
 @media (max-width: 768px) {
   .card {
-    width: 70%;
+    width: 80%;
   }
   #hero-wrapper {
     height: 100%;
   }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 85%;
+  }}
+
+.home-link {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .home-link a {
