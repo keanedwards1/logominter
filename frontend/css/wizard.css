@@ -37,7 +37,7 @@
  */}
 
 .card {
-  
+
 }
 
 .wizard-card-subtitle {
@@ -135,7 +135,13 @@
   }
 
   .input-logo-design-1-wrapper {
-    width: 96%;
+    width: 98%;
+  }
+
+  @media (min-width: 1050px) {
+    .input-logo-design-1-wrapper {
+      margin-right: -40px;
+    }
   }
 
   .input-logo-design-1 {

@@ -376,6 +376,7 @@ body {
 
 .card-btn {
   height: 35px;
+  max-width: 80px;
   background: var(--bg-color);
   border: 2px solid var(--item-color);
   border-radius: 5px;
