@@ -48,6 +48,7 @@ body {
 @media (max-width: 600px) {
   .card {
     width: 85%;
+    padding: 20px 30px 40px 30px;
   }}
 
 .home-link {

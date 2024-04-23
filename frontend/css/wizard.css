@@ -36,6 +36,10 @@
 /*   background-color: rgb(255, 255, 241);
  */}
 
+.card {
+  
+}
+
 .wizard-card-subtitle {
   color: var(--font-color-sub);
   font-weight: 600;
