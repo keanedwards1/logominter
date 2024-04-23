@@ -120,6 +120,10 @@
     font-weight: 800;
     font-style: bold;
   }
+
+.input-title > :nth-child(-n+2) {
+  text-align: left;
+}
   
   .login-with {
     display: flex;

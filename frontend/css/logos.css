@@ -171,7 +171,9 @@ body {
   @media (max-width: 600px) {
     .home-link a, .next a {
       font-size: 14px;
-
+    }
+    .home-link a {
+      top: 7px;
     }
   }
 
