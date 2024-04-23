@@ -1,0 +1,21 @@
+
+
+
+.sample-image-grid img {
+    width: 100%; /* Make images fill their cell */
+    height: auto; /* Maintain aspect ratio */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+    border-radius: 20px;
+}
+
+.sample-image-grid {
+    margin-top: -500px;
+    gap: 45px;
+    position: static;
+}
+
+@media screen and (max-width: 768px) {
+    .sample-card {
+        padding: 20px 15px 40px 15px
+    }
+}

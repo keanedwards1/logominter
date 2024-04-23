@@ -623,6 +623,18 @@ text-align: center;
   -webkit-text-stroke: 1px var(--text-stroke-color);
 }
 
+.second-section-button-link-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 8rem;
+}
+
+.second-section-button-link {
+
+}
+
 .example-img {
 margin: 20px;
 border-radius: 20px;
@@ -924,19 +936,20 @@ box-shadow: 20px 20px 60px #e8e7e6;
 .fourth-section {
   position: relative;
   background-color: #f3f1e8;
-  height: 10vh;
 }
 
 #fourth-section-div-wrapper {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   flex-direction: row;
+  justify-content: space-around;
+  margin: 30px 0;
 }
 
 #fourth-section-div-1 {
   width: 50%;
   height: 100%;
+  visibility: hidden;
 }
 
 #fourth-section-div-2 {
@@ -1420,6 +1433,7 @@ hero.logo-menu-under-heading  {
   transition: box-shadow 0.3s ease-in-out;
   box-shadow: 20px 20px 60px rgb(190, 190, 190), -20px -20px 60px rgb(247, 247, 247);
   z-index: 999;
+  overflow-y: auto;
 }
 
 .sample-card:hover {
