@@ -130,7 +130,7 @@ body {
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1.3rem;
   width: 100%;
   max-width: 1200px;
   margin: 40px auto 0 auto;
@@ -173,11 +173,23 @@ body {
     .home-link a, .next a {
       font-size: 14px;
     }
+    .logo-menu {
+      padding: 30px 0 0 0;
+    }
+    .logo-menu h1 {
+      font-size: 40px;
+    }
+    .logo-menu-under-heading h1 {
+      font-size: 26px;
+    }
   }
 
   @media only screen and (max-width: 600px) {
     .home-link a {
       top: 13px;
+    }
+    .logo-menu-under-heading h1 {
+      font-size: 20px;
     }
  }
 
