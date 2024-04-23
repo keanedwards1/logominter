@@ -173,10 +173,13 @@ body {
     .home-link a, .next a {
       font-size: 14px;
     }
-    .home-link a {
-      top: 7px;
-    }
   }
+
+  @media only screen and (max-width: 600px) {
+    .home-link a {
+      top: 13px;
+    }
+ }
 
 /*Neo Brutalism pricing card*/
 .logos-pricing-card {
