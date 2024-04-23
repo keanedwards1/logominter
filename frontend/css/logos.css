@@ -168,6 +168,13 @@ body {
 
   }
 
+  @media (max-width: 600px) {
+    .home-link a, .next a {
+      font-size: 14px;
+
+    }
+  }
+
 /*Neo Brutalism pricing card*/
 .logos-pricing-card {
   --font-color: #323232;

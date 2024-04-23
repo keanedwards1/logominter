@@ -66,27 +66,27 @@ def generate_and_save_image(prompt):
 
 def get_phrases():
     return [
-        "dadaism painting of a runner with background blue , highly detailed, daylight, colorful",
-        "de stijl Painting of a runner with background blue , highly detailed, daylight, colorful",
-        "der blaue Painting of a runner with background blue , highly detailed, daylight, colorful",
-        "digital Painting of a runner with background blue , highly detailed, daylight, colorful",
-        "drIp Painting of a runner with background blue , highly detailed, daylight, colorful",
-        "enamel Painting of a runner with background blue , highly detailed, daylight, colorful",
-        "encaustic painting Painting of a runner with background blue , highly detailed, daylight, colorful",
-        "expressionism Painting of a runner with background blue , highly detailed, daylight, colorful",
-        "figurativism Painting of a runner with background blue , highly detailed, daylight, colorful",
-        "finger Painting of a runner with background blue , highly detailed, daylight, colorful",
-        "fresco secco of a runner with background blue , highly detailed, daylight, colorful"
-        "futurism painting of a runner with background blue , highly detailed, daylight, colorful"
-        "genre Painting of a runner with background blue , highly detailed, daylight, colorful"
-        "glitter glue Painting of a runner with background blue , highly detailed, daylight, colorful"
-        "gothic Painting of a runner with background blue , highly detailed, daylight, colorful"
-        "gouache Painting of a runner with background blue , highly detailed, daylight, colorful"
-        "history Painting of a runner with background blue , highly detailed, daylight, colorful"
-        "hot wax Painting of a runner with background blue , highly detailed, daylight, colorful"
-        "impressionsim Painting of a runner with background blue , highly detailed, daylight, colorful"
-        "ink wash Painting of a runner with background blue , highly detailed, daylight, colorful"
-    ]
+        "1 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "2 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "3 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "4 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "5 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "6 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "7 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "8 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "9 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "10 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "11 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "12 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "13 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "14 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "15 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "16 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "17 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "18 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "19 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+        "20 " + "Depict an alt rapper in a lavish portrait filled with gold leaf and intricate patterns, reminiscent of Gustav Klimt’s ornate style. Use a rich palette of golds, blacks, and deep reds. The background should include symbolic elements like musical notes and vinyl records, intertwined with the opulent decorative motifs that frame the rapper",
+]
 
 
 def run_program_concurrently(times=20):

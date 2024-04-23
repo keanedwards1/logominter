@@ -3,9 +3,16 @@
 .wizard-card-title-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
   margin-bottom: 20px;
-  flex-direction:column;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .wizard-card-title-container {
+    margin-top: 20px;
+  }
 }
 
 .wizard-card-title {
@@ -16,6 +23,13 @@
   margin-bottom: 5px;
   text-decoration: underline;
   margin-left: -4rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .wizard-card-title {
+    margin-left: 0;
+  }
 }
 
 .card {
