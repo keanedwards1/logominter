@@ -106,8 +106,16 @@
         </div>
 
         <div class="next">
-          <a rel="noopener" target="_blank" href="https://buy.stripe.com/9AQ7t57ed8uwaUUcMM" onclick="firstLogoOption()">🌻 Create Your Free Logo →</a>
+          <a rel="noopener" target="_blank" href="https://buy.stripe.com/9AQ7t57ed8uwaUUcMM" onclick="notifyUser(event)" >🌻 Create Your Free Logo →</a> <!-- onclick="firstLogoOption()" -->
         </div>
+
+        <script>
+          function notifyUser(event) {
+            event.preventDefault(); // Prevents following the link
+            alert('Not Available Yet');
+          }
+          
+          </script>
 
         <div class="wizard-card-title-container">
           <div class="wizard-card-title">The Logo Designer</div>
