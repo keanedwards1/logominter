@@ -1442,8 +1442,14 @@ hero.logo-menu-under-heading  {
 
 @media (max-width: 868px) {
   .sample-card {
-    width: 90%;
     margin-bottom: -70px;
+
+  }
+}
+
+@media (max-width: 768px) {
+  .sample-card {
+    width: 90%;
   }
 /*   #hero-wrapper {
     height: 100%;

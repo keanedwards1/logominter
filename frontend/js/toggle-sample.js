@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const toggleSampleCardLink = document.querySelector('.samples-menu');
+    const togglePricingCardLink = document.querySelector('.pricing-menu');
     const sampleCard = document.querySelector('.sample-card');
     const mainContent = document.querySelector('main');
     const overlay = document.createElement('div');
