@@ -29,17 +29,13 @@
   }
 
   .sample-image-grid img {
-    width: 25rem; /* Make images fill their cell */
-    height: 25rem; /* Maintain aspect ratio */
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+    width: 25rem; 
+    height: 25rem; 
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); 
     border-radius: 20px;
 }
 
-/*   @media  (min-width: 1200px) {
-    .pricing-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  } */
+
   
   @media (max-width: 1090px) {
     .sample-image-grid {
@@ -48,8 +44,8 @@
         margin-top: -1805px;
       }
       .sample-image-grid img {
-        width: 60vh; /* Make images fill their cell */
-        height: 60vh; /* Maintain aspect ratio */
+        width: 60vh; 
+        height: 60vh; 
       }
   }
 
@@ -72,8 +68,8 @@
 
 
     .sample-image-grid img {
-        width: 40vh; /* Make images fill their cell */
-        height: 40vh; /* Maintain aspect ratio */
+        width: 40vh; 
+        height: 40vh; 
       }
   }
 
@@ -105,9 +101,9 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 45px;
-      width: calc(100% - 40px); /* Subtract the total margin */
-      max-width: 1200px; /* You can keep this if you want a max width */
-      margin: 0 auto; /* This will center the grid */
+      width: calc(100% - 40px); 
+      max-width: 1200px; 
+      margin: 0 auto; 
       align-items: center;
       justify-items: center;
       justify-content: center;
@@ -118,7 +114,6 @@
   .sample-image-grid img {
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
       border-radius: 20px;
-      /* The width and height should be handled by the grid now */
   }
   
   @media screen and (max-width: 768px) {
