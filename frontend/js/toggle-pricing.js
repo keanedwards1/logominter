@@ -1,4 +1,4 @@
-/* // toggle-pricing.js
+/* // toggle-pricing.js (old code)
 document.addEventListener('DOMContentLoaded', function() {
     const togglePricingCardLink = document.querySelector('.pricing-menu');
     const toggleSampleCardLink = document.querySelector('.samples-menu');

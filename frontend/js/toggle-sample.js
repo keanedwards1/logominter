@@ -1,4 +1,4 @@
-/* // toggle-sample.js
+/* // toggle-sample.js (old code)
 document.addEventListener('DOMContentLoaded', function() {
     const toggleSampleCardLink = document.querySelector('.samples-menu');
     const togglePricingCardLink = document.querySelector('.pricing-menu');
