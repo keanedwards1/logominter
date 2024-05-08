@@ -423,3 +423,22 @@ body {
 .card-btn:active {
   transform: translateY(3px);
 }
+
+
+
+.sample-card, .pricing-popup {
+  margin-top: -170px;
+  overflow-y: auto;
+}
+
+@media (max-width: 1250px) {
+  .sample-card, .pricing-popup {
+    margin-top: -500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sample-card, .pricing-popup {
+    margin-top: -1100px;
+  }
+}

@@ -956,6 +956,9 @@ box-shadow: 20px 20px 60px #e8e7e6;
 }
 
 #fourth-section-div-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50%;
   height: 100%;
 }

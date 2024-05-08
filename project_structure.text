@@ -128,12 +128,12 @@
         - style.css
   - html
     - blog.html
-    - first-logo-option.html
-    - free-logo-option.html
+    - option-2.html
+    - option-1.html
     - home.html
     - logos.html
-    - second-logo-option.html
-    - third-logo-option.html
+    - option-3.html
+    - option-4.html
   - images
     - .DS_Store
     - logos
