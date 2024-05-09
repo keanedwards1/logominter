@@ -72,8 +72,26 @@
   }
 
   .wizard-form:hover {
+    animation: normal-pulsate 5s infinite;
     box-shadow: 4px 6px var(--main-color);
-    transform: translateY(-2px);
+  }
+
+  @keyframes normal-pulsate {
+    0% {
+      transform: scale(1);
+    }
+  
+    60% {
+      transform: scale(1.02);
+    }
+  
+    90% {
+      transform: scale(1.001);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
   }
   
   .input {
@@ -233,6 +251,12 @@ select.input {
   .overlay.show {
     
   }
+}
+
+.home-button-wrapper {
+  justify-self: center;
+  width: 100%;
+  margin-top: 40px;
 }
 
 
