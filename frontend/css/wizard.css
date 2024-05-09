@@ -69,10 +69,10 @@
     height: 82%;
     font-family: Tiempos, sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: normal-pulsate 5s infinite;
   }
 
   .wizard-form:hover {
-    animation: normal-pulsate 5s infinite;
     box-shadow: 4px 6px var(--main-color);
   }
 

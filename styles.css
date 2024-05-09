@@ -175,9 +175,24 @@ nav {
 }
 
 @media (max-width: 868px) {
-  .nav-links {
+  nav {
+    flex-direction: column;
+  }
+  #info-image {
     display: none;
   }
+  .use-cases {
+    display: none;
+  }
+  .nav-links {
+    margin-right: 0;
+  }
+  .overlay.show {
+    margin-top: 30px;
+  }
+/*   .nav-links {
+    display: none;
+  } */
 }
 
 .nav-links a {
@@ -593,6 +608,12 @@ text-align: center;
   width: 100%;
   font-family: libre;
   margin-top: -40px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
 }
 
 /* === removing default button style === */
@@ -686,8 +707,8 @@ box-shadow: 20px 20px 60px #e8e7e6;
 
 .home-second-card-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+  width: 70%;
   align-items: center;
   justify-content: center;
   gap: 4rem;
@@ -703,6 +724,7 @@ box-shadow: 20px 20px 60px #e8e7e6;
   box-shadow: 20px 20px 60px #bebebe,
               -20px -20px 60px #ffffff;
   text-align: center;
+  
  }
 
  .shift-down {
@@ -711,6 +733,8 @@ box-shadow: 20px 20px 60px #e8e7e6;
 
 .alt-pricing-card {
   padding: 35px;
+  align-self: center;
+  justify-self: center;
 }
 
 .use-p {
@@ -797,7 +821,7 @@ box-shadow: 20px 20px 60px #e8e7e6;
 }
 
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .second-section {
     height: 100vh;
   }
@@ -807,7 +831,7 @@ box-shadow: 20px 20px 60px #e8e7e6;
   .second-section {
     height: 100vh;
   }
-}
+} */
 
 @media (max-width: 768px) {
   .comparison {
@@ -815,7 +839,12 @@ box-shadow: 20px 20px 60px #e8e7e6;
     }
 
   .second-section {
-    height: 200vh;
+    height: 220vh;
+  }
+
+  .home-second-card-wrapper {
+    width: 100%;
+
   }
 
   .compare > * {
@@ -859,7 +888,7 @@ box-shadow: 20px 20px 60px #e8e7e6;
 
 @media (max-width: 600px) {
   .second-section {
-    height: 160vh;
+    height: 220vh;
   }
 }
 
@@ -1063,7 +1092,7 @@ footer {
 }
 
 /* Responsive styles if needed */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   nav {
     flex-direction: column;
     align-items: center;
@@ -1076,8 +1105,8 @@ footer {
 
   .nav-links a {
     margin-left: 0;
-    margin-right: 20px;
-  }
+/*     margin-right: 20px;
+ */  }
 
   .footer-top,
   .footer-bottom {
@@ -1537,7 +1566,7 @@ hero.logo-menu-under-heading  {
 @media (max-width: 600px) {
   .pricing-popup {
     height: 145vh;
-    margin-bottom: -970px;
+    margin-bottom: -670px;
   }
   
   .pricing-menu-popup {
