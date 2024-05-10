@@ -221,6 +221,7 @@ body {
 .logos-pricing-card:hover {
   box-shadow: 4px 6px var(--main-color);
   transform: translateY(-2px);
+  cursor: pointer;
 }
 
 /* .logos-pricing-card:last-child {
@@ -232,10 +233,43 @@ body {
   transition: all 0.5s;
   display: flex;
   justify-content: center;
+
+  background-size: cover;
+  background-position: center;
 }
 
-.card-img .img {
-  /* delete */
+.img1 {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/frontend/images/logos-page/image-1.png');
+  width: 100px;
+  height: 100px;
+}
+
+.img2 {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/frontend/images/logos-page/image-2.png');
+  width: 110px;
+  height: 100px;}
+
+.img3 {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/frontend/images/logos-page/image-3.png');
+  width: 130px;
+  height: 100px;}
+
+.img4 {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/frontend/images/logos-page/image-4.png');
+  width: 100px;
+  height: 100px;}
+
+
+
+/* .card-img .img {
   transform: scale(1);
   position: relative;
   box-sizing: border-box;
@@ -255,7 +289,6 @@ body {
 }
 
 .card-img .img::before {
-  /* delete */
   content: "";
   position: absolute;
   width: 65px;
@@ -287,7 +320,6 @@ body {
 }
 
 .card-img .img::after {
-  /* delete */
   content: "";
   position: absolute;
   box-sizing: border-box;
@@ -341,7 +373,7 @@ body {
   border-left: 2px solid black;
   transform: rotate(45deg);
   z-index: 1;
-}
+} */
 
 .card-title {
   font-size: 20px;
