@@ -24,6 +24,7 @@
     justify-content: center;
     transform: scale(0.8);
     margin-top: -735px;
+    margin-bottom: -535px;
     margin-left: 0;
     margin-right: 0;
   }
@@ -42,6 +43,7 @@
         grid-template-columns: 1fr;
         gap: 2.5rem;
         margin-top: -1805px;
+        margin-bottom: -1605px;
       }
       .sample-image-grid img {
         width: 60vh; 
@@ -64,6 +66,7 @@
 
     .sample-image-grid {
         margin-top: -1255px;
+        margin-bottom: -1055px;
     }
 
 
@@ -109,6 +112,7 @@
       justify-content: center;
       transform: scale(0.8);
       margin-top: -735px;
+      margin-bottom: -535px;
   }
   
   .sample-image-grid img {
@@ -127,6 +131,7 @@
           grid-template-columns: 1fr;
           gap: 2.5rem;
           margin-top: -1805px;
+          margin-bottom: -1605px;
       }
   }
   
@@ -147,5 +152,6 @@
 
       .sample-image-grid {
         margin-top: -1175px;
+        margin-bottom: -975px;
     }
   }

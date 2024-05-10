@@ -18,7 +18,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 0px;
-  height: 100%;
+  height: 50%;
   width: 100%;
 }
 
@@ -127,21 +127,25 @@ body {
   padding: 10px 0 30px 0;
 }
 
+.logo-menu h1 {
+  font-size: 40px;
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.3rem;
   width: 100%;
   max-width: 1200px;
-  margin: 40px auto 0 auto;
+  margin: 20px auto 0 auto;
   transform: scale(1.0);
 }
 
 @media (max-width: 1250px) {
     .pricing-grid {
       grid-template-columns: repeat(2, 2fr);
-      margin-top: 20px;
-      row-gap: 60px;
+/*       margin-top: 20px;
+ */      row-gap: 60px;
       column-gap: -20px;
     }
 
@@ -473,4 +477,8 @@ body {
   .sample-card, .pricing-popup {
     margin-top: -1100px;
   }
+}
+
+.overlay.show {
+  height: 99.4% !important;
 }

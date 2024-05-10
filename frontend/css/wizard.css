@@ -222,7 +222,7 @@ select.input {
 }
 
 .overlay.show {
-  height: 99% !important;
+  height: 98.3% !important;
 }
 
 @media (max-width: 1250px) {
@@ -257,6 +257,7 @@ select.input {
   justify-self: center;
   width: 100%;
   margin-top: 40px;
+  margin-bottom: -10px;
 }
 
 
