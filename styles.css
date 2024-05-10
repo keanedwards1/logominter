@@ -373,8 +373,66 @@ visibility: visible;
 }
 
 .section-1 {
-  height: 73vh;
+  height: 90vh;
 }
+
+#home-logo-display-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  transform: translateY(-20px);
+}
+
+.card-img {
+  /* clear and add new css */
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.card-img:hover {
+  transform: translateY(-2px);
+}
+
+.image-1 {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/frontend/images/logos-page/image-1.png');
+  width: 100px;
+  height: 100px;
+}
+
+.image-2 {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/frontend/images/logos-page/image-2.png');
+  width: 110px;
+  height: 100px;}
+
+.image-3 {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/frontend/images/logos-page/image-3.png');
+  width: 130px;
+  height: 100px;}
+
+.image-4 {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/frontend/images/logos-page/image-4.png');
+  width: 100px;
+  height: 100px;}
+
+.image-5 {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/frontend/images/logos-page/image-5.png');
+  width: 100px;
+  height: 100px;}
 
 .home-button-wrapper {
   width: 80%;
@@ -1583,7 +1641,7 @@ hero.logo-menu-under-heading  {
 }
 
 .section-1 {
-  height: 73vh;
+  height: 93vh;
 }
 
 @media (max-width: 868px) {

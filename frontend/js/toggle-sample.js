@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pricingCard = document.querySelector('.pricing-popup');
     const mainContent = document.querySelector('main');
     const existingOverlay = document.querySelector('.overlay');
+    const navbar = document.querySelector('header')
 
     let overlay = existingOverlay;
     if (!overlay) {
@@ -99,5 +100,18 @@ document.addEventListener('DOMContentLoaded', function() {
         pricingCard.classList.remove('show');
         updateOverlayVisibility();
     });
+
+navbar.addEventListener('click', function(e) {
+    // Check if the clicked target is not one of the menu items
+    if (!toggleSampleCardLink.contains(e.target) && !togglePricingCardLink.contains(e.target)) {
+        // Only hide the overlay if it's currently showing
+        if (overlay.classList.contains('show')) {
+            overlay.classList.remove('show');
+            sampleCard.classList.remove('show');
+            pricingCard.classList.remove('show');
+            updateOverlayVisibility();
+        }
+    }
+});
 });
 
