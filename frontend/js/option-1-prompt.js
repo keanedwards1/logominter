@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function sendPromptOne() {
     // Function to gather form inputs and concatenate them into a prompt
     function gatherPrompt() {
         const mainObject = document.querySelector('input[name="Image Of"]').value;
@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Add event listener to the form
-    document.getElementById('logoForm').addEventListener('submit', handleFormSubmit);
-});
+    // Add event listener to the form if not already added
+    const form = document.getElementById('logoForm');
+    if (form && !form.hasAttribute('data-listener-added')) {
+        form.addEventListener('submit', handleFormSubmit);
+        form.setAttribute('data-listener-added', 'true');
+    }
+};
