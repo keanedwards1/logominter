@@ -92,8 +92,8 @@
         <a data-menu="pricing-dropdown" class="pricing-menu">Pricing</a>
 
         <a data-menu="samples-dropdown" class="samples-menu">Samples</a>
-       
-<!--         <a href="#">Logo Prices</a>
+
+        <!--         <a href="#">Logo Prices</a>
         <a href="#">How It Works</a>
         <a href="#">Samples</a> -->
         <!--         <a href="#"><span class="arrow-font">Make A Logo <span
@@ -104,18 +104,18 @@
 
   <main>
 
-    
+
     <div id="hero-wrapper" <section class="hero">
 
       <div class="sample-card">
         <section class="more-samples">
-          
+
           <div class="sample-logo-menu-wrapper">
             <div class="hero logo-menu sample-logo-menu">
               <h1>Samples</h1>
             </div>
           </div>
-  
+
           <div id="pricing-grid" class="pricing-grid sample-image-grid">
             <img src="/frontend/images/logos/samples/1.png" alt="Sample Image 1">
             <img src="/frontend/images/logos/samples/2.png" alt="Sample Image 2">
@@ -150,14 +150,14 @@
             <img src="/frontend/images/logos/samples/31.png" alt="Sample Image 31">
             <img src="/frontend/images/logos/samples/32.png" alt="Sample Image 32">
             <img src="/frontend/images/logos/samples/33.png" alt="Sample Image 33">
-            <img src="/frontend/images/logos/samples/34.png" alt="Sample Image 34">                                         
+            <img src="/frontend/images/logos/samples/34.png" alt="Sample Image 34">
           </div>
-  
+
           <section class="features">
           </section>
-  
+
       </div>
-  
+
       <div class="pricing-popup">
         <div class="hero logo-menu">
           <h1>Pricing</h1>
@@ -238,14 +238,15 @@
 
       </div>
 
-      
+
       <div class="card">
         <div class="home-link">
           <a href="/frontend/html/logos.html">&#8592; back</a>
         </div>
 
         <div class="next">
-          <a onclick="sendPromptOne()">🌻 Create Your Logo & Checkout →</a> <!-- onclick="firstLogoOption()" --> <!-- rel="noopener" target="_blank" href="https://buy.stripe.com/aEUcNpdCB8uw5AAeV0" -->
+          <a onclick="sendPromptOne()">🌻 Create Your Logo & Checkout →</a> <!-- onclick="firstLogoOption()" -->
+          <!-- rel="noopener" target="_blank" href="https://buy.stripe.com/aEUcNpdCB8uw5AAeV0" -->
         </div>
 
         <script>
@@ -253,8 +254,8 @@
             event.preventDefault(); // Prevents following the link
             alert('Not Available Yet');
           }
-          
-          </script>
+
+        </script>
 
         <div class="wizard-card-title-container">
           <div class="wizard-card-title">Design Your Logo</div>
@@ -397,7 +398,7 @@
               </select>
             </div>
 
-<!--             
+            <!--             
             <div class="input-wrapper">
               <div class="input-title">Perspective</div>
               <select class="input input-logo-design-2" title="perspective">
@@ -406,7 +407,7 @@
             </div> -->
 
             <!-- Subject and Theme -->
-<!--             <div class="input-wrapper">
+            <!--             <div class="input-wrapper">
               <div class="input-title">Subject and Theme (Optional)</div>
               <select class="input input-logo-design-2" title="subject and theme">
                 <option value="">sans</option>
@@ -427,7 +428,7 @@
             </div> -->
 
             <!-- Materials and Mediums -->
-<!--             <div class="input-wrapper">
+            <!--             <div class="input-wrapper">
               <div class="input-title">Materials and Mediums (Optional)</div>
               <select class="input input-logo-design-2" title="materials and mediums">
                 <option value="">sans</option>
@@ -441,7 +442,7 @@
                 <option value="collage">Collage</option>
               </select>
             </div> -->
-<!-- 
+            <!-- 
             <div class="login-with">
               <button type="submit" class="button-confirm">Buy And Create Logo →</button>
             </div> -->
@@ -451,17 +452,68 @@
       </div>
 
       <div class="home-button-wrapper">
-        <a onclick="sendPromptOne()" class="button-link"> <!-- onclick="firstLogoOption()"" --> <!-- rel="noopener" target="_blank" href="https://buy.stripe.com/aEUcNpdCB8uw5AAeV0" -->
+        <a id="submit-button" class="button-link">
           <span class="button-top">Submit</span>
         </a>
       </div>
-      
+
+      <!--<div class="home-button-wrapper">
+        <a onclick="sendPromptOne()" class="button-link">  onclick="firstLogoOption()"" rel="noopener" target="_blank" href="https://buy.stripe.com/aEUcNpdCB8uw5AAeV0"
+          <span class="button-top">Submit</span>
+        </a>
+      </div> -->
+
     </div>
   </main>
 
   <script src="/frontend/js/wizard.js"></script>
   <script defer src="/frontend/js/toggle-sample.js"></script>
   <script src="/frontend/js/option-1-prompt.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const stripe = Stripe('your-publishable-key'); // Replace with your Stripe publishable key
+    const submitButton = document.getElementById('submit-button');
+
+    function sendPromptOne() {
+      const prompt = 'your-logo-prompt'; // Update with dynamic prompt if needed
+
+      fetch('/generate-image', { // Backend endpoint for image generation
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ prompt: prompt })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            // Initiate Stripe payment
+            stripe.redirectToCheckout({
+              lineItems: [{ price: 'price_xxxxxxxxxxxxx', quantity: 1 }],  // Replace with your Stripe price ID Go to your Stripe Dashboard.
+              
+/* 
+
+Navigate to the "Products" section.
+
+Select the product you want to use.
+
+Find the "Pricing" section, and copy the price ID (formatted like price_1Hh1yz2eZvKYlo2Cxxxxx). */
+
+              mode: 'payment',
+              successUrl: window.location.origin + '/frontend/html/success.html?image_url=' + encodeURIComponent(data.file_path),
+              cancelUrl: window.location.origin + '/frontend/html/cancel.html'
+            });
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    submitButton.addEventListener('click', sendPromptOne);
+  </script>
 
 </body>
 

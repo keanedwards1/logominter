@@ -88,17 +88,17 @@
         </a>
       </div> -->
       <div class="nav-links">
-<!--         <a href="#">Logo Prices</a>
- -->        
+        <!--         <a href="#">Logo Prices</a>
+ -->
 
- <a data-menu="pricing-dropdown" class="pricing-menu">Pricing</a>
+        <a data-menu="pricing-dropdown" class="pricing-menu">Pricing</a>
 
- <a data-menu="samples-dropdown" class="samples-menu">Samples</a>
+        <a data-menu="samples-dropdown" class="samples-menu">Samples</a>
 
 
 
-<!--     <a href="#">How It Works</a>
- -->        <!--         <a href="#"><span class="arrow-font">Make A Logo <span
+        <!--     <a href="#">How It Works</a>
+ --> <!--         <a href="#"><span class="arrow-font">Make A Logo <span
               class="arrow">→</span></a> -->
       </div>
     </nav>
@@ -108,43 +108,66 @@
 
     <style>
       #image-container {
-          text-align: center;
-          margin: 20px;
+        text-align: center;
+        margin: 20px;
       }
+
       #image-container img {
-          max-width: 100%;
-          height: auto;
+        max-width: 100%;
+        height: auto;
       }
+
       #download-button {
-          display: block;
-          margin: 10px auto;
-          padding: 10px 20px;
-          background-color: #4CAF50;
-          color: white;
-          text-decoration: none;
-          border-radius: 5px;
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
       }
-  </style>
+    </style>
 
     <div id="image-container">
-      <img id="displayed-image" src="your-image-url-here.jpg" alt="Displayed Image">
-      <a id="download-button" href="your-image-url-here.jpg" download="image.jpg">Download Image</a>
-  </div>
-  <script>
+      <img id="displayed-image" src="" alt="Displayed Image" style="display: none;">
+      <a id="download-button" href="" download="image.jpg" style="display: none;">Download Image</a>
+    </div>
+
+    <script>
       // JavaScript to update the image source and download link dynamically
       function updateImage(url) {
-          const img = document.getElementById('displayed-image');
-          const downloadLink = document.getElementById('download-button');
-          img.src = url;
-          downloadLink.href = url;
+        const img = document.getElementById('displayed-image');
+        const downloadLink = document.getElementById('download-button');
+        img.src = url;
+        downloadLink.href = url;
       }
-  </script>
+    </script>
 
-</main>
+    <script>
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const imageUrl = getQueryParam('image_url');
+        if (imageUrl) {
+          const displayedImage = document.getElementById('displayed-image');
+          const downloadButton = document.getElementById('download-button');
+
+          displayedImage.src = imageUrl;
+          downloadButton.href = imageUrl;
+
+          displayedImage.style.display = 'block';
+          downloadButton.style.display = 'block';
+        }
+      });
+    </script>
+
+  </main>
 
 
-<script src="/scripts.js"></script>
-<script defer src="/frontend/js/toggle-sample.js"></script>
+  <script src="/scripts.js"></script>
+  <script defer src="/frontend/js/toggle-sample.js"></script>
 
 </body>
 
