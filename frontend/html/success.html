@@ -106,6 +106,40 @@
 
   <main>
 
+    <style>
+      #image-container {
+          text-align: center;
+          margin: 20px;
+      }
+      #image-container img {
+          max-width: 100%;
+          height: auto;
+      }
+      #download-button {
+          display: block;
+          margin: 10px auto;
+          padding: 10px 20px;
+          background-color: #4CAF50;
+          color: white;
+          text-decoration: none;
+          border-radius: 5px;
+      }
+  </style>
+
+    <div id="image-container">
+      <img id="displayed-image" src="your-image-url-here.jpg" alt="Displayed Image">
+      <a id="download-button" href="your-image-url-here.jpg" download="image.jpg">Download Image</a>
+  </div>
+  <script>
+      // JavaScript to update the image source and download link dynamically
+      function updateImage(url) {
+          const img = document.getElementById('displayed-image');
+          const downloadLink = document.getElementById('download-button');
+          img.src = url;
+          downloadLink.href = url;
+      }
+  </script>
+
 </main>
 
 
