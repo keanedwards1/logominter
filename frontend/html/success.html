@@ -133,7 +133,7 @@
       <a id="download-button" href="" download="image.jpg" style="display: none;">Download Image</a>
     </div>
 
-    <script>
+    <!--     <script>
       // JavaScript to update the image source and download link dynamically
       function updateImage(url) {
         const img = document.getElementById('displayed-image');
@@ -141,16 +141,33 @@
         img.src = url;
         downloadLink.href = url;
       }
-    </script>
+    </script> -->
 
-    <script>
-      function getQueryParam(param) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
+  </main>
+
+
+  <script src="/scripts.js"></script>
+  <script defer src="/frontend/js/toggle-sample.js"></script>
+
+  <script>
+    const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL'); // Replace with your Stripe publishable key
+    async function fetchPaymentIntent(clientSecret) {
+      try {
+        const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
+        return paymentIntent;
+      } catch (error) {
+        console.error('Error retrieving payment intent:', error);
+        return null;
       }
-      document.addEventListener('DOMContentLoaded', () => {
-        const imageUrl = getQueryParam('image_url');
-        if (imageUrl) {
+    }
+
+    async function fetchGeneratedImage() {
+      try {
+        const response = await fetch('/api/get-latest-image', { method: 'GET' });
+        const data = await response.json();
+
+        if (data.status === 'success' && data.file_path) {
+          const imageUrl = data.file_path;
           const displayedImage = document.getElementById('displayed-image');
           const downloadButton = document.getElementById('download-button');
 
@@ -159,15 +176,33 @@
 
           displayedImage.style.display = 'block';
           downloadButton.style.display = 'block';
+        } else {
+          console.error('Failed to fetch image:', data.message);
         }
-      });
-    </script>
+      } catch (error) {
+        console.error('Error fetching image:', error);
+      }
+    }
 
-  </main>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const clientSecret = urlParams.get('payment_intent_client_secret');
 
+      if (clientSecret) {
+        const paymentIntent = await fetchPaymentIntent(clientSecret);
+        if (paymentIntent && paymentIntent.status === 'succeeded') {
+          await fetchGeneratedImage();
+        } else {
+          console.error('Payment not successful:', paymentIntent);
+          // Handle error or redirect to error page
+        }
+      } else {
+        console.error('No payment_intent_client_secret found in URL.');
+        // Handle error or redirect to error page
+      }
+    });
+  </script>
 
-  <script src="/scripts.js"></script>
-  <script defer src="/frontend/js/toggle-sample.js"></script>
 
 </body>
 

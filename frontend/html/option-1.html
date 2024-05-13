@@ -468,16 +468,38 @@
 
   <script src="/frontend/js/wizard.js"></script>
   <script defer src="/frontend/js/toggle-sample.js"></script>
-  <script src="/frontend/js/option-1-prompt.js"></script>
-  <script src="https://js.stripe.com/v3/"></script>
   <script>
-    const stripe = Stripe('your-publishable-key'); // Replace with your Stripe publishable key
+    const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL'); // Replace with your Stripe publishable key
     const submitButton = document.getElementById('submit-button');
 
-    function sendPromptOne() {
-      const prompt = 'your-logo-prompt'; // Update with dynamic prompt if needed
+    submitButton.addEventListener('click', function () {
+      const prompt = gatherPrompt();
 
-      fetch('/generate-image', { // Backend endpoint for image generation
+      // Function to gather form inputs and concatenate them into a prompt
+      function gatherPrompt() {
+        const mainObject = document.querySelector('input[name="Image Of"]').value || '';
+        const background = document.querySelector('input[name="Background"]').value || '';
+        const color = document.querySelector('select[title="color"]').value || '';
+        const lighting = document.querySelector('select[title="lighting and time of day"]').value || '';
+        const style = document.querySelector('select[title="style and technique"]').value || '';
+        const atmosphere = document.querySelector('select[title="emotion and atmosphere"]').value || '';
+        const technique = document.querySelector('select[title="technique"]').value || '';
+        const composition = document.querySelector('select[title="composition"]').value || '';
+
+        let prompt = `Image of: ${mainObject}`;
+        if (background) prompt += `, Background: ${background}`;
+        if (color) prompt += `, Color: ${color}`;
+        if (lighting) prompt += `, Lighting: ${lighting}`;
+        if (style) prompt += `, Style: ${style}`;
+        if (atmosphere) prompt += `, Atmosphere: ${atmosphere}`;
+        if (technique) prompt += `, Technique: ${technique}`;
+        if (composition) prompt += `, Composition: ${composition}`;
+
+        return prompt;
+      }
+
+      // Start image generation in the background
+      fetch('/generate-image', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -487,32 +509,24 @@
         .then(response => response.json())
         .then(data => {
           if (data.status === 'success') {
+            console.log('Image generation started successfully.');
+
             // Initiate Stripe payment
             stripe.redirectToCheckout({
-              lineItems: [{ price: 'price_xxxxxxxxxxxxx', quantity: 1 }],  // Replace with your Stripe price ID Go to your Stripe Dashboard.
-              
-/* 
-
-Navigate to the "Products" section.
-
-Select the product you want to use.
-
-Find the "Pricing" section, and copy the price ID (formatted like price_1Hh1yz2eZvKYlo2Cxxxxx). */
-
+              lineItems: [{ price: 'price_1PEyxHAXpFBkWrM5vopLJVQu', quantity: 1 }],
               mode: 'payment',
-              successUrl: window.location.origin + '/frontend/html/success.html?image_url=' + encodeURIComponent(data.file_path),
+              clientReferenceId: data.file_path, // Pass image file path as reference
+              successUrl: window.location.origin + '/frontend/html/success.html?payment_intent_client_secret={CHECKOUT_SESSION_ID}',
               cancelUrl: window.location.origin + '/frontend/html/cancel.html'
             });
           } else {
-            alert(data.message);
+            alert('Image generation failed: ' + data.message);
           }
         })
         .catch(error => {
-          console.error('Error:', error);
+          console.error('Image generation error:', error);
         });
-    }
-
-    submitButton.addEventListener('click', sendPromptOne);
+    });
   </script>
 
 </body>
