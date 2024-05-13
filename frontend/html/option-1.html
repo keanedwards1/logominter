@@ -275,7 +275,7 @@
 
           <div class="input-logo-design-1-wrapper">
             <div class="input-title">Anything in the Background? (Recommended)</div>
-            <input type="Background" placeholder="Blue Background, Mountains, A Giraffe" name=""
+            <input type="Background" placeholder="Blue Background, Mountains, A Giraffe" name="Background"
               class="input input-logo-design-1">
           </div>
 
@@ -476,14 +476,29 @@
 
       // Function to gather form inputs and concatenate them into a prompt
       function gatherPrompt() {
-        const mainObject = document.querySelector('input[name="Image Of"]').value || '';
-        const background = document.querySelector('input[name="Background"]').value || '';
-        const color = document.querySelector('select[title="color"]').value || '';
-        const lighting = document.querySelector('select[title="lighting and time of day"]').value || '';
-        const style = document.querySelector('select[title="style and technique"]').value || '';
-        const atmosphere = document.querySelector('select[title="emotion and atmosphere"]').value || '';
-        const technique = document.querySelector('select[title="technique"]').value || '';
-        const composition = document.querySelector('select[title="composition"]').value || '';
+        const mainObjectElement = document.querySelector('input[name="Image Of"]');
+        const mainObject = mainObjectElement ? mainObjectElement.value : '';
+
+        const backgroundElement = document.querySelector('input[name="Background"]');
+        const background = backgroundElement ? backgroundElement.value : '';
+
+        const colorElement = document.querySelector('select[title="color"]');
+        const color = colorElement ? colorElement.value : '';
+
+        const lightingElement = document.querySelector('select[title="lighting and time of day"]');
+        const lighting = lightingElement ? lightingElement.value : '';
+
+        const styleElement = document.querySelector('select[title="style and technique"]');
+        const style = styleElement ? styleElement.value : '';
+
+        const atmosphereElement = document.querySelector('select[title="emotion and atmosphere"]');
+        const atmosphere = atmosphereElement ? atmosphereElement.value : '';
+
+        const techniqueElement = document.querySelector('select[title="technique"]');
+        const technique = techniqueElement ? techniqueElement.value : '';
+
+        const compositionElement = document.querySelector('select[title="composition"]');
+        const composition = compositionElement ? compositionElement.value : '';
 
         let prompt = `Image of: ${mainObject}`;
         if (background) prompt += `, Background: ${background}`;
@@ -496,6 +511,7 @@
 
         return prompt;
       }
+
 
       // Start image generation in the background
       fetch('/generate-image', {
