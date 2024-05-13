@@ -7,4 +7,3 @@
       { "src": "/api/generate-image", "dest": "/option-1.py" }
     ]
   }
-  
