@@ -469,7 +469,6 @@
   <script src="/frontend/js/wizard.js"></script>
   <script defer src="/frontend/js/toggle-sample.js"></script>
   <script>
-    const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL'); // Replace with your Stripe publishable key
     const submitButton = document.getElementById('submit-button');
 
     submitButton.addEventListener('click', function () {
@@ -512,6 +511,7 @@
             console.log('Image generation started successfully.');
 
             // Initiate Stripe payment
+            const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL'); // Replace with your Stripe publishable key
             stripe.redirectToCheckout({
               lineItems: [{ price: 'price_1PEyxHAXpFBkWrM5vopLJVQu', quantity: 1 }],
               mode: 'payment',
