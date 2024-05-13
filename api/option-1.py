@@ -48,31 +48,36 @@ def save_image(image_bytes, prompt):
 
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
-        content_length = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_length)
-        data = json.loads(post_data)
+        try:
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            data = json.loads(post_data)
 
-        prompt = data.get('prompt')
-        if prompt:
-            image_bytes = generate_logo(prompt)
-            if image_bytes:
-                file_path = save_image(image_bytes, prompt)
-                if file_path:
-                    self.send_response(200)
-                    self.send_header('Content-type', 'application/json')
-                    self.end_headers()
-                    response = {
-                        "status": "success",
-                        "message": "Image generated and saved successfully.",
-                        "file_path": file_path  # Direct path from /tmp directory
-                    }
-                    self.wfile.write(json.dumps(response).encode('utf-8'))
+            prompt = data.get('prompt')
+            if prompt:
+                image_bytes = generate_logo(prompt)
+                if image_bytes:
+                    file_path = save_image(image_bytes, prompt)
+                    if file_path:
+                        self.send_response(200)
+                        self.send_header('Content-type', 'application/json')
+                        self.end_headers()
+                        response = {
+                            "status": "success",
+                            "message": "Image generated and saved successfully.",
+                            "file_path": file_path
+                        }
+                        self.wfile.write(json.dumps(response).encode('utf-8'))
+                    else:
+                        self.send_error(500, "Failed to save image.")
                 else:
-                    self.send_error(500, "Failed to save image.")
+                    self.send_error(500, "Failed to generate image.")
             else:
-                self.send_error(500, "Failed to generate image.")
-        else:
-            self.send_error(400, "Prompt not provided.")
+                self.send_error(400, "Prompt not provided.")
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+            self.send_error(500, f"Internal Server Error: {str(e)}")
+
 
 
 
