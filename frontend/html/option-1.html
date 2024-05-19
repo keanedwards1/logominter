@@ -36,6 +36,8 @@
   <link rel="mask-icon" href="/logo-minter-safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://js.stripe.com; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.stripe.com; img-src 'self' data:; frame-src 'self' https://js.stripe.com">
+  <script src="https://js.stripe.com/v3/"></script>
   <script type="application/ld+json">
       {
         "@context": "http://schema.org",
@@ -60,7 +62,6 @@
       }      
     </script>
 
-    <script src="https://js.stripe.com/v3/"></script>
 
   <!-- can add to script:
       /* for google to use if we implement search feature */
@@ -472,35 +473,36 @@
   <script defer src="/frontend/js/toggle-sample.js"></script>
   <script>
     const submitButton = document.getElementById('submit-button');
-  
+    const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL');
+
     submitButton.addEventListener('click', function () {
       const prompt = gatherPrompt();
-  
+
       function gatherPrompt() {
         const mainObjectElement = document.querySelector('input[name="Image Of"]');
         const mainObject = mainObjectElement ? mainObjectElement.value : '';
-  
+
         const backgroundElement = document.querySelector('input[name="Background"]');
         const background = backgroundElement ? backgroundElement.value : '';
-  
+
         const colorElement = document.querySelector('select[title="color"]');
         const color = colorElement ? colorElement.value : '';
-  
+
         const lightingElement = document.querySelector('select[title="lighting and time of day"]');
         const lighting = lightingElement ? lightingElement.value : '';
-  
+
         const styleElement = document.querySelector('select[title="style and technique"]');
         const style = styleElement ? styleElement.value : '';
-  
+
         const atmosphereElement = document.querySelector('select[title="emotion and atmosphere"]');
         const atmosphere = atmosphereElement ? atmosphereElement.value : '';
-  
+
         const techniqueElement = document.querySelector('select[title="technique"]');
         const technique = techniqueElement ? techniqueElement.value : '';
-  
+
         const compositionElement = document.querySelector('select[title="composition"]');
         const composition = compositionElement ? compositionElement.value : '';
-  
+
         let prompt = `Image of: ${mainObject}`;
         if (background) prompt += `, Background: ${background}`;
         if (color) prompt += `, Color: ${color}`;
@@ -509,10 +511,10 @@
         if (atmosphere) prompt += `, Atmosphere: ${atmosphere}`;
         if (technique) prompt += `, Technique: ${technique}`;
         if (composition) prompt += `, Composition: ${composition}`;
-  
+
         return prompt;
       }
-  
+
       fetch('/api/option-1.py', {
         method: 'POST',
         headers: {
@@ -520,32 +522,31 @@
         },
         body: JSON.stringify({ prompt: prompt })
       })
-      .then(response => {
-        if (!response.ok) {
-          return response.text().then(text => { throw new Error(text) });
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.status === 'success') {
-          console.log('Image generation started successfully.');
-          
-          const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL');
-          stripe.redirectToCheckout({
-            lineItems: [{ price: 'price_1PEyxHAXpFBkWrM5vopLJVQu', quantity: 1 }],
-            mode: 'payment',
-            clientReferenceId: data.file_path, // Pass image file path as reference
-            successUrl: window.location.origin + '/frontend/html/success.html?payment_intent_client_secret={CHECKOUT_SESSION_ID}',
-            cancelUrl: window.location.origin + '/frontend/html/cancel.html'
-          });
-        } else {
-          alert('Image generation failed: ' + data.message);
-        }
-      })
-      .catch(error => {
-        console.error('Image generation error:', error);
-        alert('An error occurred: ' + error.message);
-      });
+        .then(response => {
+          if (!response.ok) {
+            return response.text().then(text => { throw new Error(text) });
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.status === 'success') {
+            console.log('Image generation started successfully.');
+
+            stripe.redirectToCheckout({
+              lineItems: [{ price: 'price_1PEyxHAXpFBkWrM5vopLJVQu', quantity: 1 }],
+              mode: 'payment',
+              clientReferenceId: data.file_path, // Pass image file path as reference
+              successUrl: window.location.origin + '/frontend/html/success.html?payment_intent_client_secret={CHECKOUT_SESSION_ID}',
+              cancelUrl: window.location.origin + '/frontend/html/cancel.html'
+            });
+          } else {
+            alert('Image generation failed: ' + data.message);
+          }
+        })
+        .catch(error => {
+          console.error('Image generation error:', error);
+          alert('An error occurred: ' + error.message);
+        });
     });
   </script>
   
