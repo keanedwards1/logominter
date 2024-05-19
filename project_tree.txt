@@ -1,0 +1,260 @@
+.
+├── LICENSE
+├── README.md
+├── TODO
+├── api
+│   ├── option-1.py
+│   ├── option-2.py
+│   ├── option-3.py
+│   ├── option-4.py
+│   └── requirements.txt
+├── backend
+│   ├── app
+│   │   ├── images
+│   │   ├── logo-concurrent.py
+│   │   ├── logo-simple.js
+│   │   ├── logo-simple.py
+│   │   ├── logo.py
+│   │   └── ls.sh
+│   └── backend-structure.txt
+├── browserconfig.xml
+├── c.sh
+├── demo.html
+├── footer.txt
+├── frontend
+│   ├── components
+│   │   ├── dropzone-01
+│   │   │   ├── dropzone.html
+│   │   │   ├── dropzone_socials.html
+│   │   │   ├── script.js
+│   │   │   └── style.css
+│   │   ├── dropzone-02
+│   │   │   ├── dropzone.html
+│   │   │   ├── dropzone_socials.html
+│   │   │   ├── script.js
+│   │   │   └── style.css
+│   │   ├── input-03
+│   │   │   ├── assets
+│   │   │   │   ├── eye-off.svg
+│   │   │   │   └── eye.svg
+│   │   │   ├── index.html
+│   │   │   ├── script.js
+│   │   │   └── style.css
+│   │   ├── layout-01
+│   │   │   ├── index.html
+│   │   │   └── style.css
+│   │   ├── login-01
+│   │   │   ├── assets
+│   │   │   │   ├── astronaut.jpg
+│   │   │   │   ├── email.svg
+│   │   │   │   ├── password.svg
+│   │   │   │   └── universe.jpg
+│   │   │   ├── index.html
+│   │   │   ├── script.js
+│   │   │   └── style.css
+│   │   ├── menu-02
+│   │   │   ├── assets
+│   │   │   │   ├── background.jpg
+│   │   │   │   ├── burger-menu.svg
+│   │   │   │   └── close.svg
+│   │   │   ├── index.html
+│   │   │   ├── script.js
+│   │   │   └── style.css
+│   │   ├── menu-05
+│   │   │   ├── assets
+│   │   │   │   ├── burger-menu.svg
+│   │   │   │   └── close.svg
+│   │   │   ├── index.html
+│   │   │   └── style.css
+│   │   └── pricing-01
+│   │       ├── assets
+│   │       │   ├── benefit.svg
+│   │       │   ├── complete-package.svg
+│   │       │   ├── ebook.svg
+│   │       │   ├── price.svg
+│   │       │   └── video.svg
+│   │       ├── index.html
+│   │       └── style.css
+│   ├── css
+│   │   ├── blog.css
+│   │   ├── demo.css
+│   │   ├── legal.css
+│   │   ├── logos.css
+│   │   ├── sample-images.css
+│   │   └── wizard.css
+│   ├── fonts
+│   │   ├── Dekko-Regular.ttf
+│   │   ├── PlayfairDisplay-VariableFont_wght.ttf
+│   │   ├── RomanGridCaps.ttf
+│   │   ├── libre-baskerville
+│   │   │   ├── FONTLOG.txt
+│   │   │   ├── LibreBaskerville-Bold.ttf
+│   │   │   ├── LibreBaskerville-Italic.ttf
+│   │   │   ├── LibreBaskerville-Regular.ttf
+│   │   │   ├── OFL.txt
+│   │   │   └── README.md
+│   │   ├── libre-baskerville 2
+│   │   │   ├── FONTLOG.txt
+│   │   │   ├── LibreBaskerville-Bold.ttf
+│   │   │   ├── LibreBaskerville-Italic.ttf
+│   │   │   ├── LibreBaskerville-Regular.ttf
+│   │   │   ├── OFL.txt
+│   │   │   └── README.md
+│   │   ├── libre-baskerville.zip
+│   │   ├── playfair-display.zip
+│   │   ├── pt-serif
+│   │   │   ├── OT_TT_Install_E.txt
+│   │   │   ├── OT_TT_Install_R.txt
+│   │   │   ├── PT Free Font License_eng_1.2.txt
+│   │   │   ├── PT Free Font License_rus_1.2.txt
+│   │   │   ├── PTF55F.ttf
+│   │   │   ├── PTF56F.ttf
+│   │   │   ├── PTF75F.ttf
+│   │   │   ├── PTF76F.ttf
+│   │   │   ├── PTZ55F.ttf
+│   │   │   └── PTZ56F.ttf
+│   │   └── pt-serif.zip
+│   ├── for-the-future
+│   │   └── hex-animation
+│   │       ├── LICENSE.txt
+│   │       ├── README.md
+│   │       ├── dist
+│   │       │   ├── index.html
+│   │       │   ├── script.js
+│   │       │   └── style.css
+│   │       └── src
+│   │           ├── index.html
+│   │           ├── script.js
+│   │           └── style.css
+│   ├── html
+│   │   ├── archive
+│   │   │   └── pros-cons.html
+│   │   ├── blog.html
+│   │   ├── home.html
+│   │   ├── legal.html
+│   │   ├── logos.html
+│   │   ├── option-1.html
+│   │   ├── option-2.html
+│   │   ├── option-3.html
+│   │   ├── option-4.html
+│   │   └── success.html
+│   ├── images
+│   │   ├── logos
+│   │   │   ├── logo-beige.png
+│   │   │   ├── logominter-white-bg.svg
+│   │   │   └── samples
+│   │   │       ├── 1.png
+│   │   │       ├── 10.png
+│   │   │       ├── 11.png
+│   │   │       ├── 12.png
+│   │   │       ├── 13.png
+│   │   │       ├── 14.png
+│   │   │       ├── 15.png
+│   │   │       ├── 16.png
+│   │   │       ├── 17.png
+│   │   │       ├── 18.png
+│   │   │       ├── 19.png
+│   │   │       ├── 2.png
+│   │   │       ├── 20.png
+│   │   │       ├── 21.png
+│   │   │       ├── 22.png
+│   │   │       ├── 23.png
+│   │   │       ├── 24.png
+│   │   │       ├── 25.png
+│   │   │       ├── 26.png
+│   │   │       ├── 27.png
+│   │   │       ├── 28.png
+│   │   │       ├── 29.png
+│   │   │       ├── 3.png
+│   │   │       ├── 30.png
+│   │   │       ├── 31.png
+│   │   │       ├── 32.png
+│   │   │       ├── 33.png
+│   │   │       ├── 34.png
+│   │   │       ├── 4.png
+│   │   │       ├── 5.png
+│   │   │       ├── 6.png
+│   │   │       ├── 7.png
+│   │   │       ├── 8.png
+│   │   │       └── 9.png
+│   │   ├── logos-page
+│   │   │   ├── free-logo.png
+│   │   │   ├── image-1.png
+│   │   │   ├── image-10.png
+│   │   │   ├── image-11.png
+│   │   │   ├── image-2.png
+│   │   │   ├── image-3.png
+│   │   │   ├── image-4.png
+│   │   │   ├── image-5.png
+│   │   │   ├── image-6.png
+│   │   │   ├── image-7.png
+│   │   │   ├── image-8.png
+│   │   │   └── image-9.png
+│   │   └── social
+│   │       ├── intagram-logo.svg
+│   │       ├── tiktok-logo.svg
+│   │       ├── x-logo.svg.png
+│   │       └── youtube-logo.svg
+│   └── js
+│       ├── blog.js
+│       ├── comparison.js
+│       ├── info-container.js
+│       ├── marquee.js
+│       ├── menu-dropdown.js
+│       ├── option-1-prompt.js
+│       ├── option-2-prompt.js
+│       ├── option-3-prompt.js
+│       ├── option-4-prompt.js
+│       ├── toggle-pricing.js
+│       ├── toggle-sample.js
+│       └── wizard.js
+├── great-prompts.txt
+├── images
+│   ├── compare1.webp
+│   ├── compare2.webp
+│   ├── compare3.webp
+│   ├── example1.webp
+│   ├── example2.webp
+│   ├── example3.webp
+│   └── example4.jpg
+├── index.html
+├── keyword-searches.txt
+├── logo-minter-android-chrome-192x192.png
+├── logo-minter-android-chrome-512x512.png
+├── logo-minter-apple-touch-icon.png
+├── logo-minter-favicon-16x16.png
+├── logo-minter-favicon-32x32.png
+├── logo-minter-favicon.ico
+├── logo-minter-mstile-150x150.png
+├── logo-minter-safari-pinned-tab.svg
+├── logominter-sitemap.xml
+├── logos
+│   ├── 1 copy.png
+│   ├── 1.png
+│   ├── 12.png
+│   ├── 123.png
+│   ├── 1234.png
+│   ├── 1235.png
+│   ├── 13.png
+│   ├── 2.png
+│   ├── 3.png
+│   ├── 4.png
+│   ├── 5.png
+│   ├── Icon\015
+│   ├── Screenshot 2024-03-06 at 2.59.58 AM.png
+│   ├── Screenshot 2024-03-06 at 3.05.20 AM.png
+│   ├── logo-rounded.png
+│   ├── logo.png
+│   ├── out copy.png
+│   ├── out-Photoroom.png-Photoroom copy.png
+│   ├── out-Photoroom.png-Photoroom.png
+│   └── out.png
+├── project_tree.txt
+├── scripts.js
+├── site.webmanifest
+├── styles.css
+├── tailwind.config.js
+├── vercel.json
+└── vercel.json.txt
+
+39 directories, 219 files
