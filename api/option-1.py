@@ -2,7 +2,6 @@ import os
 import io
 import json
 import aiohttp
-import asyncio
 from PIL import Image
 from dotenv import load_dotenv
 
@@ -44,7 +43,7 @@ def save_image(image_bytes, prompt):
         print(f"Error saving image: {e}")
         return None
 
-async def handle_request(event):
+async def handler(event, context):
     try:
         data = json.loads(event['body'])
 
@@ -111,9 +110,7 @@ async def handle_request(event):
             }
         }
 
-async def handler(event, context):
-    return await handle_request(event)
-
+app = handler
 
 
 
