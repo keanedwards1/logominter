@@ -1,0 +1,40 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/option-1.py",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "api/option-2.py",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "api/option-3.py",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "api/option-4.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/option-1",
+        "dest": "api/option-1.py"
+      },
+      {
+        "src": "/api/option-2",
+        "dest": "api/option-2.py"
+      },
+      {
+        "src": "/api/option-3",
+        "dest": "api/option-3.py"
+      },
+      {
+        "src": "/api/option-4",
+        "dest": "api/option-4.py"
+      }
+    ]
+  }
+  

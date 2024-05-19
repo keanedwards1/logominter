@@ -48,7 +48,8 @@ def save_image(image_bytes, prompt):
 
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
-        try:
+"""         import pdb; pdb.set_trace()
+ """        try:
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
             data = json.loads(post_data)
