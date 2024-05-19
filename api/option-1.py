@@ -5,7 +5,6 @@ import aiohttp
 import asyncio
 from PIL import Image
 from dotenv import load_dotenv
-from aiohttp import web
 
 load_dotenv()
 
@@ -45,36 +44,75 @@ def save_image(image_bytes, prompt):
         print(f"Error saving image: {e}")
         return None
 
-async def handle(request):
+async def handle_request(event, context):
     try:
-        data = await request.json()
+        data = json.loads(event['body'])
+
         prompt = data.get('prompt')
         if prompt:
             image_bytes = await generate_logo(prompt)
             if image_bytes:
                 file_path = save_image(image_bytes, prompt)
                 if file_path:
-                    response = {
-                        "status": "success",
-                        "message": "Image generated and saved successfully.",
-                        "file_path": file_path
+                    return {
+                        "statusCode": 200,
+                        "body": json.dumps({
+                            "status": "success",
+                            "message": "Image generated and saved successfully.",
+                            "file_path": file_path
+                        }),
+                        "headers": {
+                            "Content-Type": "application/json"
+                        }
                     }
-                    return web.json_response(response)
                 else:
-                    return web.json_response({"status": "error", "message": "Failed to save image."}, status=500)
+                    return {
+                        "statusCode": 500,
+                        "body": json.dumps({
+                            "status": "error",
+                            "message": "Failed to save image."
+                        }),
+                        "headers": {
+                            "Content-Type": "application/json"
+                        }
+                    }
             else:
-                return web.json_response({"status": "error", "message": "Failed to generate image."}, status=500)
+                return {
+                    "statusCode": 500,
+                    "body": json.dumps({
+                        "status": "error",
+                        "message": "Failed to generate image."
+                    }),
+                    "headers": {
+                        "Content-Type": "application/json"
+                    }
+                }
         else:
-            return web.json_response({"status": "error", "message": "Prompt not provided."}, status=400)
+            return {
+                "statusCode": 400,
+                "body": json.dumps({
+                    "status": "error",
+                    "message": "Prompt not provided."
+                }),
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
     except Exception as e:
         print(f"Unexpected error: {e}")
-        return web.json_response({"status": "error", "message": f"Internal Server Error: {str(e)}"}, status=500)
+        return {
+            "statusCode": 500,
+            "body": json.dumps({
+                "status": "error",
+                "message": f"Internal Server Error: {str(e)}"
+            }),
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        }
 
-app = web.Application()
-app.router.add_post('/api/option-1.py', handle)
-
-if __name__ == "__main__":
-    web.run_app(app)
+def lambda_handler(event, context):
+    return asyncio.run(handle_request(event, context))
 
 
 
