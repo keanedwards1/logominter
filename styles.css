@@ -442,6 +442,13 @@ visibility: visible;
   justify-content: center;
 }
 
+@media (max-width: 600px) {
+  .image-1, .image-2, .image-3, .image-4, .image-5 {
+    width: 70px;
+    height: 70px;
+  }
+}
+
 .button-link {
   cursor: pointer;
   /* Variables */
