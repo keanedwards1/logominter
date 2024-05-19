@@ -3,42 +3,42 @@
     "short_name": "Logo Mint",
     "icons": [
         {
-          "src": "path/to/logo-minter-android-chrome-192x192.png",
+          "src": "/logo-minter-android-chrome-192x192.png",
           "sizes": "192x192",
           "type": "image/png"
         },
         {
-          "src": "path/to/logo-minter-android-chrome-512x512.png",
+          "src": "/logo-minter-android-chrome-512x512.png",
           "sizes": "512x512",
           "type": "image/png"
         },
         {
-          "src": "path/to/logo-minter-apple-touch-icon.png",
+          "src": "/logo-minter-apple-touch-icon.png",
           "sizes": "180x180",
           "type": "image/png"
         },
         {
-          "src": "path/to/logo-minter-favicon-16x16.png",
+          "src": "/logo-minter-favicon-16x16.png",
           "sizes": "16x16",
           "type": "image/png"
         },
         {
-          "src": "path/to/logo-minter-favicon-32x32.png",
+          "src": "logo-minter-favicon-32x32.png",
           "sizes": "32x32",
           "type": "image/png"
         },
         {
-          "src": "path/to/logo-minter-favicon.ico",
+          "src": "/logo-minter-favicon.ico",
           "sizes": "48x48",
           "type": "image/x-icon"
         },
         {
-          "src": "path/to/logo-minter-mstile-150x150.png",
+          "src": "/logo-minter-mstile-150x150.png",
           "sizes": "150x150",
           "type": "image/png"
         },
         {
-          "src": "path/to/logo-minter-safari-pinned-tab.svg",
+          "src": "/logo-minter-safari-pinned-tab.svg",
           "sizes": "any",
           "type": "image/svg+xml"
         }
