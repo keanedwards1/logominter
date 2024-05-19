@@ -5,7 +5,7 @@ import aiohttp
 import asyncio
 from PIL import Image
 from dotenv import load_dotenv
-from http.server import BaseHTTPRequestHandler
+from aiohttp import web
 
 load_dotenv()
 
@@ -45,51 +45,36 @@ def save_image(image_bytes, prompt):
         print(f"Error saving image: {e}")
         return None
 
-class handler(BaseHTTPRequestHandler):
-    async def do_POST(self):
-        try:
-            content_length = int(self.headers['Content-Length'])
-            post_data = self.rfile.read(content_length)
-            data = json.loads(post_data)
-
-            prompt = data.get('prompt')
-            if prompt:
-                image_bytes = await generate_logo(prompt)
-                if image_bytes:
-                    file_path = save_image(image_bytes, prompt)
-                    if file_path:
-                        self.send_response(200)
-                        self.send_header('Content-type', 'application/json')
-                        self.end_headers()
-                        response = {
-                            "status": "success",
-                            "message": "Image generated and saved successfully.",
-                            "file_path": file_path
-                        }
-                        self.wfile.write(json.dumps(response).encode('utf-8'))
-                    else:
-                        self.send_error(500, "Failed to save image.")
+async def handle_post(request):
+    try:
+        data = await request.json()
+        prompt = data.get('prompt')
+        if prompt:
+            image_bytes = await generate_logo(prompt)
+            if image_bytes:
+                file_path = save_image(image_bytes, prompt)
+                if file_path:
+                    response = {
+                        "status": "success",
+                        "message": "Image generated and saved successfully.",
+                        "file_path": file_path
+                    }
+                    return web.json_response(response)
                 else:
-                    self.send_error(500, "Failed to generate image.")
+                    return web.json_response({"status": "error", "message": "Failed to save image."}, status=500)
             else:
-                self.send_error(400, "Prompt not provided.")
-        except Exception as e:
-            print(f"Unexpected error: {e}")
-            self.send_error(500, f"Internal Server Error: {str(e)}")
+                return web.json_response({"status": "error", "message": "Failed to generate image."}, status=500)
+        else:
+            return web.json_response({"status": "error", "message": "Prompt not provided."}, status=400)
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return web.json_response({"status": "error", "message": f"Internal Server Error: {str(e)}"}, status=500)
 
-# Create an asyncio event loop to handle the async server
-loop = asyncio.get_event_loop()
+app = web.Application()
+app.router.add_post('/api/option-1.py', handle_post)
 
-# Create an instance of your handler class and pass it to your HTTP server
-handler_instance = handler
-
-# Set up the HTTP server to use the async handler
-async def run_server():
-    server = HTTPServer(('0.0.0.0', 8080), handler_instance)
-    await loop.run_in_executor(None, server.serve_forever)
-
-# Start the asyncio event loop to run the server
-loop.run_until_complete(run_server())
+if __name__ == '__main__':
+    web.run_app(app, port=8080)
 
 
 
