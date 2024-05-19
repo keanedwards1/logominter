@@ -444,8 +444,8 @@ visibility: visible;
 
 @media (max-width: 600px) {
   .image-1, .image-2, .image-3, .image-4, .image-5 {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
   }
 }
 
