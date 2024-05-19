@@ -3,9 +3,9 @@ import io
 import json
 import aiohttp
 import asyncio
+from aiohttp import web
 from PIL import Image
 from dotenv import load_dotenv
-from aiohttp import web
 
 load_dotenv()
 
@@ -45,7 +45,7 @@ def save_image(image_bytes, prompt):
         print(f"Error saving image: {e}")
         return None
 
-async def handle_post(request):
+async def handle(request):
     try:
         data = await request.json()
         prompt = data.get('prompt')
@@ -61,17 +61,17 @@ async def handle_post(request):
                     }
                     return web.json_response(response)
                 else:
-                    return web.json_response({"status": "error", "message": "Failed to save image."}, status=500)
+                    return web.Response(status=500, text="Failed to save image.")
             else:
-                return web.json_response({"status": "error", "message": "Failed to generate image."}, status=500)
+                return web.Response(status=500, text="Failed to generate image.")
         else:
-            return web.json_response({"status": "error", "message": "Prompt not provided."}, status=400)
+            return web.Response(status=400, text="Prompt not provided.")
     except Exception as e:
         print(f"Unexpected error: {e}")
-        return web.json_response({"status": "error", "message": f"Internal Server Error: {str(e)}"}, status=500)
+        return web.Response(status=500, text=f"Internal Server Error: {str(e)}")
 
 app = web.Application()
-app.router.add_post('/api/option-1.py', handle_post)
+app.router.add_post('/api/option-1.py', handle)
 
 if __name__ == '__main__':
     web.run_app(app, port=8080)
