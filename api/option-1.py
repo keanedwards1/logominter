@@ -2,10 +2,10 @@ import os
 import io
 import json
 import aiohttp
-from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import JSONResponse
 from PIL import Image
 from dotenv import load_dotenv
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 
 load_dotenv()
 
@@ -48,30 +48,37 @@ def save_image(image_bytes, prompt):
         return None
 
 @app.post("/api/option-1")
-async def handler(request: Request):
+async def handler(request: dict):
     try:
-        data = await request.json()
+        data = request
+
         prompt = data.get('prompt')
-        if not prompt:
+        if prompt:
+            image_bytes = await generate_logo(prompt)
+            if image_bytes:
+                file_path = save_image(image_bytes, prompt)
+                if file_path:
+                    return JSONResponse(
+                        status_code=200,
+                        content={
+                            "status": "success",
+                            "message": "Image generated and saved successfully.",
+                            "file_path": file_path
+                        }
+                    )
+                else:
+                    raise HTTPException(status_code=500, detail="Failed to save image.")
+            else:
+                raise HTTPException(status_code=500, detail="Failed to generate image.")
+        else:
             raise HTTPException(status_code=400, detail="Prompt not provided.")
-
-        image_bytes = await generate_logo(prompt)
-        if not image_bytes:
-            raise HTTPException(status_code=500, detail="Failed to generate image.")
-
-        file_path = save_image(image_bytes, prompt)
-        if not file_path:
-            raise HTTPException(status_code=500, detail="Failed to save image.")
-
-        return JSONResponse(status_code=200, content={
-            "status": "success",
-            "message": "Image generated and saved successfully.",
-            "file_path": file_path
-        })
-
     except Exception as e:
         print(f"Unexpected error: {e}")
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
 
 
