@@ -110,7 +110,9 @@ async def handler(event, context):
             }
         }
 
-app = handler
+# Export the handler function as required by Vercel
+handler = handler
+
 
 
 
