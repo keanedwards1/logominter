@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,14 +13,18 @@
   <meta property="og:image" content="https://logominter.com/assets/images/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LogoMinter: AI-Powered Logo Design for Your Business" />
-  <meta name="twitter:description" content="Instantly generate a logo for your business with LogoMinter. Harness the power of AI to create a unique brand identity." />
+  <meta name="twitter:description"
+    content="Instantly generate a logo for your business with LogoMinter. Harness the power of AI to create a unique brand identity." />
   <meta name="twitter:image" content="https://logominter.com/assets/images/twitter-card-image.png" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="LogoMinter" />
-  <meta name="description" content="LogoMinter offers AI-powered logo design, making it easy for businesses to create a unique brand identity. Generate your perfect logo now." />
+  <meta name="description"
+    content="LogoMinter offers AI-powered logo design, making it easy for businesses to create a unique brand identity. Generate your perfect logo now." />
   <meta name="title" content="LogoMinter - AI-Powered Logo Creation">
-  <meta name="keywords" content="LogoMinter, AI logo design, AI-powered logo creation, custom logo AI, branding automation, logo design AI, instant logo generator, business logo AI, creative logo solutions, AI branding tools, online logo creation AI, personalized logo design, digital branding AI, logo innovation AI, user-friendly logo generator, AI customization logos, professional logo AI, AI logo templates, brand identity AI, logo editing AI, AI design inspiration, scalable logo AI, versatile logo design AI, affordable logo AI, quick logo maker AI, comprehensive branding AI">
-  <meta property="og:description" content="Discover the easiest way to create your brand's logo with LogoMinter. Use AI to design a unique logo that stands out.">
+  <meta name="keywords"
+    content="LogoMinter, AI logo design, AI-powered logo creation, custom logo AI, branding automation, logo design AI, instant logo generator, business logo AI, creative logo solutions, AI branding tools, online logo creation AI, personalized logo design, digital branding AI, logo innovation AI, user-friendly logo generator, AI customization logos, professional logo AI, AI logo templates, brand identity AI, logo editing AI, AI design inspiration, scalable logo AI, versatile logo design AI, affordable logo AI, quick logo maker AI, comprehensive branding AI">
+  <meta property="og:description"
+    content="Discover the easiest way to create your brand's logo with LogoMinter. Use AI to design a unique logo that stands out.">
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/frontend/css/logos.css" />
   <link rel="stylesheet" href="/frontend/css/wizard.css" />
@@ -31,7 +36,7 @@
   <link rel="mask-icon" href="/logo-minter-safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://js.stripe.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.stripe.com https://m.stripe.network; img-src 'self' data:; frame-src 'self' https://js.stripe.com">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://js.stripe.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.stripe.com; img-src 'self' data:; frame-src 'self' https://js.stripe.com">
   <script src="https://js.stripe.com/v3/"></script>
   <script type="application/ld+json">
       {
@@ -39,9 +44,9 @@
         "@type": "WebSite",
         "name": "LogoMinter",
         "url": "https://logominter.com/",
-        "logo": "https://logominter.com/assets/images/logo.png",
+        "logo": "https://logominter.com/assets/images/logo.png", /* this needs to be changed so that favicon is in root of project */
         "sameAs": [],
-        "description": "Create and design your logo for free using our logo maker tool.",
+        "description": "Create and design your logo for free using our logo maker tool.", /* change this to sound better */
         "publisher": {
           "@type": "Organization",
           "name": "LogoMinter Inc.",
@@ -54,8 +59,17 @@
         "isAccessibleForFree": "False",
         "dateCreated": "2024-02-13",
         "dateModified": "2024-02-16"
-      }
+      }      
     </script>
+
+
+  <!-- can add to script:
+      /* for google to use if we implement search feature */
+            "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://logominter.com/search?query={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }, -->
 </head>
 
 <body>
@@ -63,265 +77,403 @@
     <nav>
       <div class="logo-title-container">
         <a href="/" class="logo-title">
-          <object type="image/svg+xml" data="/frontend/images/logos/logominter-white-bg.svg">Your browser does not support SVG</object>
+          <object type="image/svg+xml" data="/frontend/images/logos/logominter-white-bg.svg">Your browser does not
+            support
+            SVG</object>
           <span id="logo-text">Logo Minter</span>
         </a>
       </div>
+
+
+
+      <!--       <div class="logo">
+        <a href="index.html">
+          <img id="logo" src="/frontend/images/logos/logo.png" alt="LogoMinter">
+        </a>
+      </div> -->
       <div class="nav-links">
         <a data-menu="pricing-dropdown" class="pricing-menu">Pricing</a>
+
         <a data-menu="samples-dropdown" class="samples-menu">Samples</a>
+
+        <!--         <a href="#">Logo Prices</a>
+        <a href="#">How It Works</a>
+        <a href="#">Samples</a> -->
+        <!--         <a href="#"><span class="arrow-font">Make A Logo <span
+              class="arrow">→</span></a> -->
       </div>
     </nav>
   </header>
 
   <main>
-    <div id="hero-wrapper">
-      <section class="hero">
-        <div class="sample-card">
-          <section class="more-samples">
-            <div class="sample-logo-menu-wrapper">
-              <div class="hero logo-menu sample-logo-menu">
-                <h1>Samples</h1>
+
+
+    <div id="hero-wrapper" <section class="hero">
+
+      <div class="sample-card">
+        <section class="more-samples">
+
+          <div class="sample-logo-menu-wrapper">
+            <div class="hero logo-menu sample-logo-menu">
+              <h1>Samples</h1>
+            </div>
+          </div>
+
+          <div id="pricing-grid" class="pricing-grid sample-image-grid">
+            <img src="/frontend/images/logos/samples/1.png" alt="Sample Image 1">
+            <img src="/frontend/images/logos/samples/2.png" alt="Sample Image 2">
+            <img src="/frontend/images/logos/samples/3.png" alt="Sample Image 3">
+            <img src="/frontend/images/logos/samples/4.png" alt="Sample Image 4">
+            <img src="/frontend/images/logos/samples/5.png" alt="Sample Image 5">
+            <img src="/frontend/images/logos/samples/6.png" alt="Sample Image 6">
+            <img src="/frontend/images/logos/samples/7.png" alt="Sample Image 7">
+            <img src="/frontend/images/logos/samples/8.png" alt="Sample Image 8">
+            <img src="/frontend/images/logos/samples/9.png" alt="Sample Image 9">
+            <img src="/frontend/images/logos/samples/10.png" alt="Sample Image 10">
+            <img src="/frontend/images/logos/samples/11.png" alt="Sample Image 11">
+            <img src="/frontend/images/logos/samples/12.png" alt="Sample Image 12">
+            <img src="/frontend/images/logos/samples/13.png" alt="Sample Image 13">
+            <img src="/frontend/images/logos/samples/14.png" alt="Sample Image 14">
+            <img src="/frontend/images/logos/samples/15.png" alt="Sample Image 15">
+            <img src="/frontend/images/logos/samples/16.png" alt="Sample Image 16">
+            <img src="/frontend/images/logos/samples/17.png" alt="Sample Image 17">
+            <img src="/frontend/images/logos/samples/18.png" alt="Sample Image 18">
+            <img src="/frontend/images/logos/samples/19.png" alt="Sample Image 19">
+            <img src="/frontend/images/logos/samples/20.png" alt="Sample Image 20">
+            <img src="/frontend/images/logos/samples/21.png" alt="Sample Image 21">
+            <img src="/frontend/images/logos/samples/22.png" alt="Sample Image 22">
+            <img src="/frontend/images/logos/samples/23.png" alt="Sample Image 23">
+            <img src="/frontend/images/logos/samples/24.png" alt="Sample Image 24">
+            <img src="/frontend/images/logos/samples/25.png" alt="Sample Image 25">
+            <img src="/frontend/images/logos/samples/26.png" alt="Sample Image 26">
+            <img src="/frontend/images/logos/samples/27.png" alt="Sample Image 27">
+            <img src="/frontend/images/logos/samples/28.png" alt="Sample Image 28">
+            <img src="/frontend/images/logos/samples/29.png" alt="Sample Image 29">
+            <img src="/frontend/images/logos/samples/30.png" alt="Sample Image 30">
+            <img src="/frontend/images/logos/samples/31.png" alt="Sample Image 31">
+            <img src="/frontend/images/logos/samples/32.png" alt="Sample Image 32">
+            <img src="/frontend/images/logos/samples/33.png" alt="Sample Image 33">
+            <img src="/frontend/images/logos/samples/34.png" alt="Sample Image 34">
+          </div>
+
+          <section class="features">
+          </section>
+
+      </div>
+
+      <div class="pricing-popup">
+        <div class="hero logo-menu">
+          <h1>Pricing</h1>
+        </div>
+        <section class="pricing pricing-menu-popup">
+          <div class="pricing-grid">
+
+            <a href="/frontend/html/option-1.html" class="pricing-card">
+              <h2>A Single<br> Logo</h2>
+              <p class="price">$4.00</p>
+              <ul>
+                <li class="pricing-first-li">1 Logo</li>
+                <li>Below Market Price</li>
+                <li>Starter Package</li>
+              </ul>
+              <button type="button" class="button-link pricing-grid-button">
+                <span class="button-top">Choose</span>
+              </button>
+            </a>
+
+            <a href="/frontend/html/option-2.html" class="pricing-card">
+              <h2>A Handful<br>Of Logos</h2>
+              <p class="price">$8.00</p>
+              <ul>
+                <li class="pricing-first-li">3 Logos</li>
+                <li>Save $4</li>
+                <li>Try Different Looks</li>
+              </ul>
+              <!--               <button class="pricing-grid-button">
+                <span> Choose
+                </span>
+              </button> -->
+              <button type="button" class="button-link pricing-grid-button">
+                <span class="button-top">Choose</span>
+              </button>
+            </a>
+
+            <a href="/frontend/html/option-3.html" class="pricing-card">
+              <h2>A Bundle<br> Of Logos</h2>
+              <p class="price">$10.00</p>
+              <ul>
+                <li class="pricing-first-li">7 Logos</li>
+                <li>Save $18</li>
+                <li>To Find The <br>Best Of The Best</li>
+              </ul>
+              <div href="/frontend/html/logos.html" class="button-link pricing-grid-button">
+                <span class="button-top">Choose</span>
               </div>
-            </div>
-            <div id="pricing-grid" class="pricing-grid sample-image-grid">
-              <img src="/frontend/images/logos/samples/1.png" alt="Sample Image 1">
-              <img src="/frontend/images/logos/samples/2.png" alt="Sample Image 2">
-              <img src="/frontend/images/logos/samples/3.png" alt="Sample Image 3">
-              <img src="/frontend/images/logos/samples/4.png" alt="Sample Image 4">
-              <img src="/frontend/images/logos/samples/5.png" alt="Sample Image 5">
-              <img src="/frontend/images/logos/samples/6.png" alt="Sample Image 6">
-              <img src="/frontend/images/logos/samples/7.png" alt="Sample Image 7">
-              <img src="/frontend/images/logos/samples/8.png" alt="Sample Image 8">
-              <img src="/frontend/images/logos/samples/9.png" alt="Sample Image 9">
-              <img src="/frontend/images/logos/samples/10.png" alt="Sample Image 10">
-              <img src="/frontend/images/logos/samples/11.png" alt="Sample Image 11">
-              <img src="/frontend/images/logos/samples/12.png" alt="Sample Image 12">
-              <img src="/frontend/images/logos/samples/13.png" alt="Sample Image 13">
-              <img src="/frontend/images/logos/samples/14.png" alt="Sample Image 14">
-              <img src="/frontend/images/logos/samples/15.png" alt="Sample Image 15">
-              <img src="/frontend/images/logos/samples/16.png" alt="Sample Image 16">
-              <img src="/frontend/images/logos/samples/17.png" alt="Sample Image 17">
-              <img src="/frontend/images/logos/samples/18.png" alt="Sample Image 18">
-              <img src="/frontend/images/logos/samples/19.png" alt="Sample Image 19">
-              <img src="/frontend/images/logos/samples/20.png" alt="Sample Image 20">
-              <img src="/frontend/images/logos/samples/21.png" alt="Sample Image 21">
-              <img src="/frontend/images/logos/samples/22.png" alt="Sample Image 22">
-              <img src="/frontend/images/logos/samples/23.png" alt="Sample Image 23">
-              <img src="/frontend/images/logos/samples/24.png" alt="Sample Image 24">
-              <img src="/frontend/images/logos/samples/25.png" alt="Sample Image 25">
-              <img src="/frontend/images/logos/samples/26.png" alt="Sample Image 26">
-              <img src="/frontend/images/logos/samples/27.png" alt="Sample Image 27">
-              <img src="/frontend/images/logos/samples/28.png" alt="Sample Image 28">
-              <img src="/frontend/images/logos/samples/29.png" alt="Sample Image 29">
-              <img src="/frontend/images/logos/samples/30.png" alt="Sample Image 30">
-              <img src="/frontend/images/logos/samples/31.png" alt="Sample Image 31">
-              <img src="/frontend/images/logos/samples/32.png" alt="Sample Image 32">
-              <img src="/frontend/images/logos/samples/33.png" alt="Sample Image 33">
-              <img src="/frontend/images/logos/samples/34.png" alt="Sample Image 34">
-            </div>
-            <section class="features"></section>
+            </a>
+
+            <a href="/frontend/html/option-4.html" class="pricing-card">
+              <h2>Custom Logos</h2>
+              <p class="price">$20.00 +</p>
+              <ul>
+
+                <li class="pricing-first-li">
+                  Up to 10 Logos
+                </li>
+
+                <li>
+                  Up to 2 revisions on each
+                </li>
+
+                <li>
+                  Hire Our Professional Team <br>to Make Quality Logos in <br>Exactly the Style You Need
+                </li>
+
+              </ul>
+              <button type="button" class="button-link pricing-grid-button">
+                <span class="button-top">Choose</span>
+              </button>
+            </a>
+
+          </div>
+
+          <section class="features">
+          </section>
+
+      </div>
+
+
+      <div class="card">
+        <div class="home-link">
+          <a href="/frontend/html/logos.html">&#8592; back</a>
         </div>
 
-        <div class="pricing-popup">
-          <div class="hero logo-menu">
-            <h1>Pricing</h1>
-          </div>
-          <section class="pricing pricing-menu-popup">
-            <div class="pricing-grid">
-              <a href="/frontend/html/option-1.html" class="pricing-card">
-                <h2>A Single<br> Logo</h2>
-                <p class="price">$4.00</p>
-                <ul>
-                  <li class="pricing-first-li">1 Logo</li>
-                  <li>Below Market Price</li>
-                  <li>Starter Package</li>
-                </ul>
-                <button type="button" class="button-link pricing-grid-button">
-                  <span class="button-top">Choose</span>
-                </button>
-              </a>
-              <a href="/frontend/html/option-2.html" class="pricing-card">
-                <h2>A Handful<br>Of Logos</h2>
-                <p class="price">$8.00</p>
-                <ul>
-                  <li class="pricing-first-li">3 Logos</li>
-                  <li>Save $4</li>
-                  <li>Try Different Looks</li>
-                </ul>
-                <button type="button" class="button-link pricing-grid-button">
-                  <span class="button-top">Choose</span>
-                </button>
-              </a>
-              <a href="/frontend/html/option-3.html" class="pricing-card">
-                <h2>A Bundle<br> Of Logos</h2>
-                <p class="price">$10.00</p>
-                <ul>
-                  <li class="pricing-first-li">7 Logos</li>
-                  <li>Save $18</li>
-                  <li>To Find The <br>Best Of The Best</li>
-                </ul>
-                <div href="/frontend/html/logos.html" class="button-link pricing-grid-button">
-                  <span class="button-top">Choose</span>
-                </div>
-              </a>
-              <a href="/frontend/html/option-4.html" class="pricing-card">
-                <h2>Custom Logos</h2>
-                <p class="price">$20.00 +</p>
-                <ul>
-                  <li class="pricing-first-li">Up to 10 Logos</li>
-                  <li>Up to 2 revisions on each</li>
-                  <li>Hire Our Professional Team <br>to Make Quality Logos in <br>Exactly the Style You Need</li>
-                </ul>
-                <button type="button" class="button-link pricing-grid-button">
-                  <span class="button-top">Choose</span>
-                </button>
-              </a>
-            </div>
-            <section class="features"></section>
+        <div class="next">
+          <a onclick="sendPromptOne()">🌻 Create Your Logo & Checkout →</a> <!-- onclick="firstLogoOption()" -->
+          <!-- rel="noopener" target="_blank" href="https://buy.stripe.com/aEUcNpdCB8uw5AAeV0" -->
         </div>
 
-        <div class="card">
-          <div class="home-link">
-            <a href="/frontend/html/logos.html">&#8592; back</a>
-          </div>
-          <div class="next">
-            <a onclick="sendPromptOne()">🌻 Create Your Logo & Checkout →</a>
-          </div>
-          <div class="wizard-card-title-container">
-            <div class="wizard-card-title">Design Your Logo</div>
-          </div>
-          <form class="wizard-form">
-            <div class="input-logo-design-1-wrapper">
-              <div class="input-title">What's Do You Want The Main Object In Your Logo To Be?*</div>
-              <input type="Image Of" placeholder="A golden retriever playing fetch, a deer in a meadow, a skyscraper at sunset" name="Image Of" class="input input-logo-design-1">
-            </div>
-            <div class="input-logo-design-1-wrapper">
-              <div class="input-title">Anything in the Background? (Recommended)</div>
-              <input type="Background" placeholder="Blue Background, Mountains, A Giraffe" name="Background" class="input input-logo-design-1">
-            </div>
-            <div class="logo-creation-grid">
-              <div class="input-wrapper">
-                <div class="input-title">Color</div>
-                <select class="input input-logo-design-2" title="color">
-                  <option value="">sans</option>
-                  <option value="vibrant Colors">Vibrant Colors</option>
-                  <option value="pastel Colors">Pastel Colors</option>
-                  <option value="earth Colors">Earth Colors</option>
-                  <option value="neon Colors">Neon Colors</option>
-                  <option value="warm Colors">Warm Colors</option>
-                  <option value="cool Colors">Cool Colors</option>
-                  <option value="monotone">Monotone</option>
-                  <option value="duotone">Duotone</option>
-                </select>
-              </div>
-              <div class="input-wrapper">
-                <div class="input-title">Lighting</div>
-                <select class="input input-logo-design-2" title="lighting and time of day">
-                  <option value="">sans</option>
-                  <option value="sunlit">Sunlit</option>
-                  <option value="moonlit">Moonlit</option>
-                  <option value="twilight">Twilight</option>
-                  <option value="golden hour">Golden hour</option>
-                  <option value="overcast">Overcast</option>
-                  <option value="shadowy">Shadowy</option>
-                  <option value="backlit">Backlit</option>
-                  <option value="Soft lighting">Soft lighting</option>
-                  <option value="harsh lighting">Harsh lighting</option>
-                  <option value="candlelit">Candlelit</option>
-                  <option value="ambient lighting">Ambient lighting</option>
-                </select>
-              </div>
-              <div class="input-wrapper">
-                <div class="input-title">Style</div>
-                <select class="input input-logo-design-2" title="style and technique">
-                  <option value="">sans</option>
-                  <option value="abstract">Abstract</option>
-                  <option value="surreal">Surreal</option>
-                  <option value="impressionistic">Impressionistic</option>
-                  <option value="realistic">Realistic</option>
-                  <option value="photorealistic">Photorealistic</option>
-                  <option value="minimalist">Minimalist</option>
-                  <option value="baroque">Baroque</option>
-                  <option value="cubist">Cubist</option>
-                  <option value="dadaist">Dadaist</option>
-                  <option value="expressionist">Expressionist</option>
-                  <option value="fauvist">Fauvist</option>
-                  <option value="futuristic">Futuristic</option>
-                  <option value="gothic">Gothic</option>
-                  <option value="renaissance">Renaissance</option>
-                  <option value="rococo">Rococo</option>
-                  <option value="romantic">Romantic</option>
-                </select>
-              </div>
-              <div class="input-wrapper">
-                <div class="input-title">Atmosphere</div>
-                <select class="input input-logo-design-2" title="emotion and atmosphere">
-                  <option value="">sans</option>
-                  <option value="dreamy">Dreamy</option>
-                  <option value="melancholic">Melancholic</option>
-                  <option value="joyful">Joyful</option>
-                  <option value="serene">Serene</option>
-                  <option value="mysterious">Mysterious</option>
-                  <option value="chaotic">Chaotic</option>
-                  <option value="Calm">Calm</option>
-                  <option value="eerie">Eerie</option>
-                  <option value="vibrant">Vibrant</option>
-                  <option value="gloomy">Gloomy</option>
-                  <option value="whimsical">Whimsical</option>
-                  <option value="nostalgic">Nostalgic</option>
-                </select>
-              </div>
-              <div class="input-wrapper">
-                <div class="input-title">Technique</div>
-                <select class="input input-logo-design-2" title="technique">
-                  <option value="">sans</option>
-                  <option value="brushwork">Brushwork</option>
-                  <option value="layered">Layered</option>
-                  <option value="textured">Textured</option>
-                  <option value="blended">Blended</option>
-                  <option value="high-contrast">High-contrast</option>
-                  <option value="low-contrast">Low-contrast</option>
-                  <option value="grayscale">Grayscale</option>
-                  <option value="monochromatic">Monochromatic</option>
-                  <option value="polychromatic">Polychromatic</option>
-                  <option value="matte">Matte</option>
-                  <option value="glossy">Glossy</option>
-                  <option value="inked">Inked</option>
-                  <option value="sketched">Sketched</option>
-                </select>
-              </div>
-              <div class="input-wrapper">
-                <div class="input-title">Composition</div>
-                <select class="input input-logo-design-2" title="composition">
-                  <option value="">sans</option>
-                  <option value="close-up">Close-up</option>
-                  <option value="wide-angle">Wide-angle</option>
-                  <option value="panoramic">Panoramic</option>
-                  <option value="asymmetrical">Asymmetrical</option>
-                  <option value="symmetrical">Symmetrical</option>
-                  <option value="center-focused">Center-focused</option>
-                  <option value="depth-of-field">Depth-of-field</option>
-                  <option value="foreground">Foreground</option>
-                  <option value="background">Background</option>
-                </select>
-              </div>
-            </div>
-          </form>
-        </div>
+        <script>
+          function notifyUser(event) {
+            event.preventDefault(); // Prevents following the link
+            alert('Not Available Yet');
+          }
 
-        <div class="home-button-wrapper">
-          <a id="submit-button" class="button-link">
-            <span class="button-top">Submit</span>
-          </a>
+        </script>
+
+        <div class="wizard-card-title-container">
+          <div class="wizard-card-title">Design Your Logo</div>
+          <!--           <div class="wizard-card-subtitle">Create and design your logo for free using our logo maker tool.</div>
+ -->
         </div>
-      </section>
+        <form class="wizard-form">
+          <!--           <div class="title">Welcome,<br><span>sign up to continue</span></div>
+ -->
+          <div class="input-logo-design-1-wrapper">
+            <div class="input-title">What's Do You Want The Main Object In Your Logo To Be?*
+            </div>
+            <input type="Image Of"
+              placeholder="A golden retriever playing fetch, a deer in a meadow, a skyscraper at sunset" name="Image Of"
+              class="input input-logo-design-1">
+          </div>
+
+          <div class="input-logo-design-1-wrapper">
+            <div class="input-title">Anything in the Background? (Recommended)</div>
+            <input type="Background" placeholder="Blue Background, Mountains, A Giraffe" name="Background"
+              class="input input-logo-design-1">
+          </div>
+
+          <div class="logo-creation-grid">
+
+            <!-- Color -->
+            <div class="input-wrapper">
+              <div class="input-title">Color</div>
+              <select class="input input-logo-design-2" title="color">
+                <option value="">sans</option>
+                <option value="vibrant Colors">Vibrant Colors</option>
+                <option value="pastel Colors">Pastel Colors</option>
+                <option value="earth Colors">Earth Colors</option>
+                <option value="neon Colors">Neon Colors</option>
+                <option value="warm Colors">Warm Colors</option>
+                <option value="cool Colors">Cool Colors</option>
+                <option value="monotone">Monotone</option>
+                <option value="duotone">Duotone</option>
+              </select>
+            </div>
+
+            <!-- Lighting and Time of Day -->
+            <div class="input-wrapper">
+              <div class="input-title">Lighting</div>
+              <select class="input input-logo-design-2" title="lighting and time of day">
+                <option value="">sans</option>
+                <option value="sunlit">Sunlit</option>
+                <option value="moonlit">Moonlit</option>
+                <option value="twilight">Twilight</option>
+                <option value="golden hour">Golden hour</option>
+                <option value="overcast">Overcast</option>
+                <option value="shadowy">Shadowy</option>
+                <option value="backlit">Backlit</option>
+                <option value="Soft lighting">Soft lighting</option>
+                <option value="harsh lighting">Harsh lighting</option>
+                <option value="candlelit">Candlelit</option>
+                <option value="ambient lighting">Ambient lighting</option>
+              </select>
+            </div>
+
+            <!-- Style and Technique -->
+            <div class="input-wrapper">
+              <div class="input-title">Style</div>
+              <select class="input input-logo-design-2" title="style and technique">
+                <option value="">sans</option>
+                <option value="abstract">Abstract</option>
+                <option value="surreal">Surreal</option>
+                <option value="impressionistic">Impressionistic</option>
+                <option value="realistic">Realistic</option>
+                <option value="photorealistic">Photorealistic</option>
+                <option value="minimalist">Minimalist</option>
+                <option value="baroque">Baroque</option>
+                <option value="cubist">Cubist</option>
+                <option value="dadaist">Dadaist</option>
+                <option value="expressionist">Expressionist</option>
+                <option value="fauvist">Fauvist</option>
+                <option value="futuristic">Futuristic</option>
+                <option value="gothic">Gothic</option>
+                <option value="renaissance">Renaissance</option>
+                <option value="rococo">Rococo</option>
+                <option value="romantic">Romantic</option>
+              </select>
+            </div>
+
+            <!-- Emotion and Atmosphere -->
+            <div class="input-wrapper">
+              <div class="input-title">Atmosphere</div>
+              <select class="input input-logo-design-2" title="emotion and atmosphere">
+                <option value="">sans</option>
+                <option value="dreamy">Dreamy</option>
+                <option value="melancholic">Melancholic</option>
+                <option value="joyful">Joyful</option>
+                <option value="serene">Serene</option>
+                <option value="mysterious">Mysterious</option>
+                <option value="chaotic">Chaotic</option>
+                <option value="Calm">Calm</option>
+                <option value="eerie">Eerie</option>
+                <option value="vibrant">Vibrant</option>
+                <option value="gloomy">Gloomy</option>
+                <option value="whimsical">Whimsical</option>
+                <option value="nostalgic">Nostalgic</option>
+              </select>
+            </div>
+
+            <!-- Technique -->
+            <div class="input-wrapper">
+              <div class="input-title">Technique</div>
+              <select class="input input-logo-design-2" title="technique">
+                <option value="">sans</option>
+                <option value="brushwork">Brushwork</option>
+                <option value="layered">Layered</option>
+                <option value="textured">Textured</option>
+                <option value="blended">Blended</option>
+                <option value="high-contrast">High-contrast</option>
+                <option value="low-contrast">Low-contrast</option>
+                <option value="grayscale">Grayscale</option>
+                <option value="monochromatic">Monochromatic</option>
+                <option value="polychromatic">Polychromatic</option>
+                <option value="matte">Matte</option>
+                <option value="glossy">Glossy</option>
+                <option value="inked">Inked</option>
+                <option value="sketched">Sketched</option>
+              </select>
+            </div>
+
+            <!-- Composition -->
+            <div class="input-wrapper">
+              <div class="input-title">Composition</div>
+              <select class="input input-logo-design-2" title="composition">
+                <option value="">sans</option>
+                <option value="close-up">Close-up</option>
+                <option value="wide-angle">Wide-angle</option>
+                <option value="panoramic">Panoramic</option>
+                <option value="asymmetrical">Asymmetrical</option>
+                <option value="symmetrical">Symmetrical</option>
+                <option value="center-focused">Center-focused</option>
+                <option value="depth-of-field">Depth-of-field</option>
+                <option value="foreground">Foreground</option>
+                <option value="background">Background</option>
+              </select>
+            </div>
+
+            <!--             
+            <div class="input-wrapper">
+              <div class="input-title">Perspective</div>
+              <select class="input input-logo-design-2" title="perspective">
+                <option value="">None</option>
+              </select>
+            </div> -->
+
+            <!-- Subject and Theme -->
+            <!--             <div class="input-wrapper">
+              <div class="input-title">Subject and Theme (Optional)</div>
+              <select class="input input-logo-design-2" title="subject and theme">
+                <option value="">sans</option>
+                <option value="mythological">Mythological</option>
+                <option value="historical">Historical</option>
+                <option value="contemporary">Contemporary</option>
+                <option value="futuristic">Futuristic</option>
+                <option value="apocalyptic">Apocalyptic</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="sci-fi">Sci-fi</option>
+                <option value="urban">Urban</option>
+                <option value="rural">Rural</option>
+                <option value="portrait">Portrait</option>
+                <option value="landscape">Landscape</option>
+                <option value="still life">Still life</option>
+                <option value="abstract concept">Abstract concept</option>
+              </select>
+            </div> -->
+
+            <!-- Materials and Mediums -->
+            <!--             <div class="input-wrapper">
+              <div class="input-title">Materials and Mediums (Optional)</div>
+              <select class="input input-logo-design-2" title="materials and mediums">
+                <option value="">sans</option>
+                <option value="oil paint">Oil paint</option>
+                <option value="acrylics">Acrylics</option>
+                <option value="watercolor">Watercolor</option>
+                <option value="charcoal">Charcoal</option>
+                <option value="pencil">Pencil</option>
+                <option value="digital">Digital</option>
+                <option value="mixed media">Mixed media</option>
+                <option value="collage">Collage</option>
+              </select>
+            </div> -->
+            <!-- 
+            <div class="login-with">
+              <button type="submit" class="button-confirm">Buy And Create Logo →</button>
+            </div> -->
+
+        </form>
+
+      </div>
+
+      <div class="home-button-wrapper">
+        <a id="submit-button" class="button-link">
+          <span class="button-top">Submit</span>
+        </a>
+      </div>
+
+      <!--<div class="home-button-wrapper">
+        <a onclick="sendPromptOne()" class="button-link">  onclick="firstLogoOption()"" rel="noopener" target="_blank" href="https://buy.stripe.com/aEUcNpdCB8uw5AAeV0"
+          <span class="button-top">Submit</span>
+        </a>
+      </div> -->
+
     </div>
   </main>
 
   <script src="/frontend/js/wizard.js"></script>
   <script defer src="/frontend/js/toggle-sample.js"></script>
-  <script src="/frontend/js/option-1-prompt.js"></script>
+  <script src="/frontend/js/option-1-prompt.js"> </script>
+  
+
 </body>
 
 </html>
