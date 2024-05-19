@@ -44,7 +44,7 @@ def save_image(image_bytes, prompt):
         print(f"Error saving image: {e}")
         return None
 
-async def handle_request(event, context):
+async def handle_request(event):
     try:
         data = json.loads(event['body'])
 
@@ -111,8 +111,8 @@ async def handle_request(event, context):
             }
         }
 
-def lambda_handler(event, context):
-    return asyncio.run(handle_request(event, context))
+async def handler(event, context):
+    return await handle_request(event)
 
 
 
