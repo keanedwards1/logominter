@@ -1,4 +1,4 @@
-requests
-pillow
+Pillow
 python-dotenv
 aiohttp
+
