@@ -1,3 +1,6 @@
+.env
+node_modules
+
 # Virtual Environment
 venv/
 .venv/
@@ -129,3 +132,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
