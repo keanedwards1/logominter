@@ -1,7 +1,8 @@
 import os
 import io
 import json
-import requests
+import aiohttp
+import asyncio
 from PIL import Image
 from dotenv import load_dotenv
 from http.server import BaseHTTPRequestHandler
@@ -11,17 +12,18 @@ load_dotenv()
 API_URL = "https://api-inference.huggingface.co/models/artificialguybr/LogoRedmond-LogoLoraForSDXL-V2"
 headers = {"Authorization": f"Bearer {os.getenv('API_KEY')}"}
 
-def query(payload):
-    try:
-        response = requests.post(API_URL, headers=headers, json=payload)
-        response.raise_for_status()
-        return response.content
-    except requests.exceptions.RequestException as e:
-        print(f"Request failed: {e}")
-        return None
+async def query(payload):
+    async with aiohttp.ClientSession() as session:
+        try:
+            async with session.post(API_URL, headers=headers, json=payload) as response:
+                response.raise_for_status()
+                return await response.read()
+        except aiohttp.ClientError as e:
+            print(f"Request failed: {e}")
+            return None
 
-def generate_logo(prompt):
-    image_bytes = query({"inputs": f"LogoRedmAF, Icons, {prompt}"})
+async def generate_logo(prompt):
+    image_bytes = await query({"inputs": f"LogoRedmAF, Icons, {prompt}"})
     if image_bytes:
         return image_bytes
     else:
@@ -44,7 +46,7 @@ def save_image(image_bytes, prompt):
         return None
 
 class handler(BaseHTTPRequestHandler):
-    def do_POST(self):
+    async def do_POST(self):
         try:
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
@@ -52,7 +54,7 @@ class handler(BaseHTTPRequestHandler):
 
             prompt = data.get('prompt')
             if prompt:
-                image_bytes = generate_logo(prompt)
+                image_bytes = await generate_logo(prompt)
                 if image_bytes:
                     file_path = save_image(image_bytes, prompt)
                     if file_path:
@@ -74,6 +76,20 @@ class handler(BaseHTTPRequestHandler):
         except Exception as e:
             print(f"Unexpected error: {e}")
             self.send_error(500, f"Internal Server Error: {str(e)}")
+
+# Create an asyncio event loop to handle the async server
+loop = asyncio.get_event_loop()
+
+# Create an instance of your handler class and pass it to your HTTP server
+handler_instance = handler
+
+# Set up the HTTP server to use the async handler
+async def run_server():
+    server = HTTPServer(('0.0.0.0', 8080), handler_instance)
+    await loop.run_in_executor(None, server.serve_forever)
+
+# Start the asyncio event loop to run the server
+loop.run_until_complete(run_server())
 
 
 

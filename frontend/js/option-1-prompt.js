@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL');
 
   if (submitButton) {
-      submitButton.addEventListener('click', function () {
+      submitButton.addEventListener('click', async function () {
           const prompt = gatherPrompt();
 
           function gatherPrompt() {
@@ -43,24 +43,26 @@ document.addEventListener('DOMContentLoaded', function () {
               return prompt;
           }
 
-          fetch('/api/option-1.py', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ prompt: prompt })
-          })
-          .then(response => {
+          try {
+              const response = await fetch('/api/option-1.py', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ prompt: prompt })
+              });
+
               if (!response.ok) {
-                  return response.text().then(text => { throw new Error(text) });
+                  const errorText = await response.text();
+                  throw new Error(errorText);
               }
-              return response.json();
-          })
-          .then(data => {
+
+              const data = await response.json();
+
               if (data.status === 'success') {
                   console.log('Image generation started successfully.');
 
-                  stripe.redirectToCheckout({
+                  await stripe.redirectToCheckout({
                       lineItems: [{ price: 'price_1PEyxHAXpFBkWrM5vopLJVQu', quantity: 1 }],
                       mode: 'payment',
                       clientReferenceId: data.file_path, // Pass image file path as reference
@@ -70,11 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
               } else {
                   alert('Image generation failed: ' + data.message);
               }
-          })
-          .catch(error => {
+          } catch (error) {
               console.error('Image generation error:', error);
               alert('An error occurred: ' + error.message);
-          });
+          }
       });
   }
 });
