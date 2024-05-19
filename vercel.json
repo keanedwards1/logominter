@@ -64,6 +64,38 @@
       {
         "src": "site.webmanifest",
         "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-android-chrome-192x192.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-android-chrome-512x512.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-apple-touch-icon.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-favicon-16x16.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-favicon-32x32.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-favicon.ico",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-mstile-150x150.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-safari-pinned-tab.svg",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
