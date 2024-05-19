@@ -2,6 +2,8 @@ import os
 import io
 import json
 import aiohttp
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse
 from PIL import Image
 from dotenv import load_dotenv
 
@@ -9,6 +11,8 @@ load_dotenv()
 
 API_URL = "https://api-inference.huggingface.co/models/artificialguybr/LogoRedmond-LogoLoraForSDXL-V2"
 headers = {"Authorization": f"Bearer {os.getenv('API_KEY')}"}
+
+app = FastAPI()
 
 async def query(payload):
     async with aiohttp.ClientSession() as session:
@@ -43,75 +47,31 @@ def save_image(image_bytes, prompt):
         print(f"Error saving image: {e}")
         return None
 
-async def handler(event, context):
+@app.post("/api/option-1")
+async def handler(request: Request):
     try:
-        data = json.loads(event['body'])
-
+        data = await request.json()
         prompt = data.get('prompt')
-        if prompt:
-            image_bytes = await generate_logo(prompt)
-            if image_bytes:
-                file_path = save_image(image_bytes, prompt)
-                if file_path:
-                    return {
-                        "statusCode": 200,
-                        "body": json.dumps({
-                            "status": "success",
-                            "message": "Image generated and saved successfully.",
-                            "file_path": file_path
-                        }),
-                        "headers": {
-                            "Content-Type": "application/json"
-                        }
-                    }
-                else:
-                    return {
-                        "statusCode": 500,
-                        "body": json.dumps({
-                            "status": "error",
-                            "message": "Failed to save image."
-                        }),
-                        "headers": {
-                            "Content-Type": "application/json"
-                        }
-                    }
-            else:
-                return {
-                    "statusCode": 500,
-                    "body": json.dumps({
-                        "status": "error",
-                        "message": "Failed to generate image."
-                    }),
-                    "headers": {
-                        "Content-Type": "application/json"
-                    }
-                }
-        else:
-            return {
-                "statusCode": 400,
-                "body": json.dumps({
-                    "status": "error",
-                    "message": "Prompt not provided."
-                }),
-                "headers": {
-                    "Content-Type": "application/json"
-                }
-            }
+        if not prompt:
+            raise HTTPException(status_code=400, detail="Prompt not provided.")
+
+        image_bytes = await generate_logo(prompt)
+        if not image_bytes:
+            raise HTTPException(status_code=500, detail="Failed to generate image.")
+
+        file_path = save_image(image_bytes, prompt)
+        if not file_path:
+            raise HTTPException(status_code=500, detail="Failed to save image.")
+
+        return JSONResponse(status_code=200, content={
+            "status": "success",
+            "message": "Image generated and saved successfully.",
+            "file_path": file_path
+        })
+
     except Exception as e:
         print(f"Unexpected error: {e}")
-        return {
-            "statusCode": 500,
-            "body": json.dumps({
-                "status": "error",
-                "message": f"Internal Server Error: {str(e)}"
-            }),
-            "headers": {
-                "Content-Type": "application/json"
-            }
-        }
-
-# Export the handler function as required by Vercel
-app = handler
+        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
 
 
 
