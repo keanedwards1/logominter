@@ -2,12 +2,119 @@
     "version": 2,
     "builds": [
       {
-        "src": "api/main.py",
-        "use": "@vercel/python"
+        "src": "api/*.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "frontend/components/**/*.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "frontend/components/**/*.js",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "frontend/components/**/*.css",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "frontend/css/**/*.css",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "frontend/fonts/**/*",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "frontend/for-the-future/**/*",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "frontend/html/**/*.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "frontend/images/**/*",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "frontend/js/**/*.js",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "index.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "demo.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "styles.css",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "scripts.js",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "images/**/*",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "site.webmanifest",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-android-chrome-192x192.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-android-chrome-512x512.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-apple-touch-icon.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-favicon-16x16.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-favicon-32x32.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-favicon.ico",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-mstile-150x150.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "logo-minter-safari-pinned-tab.svg",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
-      { "src": "/api/option-1", "dest": "/api/main.py" }
+      { "src": "/api/option-1", "dest": "/api/option-1.js" },
+      { "src": "/api/option-2", "dest": "/api/option-2.js" },
+      { "src": "/api/option-3", "dest": "/api/option-3.js" },
+      { "src": "/api/option-4", "dest": "/api/option-4.js" },
+      { "src": "/demo", "dest": "/demo.html" },
+      { "src": "/", "dest": "/index.html" },
+      { "src": "/static/(.*)", "dest": "/public/$1" },
+      { "src": "/frontend/components/(.*)", "dest": "/frontend/components/$1" },
+      { "src": "/frontend/css/(.*)", "dest": "/frontend/css/$1" },
+      { "src": "/frontend/fonts/(.*)", "dest": "/frontend/fonts/$1" },
+      { "src": "/frontend/for-the-future/(.*)", "dest": "/frontend/for-the-future/$1" },
+      { "src": "/frontend/html/(.*)", "dest": "/frontend/html/$1" },
+      { "src": "/frontend/images/(.*)", "dest": "/frontend/images/$1" },
+      { "src": "/frontend/js/(.*)", "dest": "/frontend/js/$1" },
+      { "src": "/images/(.*)", "dest": "/images/$1" },
+      { "src": "/site.webmanifest", "dest": "/site.webmanifest" }
     ]
   }
   
