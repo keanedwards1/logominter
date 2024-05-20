@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       try {
-        const response = await fetch('/api/option-1.py', {
+        const response = await fetch('/api/option-1.js', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
