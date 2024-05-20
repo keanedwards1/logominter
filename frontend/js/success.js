@@ -1,6 +1,7 @@
 const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL'); // Replace with your Stripe publishable key
 
 async function fetchPaymentIntent(clientSecret) {
+  console.log('Fetching payment intent for client secret:', clientSecret); // Debugging line
   try {
     const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
     return paymentIntent;
@@ -36,6 +37,8 @@ async function fetchGeneratedImage(clientReferenceId) {
 document.addEventListener('DOMContentLoaded', async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const clientSecret = urlParams.get('payment_intent_client_secret');
+
+  console.log('Client secret from URL:', clientSecret); // Debugging line
 
   if (clientSecret) {
     const paymentIntent = await fetchPaymentIntent(clientSecret);
