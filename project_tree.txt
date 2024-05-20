@@ -3,10 +3,16 @@
 ├── README.md
 ├── TODO
 ├── api
-│   ├── option-1.py
-│   ├── option-2.py
-│   ├── option-3.py
-│   ├── option-4.py
+│   ├── archive
+│   │   ├── main.py
+│   │   ├── option-1.py
+│   │   ├── option-2.py
+│   │   ├── option-3.py
+│   │   └── option-4.py
+│   ├── option-1.js
+│   ├── option-2.js
+│   ├── option-3.js
+│   ├── option-4.js
 │   └── requirements.txt
 ├── backend
 │   ├── app
@@ -81,6 +87,7 @@
 │   │   ├── legal.css
 │   │   ├── logos.css
 │   │   ├── sample-images.css
+│   │   ├── success.css
 │   │   └── wizard.css
 │   ├── fonts
 │   │   ├── Dekko-Regular.ttf
@@ -130,6 +137,7 @@
 │   │   ├── archive
 │   │   │   └── pros-cons.html
 │   │   ├── blog.html
+│   │   ├── cancel.html
 │   │   ├── home.html
 │   │   ├── legal.html
 │   │   ├── logos.html
@@ -205,6 +213,7 @@
 │       ├── option-2-prompt.js
 │       ├── option-3-prompt.js
 │       ├── option-4-prompt.js
+│       ├── success.js
 │       ├── toggle-pricing.js
 │       ├── toggle-sample.js
 │       └── wizard.js
@@ -249,12 +258,15 @@
 │   ├── out-Photoroom.png-Photoroom copy.png
 │   ├── out-Photoroom.png-Photoroom.png
 │   └── out.png
+├── package.json
 ├── project_tree.txt
 ├── scripts.js
 ├── site.webmanifest
 ├── styles.css
 ├── tailwind.config.js
+├── vercel-python.json.txt
 ├── vercel.json
-└── vercel.json.txt
+├── vercel.json.txt
+└── vercel2.json.txt
 
-39 directories, 219 files
+40 directories, 230 files

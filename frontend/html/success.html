@@ -27,6 +27,7 @@
     content="Discover the easiest way to create your brand's logo with LogoMinter. Use AI to design a unique logo that stands out.">
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/frontend/css/logos.css" />
+  <link rel="stylesheet" href="/frontend/css/success.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="/logo-minter-apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/logo-minter-favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/logo-minter-favicon-16x16.png">
@@ -35,6 +36,15 @@
   <link rel="mask-icon" href="/logo-minter-safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
+ <!--  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self'; 
+  script-src 'self' https://js.stripe.com 'unsafe-inline'; 
+  style-src 'self' 'unsafe-inline'; 
+  connect-src 'self' https://api.stripe.com; 
+  img-src 'self' data:; 
+  frame-src 'self' https://js.stripe.com; 
+  font-src 'self' https://js.stripe.com;">   -->
+  <script src="https://js.stripe.com/v3/"></script>
   <script type="application/ld+json">
       {
         "@context": "http://schema.org",
@@ -106,34 +116,145 @@
 
   <main>
 
-    <style>
-      #image-container {
-        text-align: center;
-        margin: 20px;
-      }
+    <div id="hero-wrapper" <section class="hero">
 
-      #image-container img {
-        max-width: 100%;
-        height: auto;
-      }
+      <div class="sample-card">
+        <section class="more-samples">
 
-      #download-button {
-        display: block;
-        margin: 10px auto;
-        padding: 10px 20px;
-        background-color: #4CAF50;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-      }
-    </style>
+          <div class="sample-logo-menu-wrapper">
+            <div class="hero logo-menu sample-logo-menu">
+              <h1>Samples</h1>
+            </div>
+          </div>
 
-    <div id="image-container">
-      <img id="displayed-image" src="" alt="Displayed Image" style="display: none;">
-      <a id="download-button" href="" download="image.jpg" style="display: none;">Download Image</a>
-    </div>
+          <div id="pricing-grid" class="pricing-grid sample-image-grid">
+            <img src="/frontend/images/logos/samples/1.png" alt="Sample Image 1">
+            <img src="/frontend/images/logos/samples/2.png" alt="Sample Image 2">
+            <img src="/frontend/images/logos/samples/3.png" alt="Sample Image 3">
+            <img src="/frontend/images/logos/samples/4.png" alt="Sample Image 4">
+            <img src="/frontend/images/logos/samples/5.png" alt="Sample Image 5">
+            <img src="/frontend/images/logos/samples/6.png" alt="Sample Image 6">
+            <img src="/frontend/images/logos/samples/7.png" alt="Sample Image 7">
+            <img src="/frontend/images/logos/samples/8.png" alt="Sample Image 8">
+            <img src="/frontend/images/logos/samples/9.png" alt="Sample Image 9">
+            <img src="/frontend/images/logos/samples/10.png" alt="Sample Image 10">
+            <img src="/frontend/images/logos/samples/11.png" alt="Sample Image 11">
+            <img src="/frontend/images/logos/samples/12.png" alt="Sample Image 12">
+            <img src="/frontend/images/logos/samples/13.png" alt="Sample Image 13">
+            <img src="/frontend/images/logos/samples/14.png" alt="Sample Image 14">
+            <img src="/frontend/images/logos/samples/15.png" alt="Sample Image 15">
+            <img src="/frontend/images/logos/samples/16.png" alt="Sample Image 16">
+            <img src="/frontend/images/logos/samples/17.png" alt="Sample Image 17">
+            <img src="/frontend/images/logos/samples/18.png" alt="Sample Image 18">
+            <img src="/frontend/images/logos/samples/19.png" alt="Sample Image 19">
+            <img src="/frontend/images/logos/samples/20.png" alt="Sample Image 20">
+            <img src="/frontend/images/logos/samples/21.png" alt="Sample Image 21">
+            <img src="/frontend/images/logos/samples/22.png" alt="Sample Image 22">
+            <img src="/frontend/images/logos/samples/23.png" alt="Sample Image 23">
+            <img src="/frontend/images/logos/samples/24.png" alt="Sample Image 24">
+            <img src="/frontend/images/logos/samples/25.png" alt="Sample Image 25">
+            <img src="/frontend/images/logos/samples/26.png" alt="Sample Image 26">
+            <img src="/frontend/images/logos/samples/27.png" alt="Sample Image 27">
+            <img src="/frontend/images/logos/samples/28.png" alt="Sample Image 28">
+            <img src="/frontend/images/logos/samples/29.png" alt="Sample Image 29">
+            <img src="/frontend/images/logos/samples/30.png" alt="Sample Image 30">
+            <img src="/frontend/images/logos/samples/31.png" alt="Sample Image 31">
+            <img src="/frontend/images/logos/samples/32.png" alt="Sample Image 32">
+            <img src="/frontend/images/logos/samples/33.png" alt="Sample Image 33">
+            <img src="/frontend/images/logos/samples/34.png" alt="Sample Image 34">
+          </div>
 
-    <!--     <script>
+          <section class="features">
+          </section>
+
+      </div>
+
+      <div class="pricing-popup">
+        <div class="hero logo-menu">
+          <h1>Pricing</h1>
+        </div>
+        <section class="pricing pricing-menu-popup">
+          <div class="pricing-grid">
+
+            <a href="/frontend/html/option-1.html" class="pricing-card">
+              <h2>A Single<br> Logo</h2>
+              <p class="price">$4.00</p>
+              <ul>
+                <li class="pricing-first-li">1 Logo</li>
+                <li>Below Market Price</li>
+                <li>Starter Package</li>
+              </ul>
+              <button type="button" class="button-link pricing-grid-button">
+                <span class="button-top">Choose</span>
+              </button>
+            </a>
+
+            <a href="/frontend/html/option-2.html" class="pricing-card">
+              <h2>A Handful<br>Of Logos</h2>
+              <p class="price">$8.00</p>
+              <ul>
+                <li class="pricing-first-li">3 Logos</li>
+                <li>Save $4</li>
+                <li>Try Different Looks</li>
+              </ul>
+              <!--               <button class="pricing-grid-button">
+                <span> Choose
+                </span>
+              </button> -->
+              <button type="button" class="button-link pricing-grid-button">
+                <span class="button-top">Choose</span>
+              </button>
+            </a>
+
+            <a href="/frontend/html/option-3.html" class="pricing-card">
+              <h2>A Bundle<br> Of Logos</h2>
+              <p class="price">$10.00</p>
+              <ul>
+                <li class="pricing-first-li">7 Logos</li>
+                <li>Save $18</li>
+                <li>To Find The <br>Best Of The Best</li>
+              </ul>
+              <div href="/frontend/html/logos.html" class="button-link pricing-grid-button">
+                <span class="button-top">Choose</span>
+              </div>
+            </a>
+
+            <a href="/frontend/html/option-4.html" class="pricing-card">
+              <h2>Custom Logos</h2>
+              <p class="price">$20.00 +</p>
+              <ul>
+
+                <li class="pricing-first-li">
+                  Up to 10 Logos
+                </li>
+
+                <li>
+                  Up to 2 revisions on each
+                </li>
+
+                <li>
+                  Hire Our Professional Team <br>to Make Quality Logos in <br>Exactly the Style You Need
+                </li>
+
+              </ul>
+              <button type="button" class="button-link pricing-grid-button">
+                <span class="button-top">Choose</span>
+              </button>
+            </a>
+
+          </div>
+
+          <section class="features">
+          </section>
+
+      </div>
+
+      <div id="image-container">
+        <img id="displayed-image" src="" alt="Displayed Image" style="display: none;">
+        <a id="download-button" href="" download="image.jpg" style="display: none;">Download Image</a>
+      </div>
+
+      <!--     <script>
       // JavaScript to update the image source and download link dynamically
       function updateImage(url) {
         const img = document.getElementById('displayed-image');
@@ -141,67 +262,15 @@
         img.src = url;
         downloadLink.href = url;
       }
-    </script> -->
+     </script> -->
+    </div>
 
   </main>
 
 
   <script src="/scripts.js"></script>
   <script defer src="/frontend/js/toggle-sample.js"></script>
-
-  <script>
-    const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL'); // Replace with your Stripe publishable key
-    async function fetchPaymentIntent(clientSecret) {
-      try {
-        const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
-        return paymentIntent;
-      } catch (error) {
-        console.error('Error retrieving payment intent:', error);
-        return null;
-      }
-    }
-
-    async function fetchGeneratedImage() {
-      try {
-        const response = await fetch('/api/get-latest-image', { method: 'GET' });
-        const data = await response.json();
-
-        if (data.status === 'success' && data.file_path) {
-          const imageUrl = data.file_path;
-          const displayedImage = document.getElementById('displayed-image');
-          const downloadButton = document.getElementById('download-button');
-
-          displayedImage.src = imageUrl;
-          downloadButton.href = imageUrl;
-
-          displayedImage.style.display = 'block';
-          downloadButton.style.display = 'block';
-        } else {
-          console.error('Failed to fetch image:', data.message);
-        }
-      } catch (error) {
-        console.error('Error fetching image:', error);
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', async () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const clientSecret = urlParams.get('payment_intent_client_secret');
-
-      if (clientSecret) {
-        const paymentIntent = await fetchPaymentIntent(clientSecret);
-        if (paymentIntent && paymentIntent.status === 'succeeded') {
-          await fetchGeneratedImage();
-        } else {
-          console.error('Payment not successful:', paymentIntent);
-          // Handle error or redirect to error page
-        }
-      } else {
-        console.error('No payment_intent_client_secret found in URL.');
-        // Handle error or redirect to error page
-      }
-    });
-  </script>
+  <script src="/frontend/js/success.js"></script>
 
 
 </body>

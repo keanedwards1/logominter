@@ -3571,3 +3571,501 @@ logominter
 └─ vercel.json.txt
 
 ```
+```
+logominter
+├─ .DS_Store
+├─ .git
+│  ├─ .DS_Store
+│  ├─ COMMIT_EDITMSG
+│  ├─ FETCH_HEAD
+│  ├─ HEAD
+│  ├─ ORIG_HEAD
+│  ├─ config
+│  ├─ description
+│  ├─ hooks
+│  │  ├─ applypatch-msg.sample
+│  │  ├─ commit-msg.sample
+│  │  ├─ fsmonitor-watchman.sample
+│  │  ├─ post-update.sample
+│  │  ├─ pre-applypatch.sample
+│  │  ├─ pre-commit.sample
+│  │  ├─ pre-merge-commit.sample
+│  │  ├─ pre-push.sample
+│  │  ├─ pre-rebase.sample
+│  │  ├─ pre-receive.sample
+│  │  ├─ prepare-commit-msg.sample
+│  │  ├─ push-to-checkout.sample
+│  │  └─ update.sample
+│  ├─ index
+│  ├─ info
+│  │  ├─ exclude
+│  │  └─ refs
+│  ├─ logs
+│  │  ├─ HEAD
+│  │  └─ refs
+│  │     ├─ heads
+│  │     │  └─ main
+│  │     └─ remotes
+│  │        └─ origin
+│  │           └─ main
+│  ├─ objects
+│  │  ├─ 02
+│  │  │  └─ 3a4f52ad87e62bcfcbc3b3c70d3a2bafd23d7d
+│  │  ├─ 03
+│  │  │  └─ 046ef2fe7596b70bd5eb8b48e806efc375b2ec
+│  │  ├─ 06
+│  │  │  └─ 679f5f8b71a500311020e4db260601640a46c6
+│  │  ├─ 07
+│  │  │  ├─ a163f0397456fb138c99563359b73eb053d0ed
+│  │  │  └─ d83663eec03454db4d53cf652516a8539a7359
+│  │  ├─ 0e
+│  │  │  ├─ 132edc4d84e9ee910f9b604ccd0e6b27f64b55
+│  │  │  └─ a7d6e1e517d203d7ec77f2019be999296261f9
+│  │  ├─ 0f
+│  │  │  └─ ec40cb0a7441ba84c259b4867206a1a21d7190
+│  │  ├─ 12
+│  │  │  ├─ 72f6abeea6587637891f153519957578c9764c
+│  │  │  └─ a1b99c911f43d856194e718aa3586b5ecb06d7
+│  │  ├─ 15
+│  │  │  └─ 1cb0561ca91c637242c09fff6c3a4229fd6460
+│  │  ├─ 16
+│  │  │  └─ fb45204f0eddb532c3700c41263628c91b2bd2
+│  │  ├─ 17
+│  │  │  └─ 75fa3ded8c94fa5c799acc1706faf2aceb0d2d
+│  │  ├─ 1d
+│  │  │  ├─ 13eb9dba69fd91fbcf09ce3cec021c5f773136
+│  │  │  └─ f0efb298a91ba106f993ccfa068aa65cd36f1b
+│  │  ├─ 1e
+│  │  │  └─ a743a20176bb06ff719c94a6069a05e74d1d7d
+│  │  ├─ 1f
+│  │  │  └─ d05a4640b8b94e0ad399e239c1b8f191eb9af8
+│  │  ├─ 25
+│  │  │  └─ ddd51664c233d2ef8d3112c4f0fc1c4f62ebd6
+│  │  ├─ 27
+│  │  │  └─ bddfea5156712d7dab3033459e781233e8a6f6
+│  │  ├─ 28
+│  │  │  ├─ 282628472d4ea74b755425bbaee04574646b1b
+│  │  │  └─ b7a149e363e2c4532bff669dd6a8add28f700f
+│  │  ├─ 2a
+│  │  │  └─ cb5a1c70cbbb3154caacde3f0f9a3a7f4b0927
+│  │  ├─ 2c
+│  │  │  └─ 6243f85185d1748c2a82a441a79a7e2670b078
+│  │  ├─ 2e
+│  │  │  └─ 8e9a4faa02a688a5b798387fd2a5f4d4673f05
+│  │  ├─ 30
+│  │  │  └─ 6ef27bad47dc14b9af5f94dc8208f698e323e0
+│  │  ├─ 34
+│  │  │  └─ 032c51e349d9b93de44f9854f8ca973db05c79
+│  │  ├─ 3d
+│  │  │  └─ b2e64af69a33b3782cde99a7ffac1f58e1a855
+│  │  ├─ 43
+│  │  │  └─ 61fc769ebad6f9e456cd2e198264cdb905dfa2
+│  │  ├─ 47
+│  │  │  └─ 86173c60af5623ce6946815739156d00b3d072
+│  │  ├─ 4c
+│  │  │  ├─ 0e380acffbec639ab23698967c46df2e11c000
+│  │  │  └─ 65b84f19d9463a3d0f2faade4c87e3731875aa
+│  │  ├─ 4d
+│  │  │  └─ e63abda26c914020628bed5ae5b8d58ed2133d
+│  │  ├─ 4f
+│  │  │  └─ 3ef8a25c0104c8c6ed106b7b3e46547de7cad7
+│  │  ├─ 54
+│  │  │  └─ 449a20c1f482ba5630da9f8ca9730eefe47b2b
+│  │  ├─ 55
+│  │  │  └─ 2955570288c74d7ebee1b38dcec87dc3b7030f
+│  │  ├─ 5a
+│  │  │  └─ e4744662816499bf00749d604f1960c33ab7b7
+│  │  ├─ 62
+│  │  │  └─ 7fc392dbcee415a7007138254521df8cc65041
+│  │  ├─ 6b
+│  │  │  └─ c43f30f0b5ebc13c6efd93f4ee31dd70913056
+│  │  ├─ 70
+│  │  │  └─ 21828a3351877d39ceeda2189eb4e1a61cc2d7
+│  │  ├─ 71
+│  │  │  └─ 787cde24612c6ea94ed7fa15982bf642a0823c
+│  │  ├─ 72
+│  │  │  └─ d66aee68b42c4ea6aee115afbe5d653ffe309e
+│  │  ├─ 7d
+│  │  │  └─ 8f18b8180f56c8bde85c9e3188ddedc0597b9e
+│  │  ├─ 81
+│  │  │  └─ 654cb15f7453f2de7a32cbb842286c8c3dc9bf
+│  │  ├─ 84
+│  │  │  └─ 49909d92d7cfd13e23e5905300884738e64471
+│  │  ├─ 86
+│  │  │  └─ 9f6fb1cfcab12e8d8b1b60abf6505a23b8c8df
+│  │  ├─ 88
+│  │  │  └─ 9e12f695e3d4b48defb300393f5d2ca4bf36c7
+│  │  ├─ 8b
+│  │  │  └─ af7c9e0fc6ea392f3c22fae256294270820245
+│  │  ├─ 8c
+│  │  │  └─ 1084d7920110d1b17e0c1481748cec94ddf525
+│  │  ├─ 90
+│  │  │  └─ a35cf97bf3d56bb84af52dc054aa654d26950b
+│  │  ├─ 92
+│  │  │  └─ 998edade9c3eff3eaa1b495ce88d10b8ddc121
+│  │  ├─ 96
+│  │  │  └─ 435a9bb13b7627a0b086c2c165d5541d0872a1
+│  │  ├─ 9b
+│  │  │  └─ 1d2b1c60bb2afd683b319000a0ae89e9592e60
+│  │  ├─ 9d
+│  │  │  ├─ 3d605208b56d6e9c93c40c8f5d24ca242c0d2a
+│  │  │  └─ 932ccef3192de99eaaa5452e9c932f57f8dba0
+│  │  ├─ 9e
+│  │  │  └─ c818d86a9fd92df97887c0c81f12541f6c0a53
+│  │  ├─ 9f
+│  │  │  └─ d931c7830237e3bed174bf7b75401bea26713e
+│  │  ├─ a6
+│  │  │  └─ ba3641ded2dae293dc76be27278dfc012aae62
+│  │  ├─ ab
+│  │  │  └─ 891922b5570c1d3d7f5b2d4c3aba54156f675a
+│  │  ├─ ad
+│  │  │  ├─ c3ea736030207ce6bd979232aa7f808d37a7fd
+│  │  │  └─ dd9d5e544fc3dc2c86fcafb745f64fb0d5295b
+│  │  ├─ b0
+│  │  │  ├─ 0e12117c13455f104885af67185bc61f2c1379
+│  │  │  ├─ 5a32b1f0f5bcc2901c4d743b46cd6c8a3196d0
+│  │  │  └─ f1a77d86992cb518cb7f40249f03ef0190bbbe
+│  │  ├─ b2
+│  │  │  ├─ 67426ffd78c01d1dbc394d1f88db578f92afc3
+│  │  │  └─ 9c04c887117448c3ac04f096eb57d43a5c7939
+│  │  ├─ ba
+│  │  │  └─ a9f456bfff99f31044e0f6e86a95a4b3b59c69
+│  │  ├─ bc
+│  │  │  ├─ 8fabe76dd57ad7eed90fc864813d0fce991906
+│  │  │  └─ b1dfbf3ef3a8f19f3a070382cc90b873f6c2c5
+│  │  ├─ be
+│  │  │  └─ c48d8432bf1d504230c29182134eeea0ae9461
+│  │  ├─ c1
+│  │  │  └─ f9ab12f08b4ceb38330e1c444d54395a91d5bf
+│  │  ├─ c3
+│  │  │  ├─ 68488456ac60e196a85ec5d3185eb25c916203
+│  │  │  └─ 8e187b77c66b12478af5653a052a962b91492b
+│  │  ├─ c7
+│  │  │  └─ caef5189b5b4312b93e188aa31eedaedf2bedf
+│  │  ├─ ca
+│  │  │  └─ 96fa9df153f9791fa476f57fd180e359c38595
+│  │  ├─ cb
+│  │  │  └─ 8a5e87308ee1b7e5650b2299425ee67cde47ce
+│  │  ├─ cc
+│  │  │  └─ 497c382b48c9052b4bdeb4f9a66a0f5bc5afee
+│  │  ├─ cd
+│  │  │  └─ 423e66abfbff1a4c9f0e23e57b4de9d1fb7ebf
+│  │  ├─ d5
+│  │  │  └─ d0a2e7a3e51dc2e023575c159fa2053b0fd2f8
+│  │  ├─ de
+│  │  │  └─ dcf923f1b114a78c43406d00cc2922f0a560df
+│  │  ├─ e2
+│  │  │  └─ a58b72997b8096fdb593843797460d39d215ad
+│  │  ├─ e3
+│  │  │  └─ 35434a8ca1ab258c7ce7157787d6d994656fe7
+│  │  ├─ e4
+│  │  │  ├─ 915cdc6842b5da041d6f7d86bbdb45af69fac5
+│  │  │  └─ abe06ead8fc2e032d7c93d59a2742f3cfc31a6
+│  │  ├─ ef
+│  │  │  └─ 6c66c150e39886a007700e37991589c162ad50
+│  │  ├─ f2
+│  │  │  └─ c62391c6212f638b9db0553345ebabe671f6b8
+│  │  ├─ f5
+│  │  │  ├─ 617fcef476934755f6d74200f9055258f832d0
+│  │  │  └─ c6b589a9a28b69f54fe3ec85e09f3aa72b375b
+│  │  ├─ f9
+│  │  │  └─ b00cb6a1882144d990000dcff27cc47bd26b9e
+│  │  ├─ fd
+│  │  │  └─ 67504ab4ab6bd10b6840cc3a3b7c03a43a6b9f
+│  │  ├─ info
+│  │  │  ├─ commit-graph
+│  │  │  └─ packs
+│  │  └─ pack
+│  │     ├─ pack-954ffef69e33a1ba789c3104a1efafaaca98dfb4.idx
+│  │     └─ pack-954ffef69e33a1ba789c3104a1efafaaca98dfb4.pack
+│  ├─ packed-refs
+│  └─ refs
+│     ├─ heads
+│     │  └─ main
+│     ├─ remotes
+│     │  └─ origin
+│     │     └─ main
+│     └─ tags
+├─ .gitignore
+├─ .gpt-runner
+│  └─ copilot.gpt.md
+├─ .httaccess
+├─ .vscode
+│  └─ settings.json
+├─ LICENSE
+├─ README.md
+├─ TODO
+├─ api
+│  ├─ archive
+│  │  ├─ main.py
+│  │  ├─ option-1.py
+│  │  ├─ option-2.py
+│  │  ├─ option-3.py
+│  │  └─ option-4.py
+│  ├─ option-1.js
+│  ├─ option-2.js
+│  ├─ option-3.js
+│  ├─ option-4.js
+│  └─ requirements.txt
+├─ backend
+│  ├─ .DS_Store
+│  ├─ app
+│  │  ├─ .DS_Store
+│  │  ├─ images
+│  │  │  └─ .DS_Store
+│  │  ├─ logo-concurrent.py
+│  │  ├─ logo-simple.js
+│  │  ├─ logo-simple.py
+│  │  ├─ logo.py
+│  │  └─ ls.sh
+│  └─ backend-structure.txt
+├─ browserconfig.xml
+├─ c.sh
+├─ demo.html
+├─ footer.txt
+├─ frontend
+│  ├─ .DS_Store
+│  ├─ components
+│  │  ├─ .DS_Store
+│  │  ├─ dropzone-01
+│  │  │  ├─ dropzone.html
+│  │  │  ├─ dropzone_socials.html
+│  │  │  ├─ script.js
+│  │  │  └─ style.css
+│  │  ├─ dropzone-02
+│  │  │  ├─ dropzone.html
+│  │  │  ├─ dropzone_socials.html
+│  │  │  ├─ script.js
+│  │  │  └─ style.css
+│  │  ├─ input-03
+│  │  │  ├─ assets
+│  │  │  │  ├─ eye-off.svg
+│  │  │  │  └─ eye.svg
+│  │  │  ├─ index.html
+│  │  │  ├─ script.js
+│  │  │  └─ style.css
+│  │  ├─ layout-01
+│  │  │  ├─ index.html
+│  │  │  └─ style.css
+│  │  ├─ login-01
+│  │  │  ├─ assets
+│  │  │  │  ├─ astronaut.jpg
+│  │  │  │  ├─ email.svg
+│  │  │  │  ├─ password.svg
+│  │  │  │  └─ universe.jpg
+│  │  │  ├─ index.html
+│  │  │  ├─ script.js
+│  │  │  └─ style.css
+│  │  ├─ menu-02
+│  │  │  ├─ assets
+│  │  │  │  ├─ background.jpg
+│  │  │  │  ├─ burger-menu.svg
+│  │  │  │  └─ close.svg
+│  │  │  ├─ index.html
+│  │  │  ├─ script.js
+│  │  │  └─ style.css
+│  │  ├─ menu-05
+│  │  │  ├─ assets
+│  │  │  │  ├─ burger-menu.svg
+│  │  │  │  └─ close.svg
+│  │  │  ├─ index.html
+│  │  │  └─ style.css
+│  │  └─ pricing-01
+│  │     ├─ assets
+│  │     │  ├─ benefit.svg
+│  │     │  ├─ complete-package.svg
+│  │     │  ├─ ebook.svg
+│  │     │  ├─ price.svg
+│  │     │  └─ video.svg
+│  │     ├─ index.html
+│  │     └─ style.css
+│  ├─ css
+│  │  ├─ blog.css
+│  │  ├─ demo.css
+│  │  ├─ legal.css
+│  │  ├─ logos.css
+│  │  ├─ sample-images.css
+│  │  ├─ success.css
+│  │  └─ wizard.css
+│  ├─ fonts
+│  │  ├─ .DS_Store
+│  │  ├─ Dekko-Regular.ttf
+│  │  ├─ PlayfairDisplay-VariableFont_wght.ttf
+│  │  ├─ RomanGridCaps.ttf
+│  │  ├─ libre-baskerville
+│  │  │  ├─ FONTLOG.txt
+│  │  │  ├─ LibreBaskerville-Bold.ttf
+│  │  │  ├─ LibreBaskerville-Italic.ttf
+│  │  │  ├─ LibreBaskerville-Regular.ttf
+│  │  │  ├─ OFL.txt
+│  │  │  └─ README.md
+│  │  ├─ libre-baskerville 2
+│  │  │  ├─ FONTLOG.txt
+│  │  │  ├─ LibreBaskerville-Bold.ttf
+│  │  │  ├─ LibreBaskerville-Italic.ttf
+│  │  │  ├─ LibreBaskerville-Regular.ttf
+│  │  │  ├─ OFL.txt
+│  │  │  └─ README.md
+│  │  ├─ libre-baskerville.zip
+│  │  ├─ playfair-display.zip
+│  │  ├─ pt-serif
+│  │  │  ├─ OT_TT_Install_E.txt
+│  │  │  ├─ OT_TT_Install_R.txt
+│  │  │  ├─ PT Free Font License_eng_1.2.txt
+│  │  │  ├─ PT Free Font License_rus_1.2.txt
+│  │  │  ├─ PTF55F.ttf
+│  │  │  ├─ PTF56F.ttf
+│  │  │  ├─ PTF75F.ttf
+│  │  │  ├─ PTF76F.ttf
+│  │  │  ├─ PTZ55F.ttf
+│  │  │  └─ PTZ56F.ttf
+│  │  └─ pt-serif.zip
+│  ├─ for-the-future
+│  │  └─ hex-animation
+│  │     ├─ LICENSE.txt
+│  │     ├─ README.md
+│  │     └─ src
+│  │        ├─ index.html
+│  │        ├─ script.js
+│  │        └─ style.css
+│  ├─ html
+│  │  ├─ archive
+│  │  │  └─ pros-cons.html
+│  │  ├─ blog.html
+│  │  ├─ cancel.html
+│  │  ├─ home.html
+│  │  ├─ legal.html
+│  │  ├─ logos.html
+│  │  ├─ option-1.html
+│  │  ├─ option-2.html
+│  │  ├─ option-3.html
+│  │  ├─ option-4.html
+│  │  └─ success.html
+│  ├─ images
+│  │  ├─ .DS_Store
+│  │  ├─ logos
+│  │  │  ├─ .DS_Store
+│  │  │  ├─ logo-beige.png
+│  │  │  ├─ logominter-white-bg.svg
+│  │  │  └─ samples
+│  │  │     ├─ .DS_Store
+│  │  │     ├─ 1.png
+│  │  │     ├─ 10.png
+│  │  │     ├─ 11.png
+│  │  │     ├─ 12.png
+│  │  │     ├─ 13.png
+│  │  │     ├─ 14.png
+│  │  │     ├─ 15.png
+│  │  │     ├─ 16.png
+│  │  │     ├─ 17.png
+│  │  │     ├─ 18.png
+│  │  │     ├─ 19.png
+│  │  │     ├─ 2.png
+│  │  │     ├─ 20.png
+│  │  │     ├─ 21.png
+│  │  │     ├─ 22.png
+│  │  │     ├─ 23.png
+│  │  │     ├─ 24.png
+│  │  │     ├─ 25.png
+│  │  │     ├─ 26.png
+│  │  │     ├─ 27.png
+│  │  │     ├─ 28.png
+│  │  │     ├─ 29.png
+│  │  │     ├─ 3.png
+│  │  │     ├─ 30.png
+│  │  │     ├─ 31.png
+│  │  │     ├─ 32.png
+│  │  │     ├─ 33.png
+│  │  │     ├─ 34.png
+│  │  │     ├─ 4.png
+│  │  │     ├─ 5.png
+│  │  │     ├─ 6.png
+│  │  │     ├─ 7.png
+│  │  │     ├─ 8.png
+│  │  │     └─ 9.png
+│  │  ├─ logos-page
+│  │  │  ├─ free-logo.png
+│  │  │  ├─ image-1.png
+│  │  │  ├─ image-10.png
+│  │  │  ├─ image-11.png
+│  │  │  ├─ image-2.png
+│  │  │  ├─ image-3.png
+│  │  │  ├─ image-4.png
+│  │  │  ├─ image-5.png
+│  │  │  ├─ image-6.png
+│  │  │  ├─ image-7.png
+│  │  │  ├─ image-8.png
+│  │  │  └─ image-9.png
+│  │  └─ social
+│  │     ├─ intagram-logo.svg
+│  │     ├─ tiktok-logo.svg
+│  │     ├─ x-logo.svg.png
+│  │     └─ youtube-logo.svg
+│  └─ js
+│     ├─ blog.js
+│     ├─ comparison.js
+│     ├─ info-container.js
+│     ├─ marquee.js
+│     ├─ menu-dropdown.js
+│     ├─ option-1-prompt.js
+│     ├─ option-2-prompt.js
+│     ├─ option-3-prompt.js
+│     ├─ option-4-prompt.js
+│     ├─ success.js
+│     ├─ toggle-pricing.js
+│     ├─ toggle-sample.js
+│     └─ wizard.js
+├─ great-prompts.txt
+├─ images
+│  ├─ compare1.webp
+│  ├─ compare2.webp
+│  ├─ compare3.webp
+│  ├─ example1.webp
+│  ├─ example2.webp
+│  ├─ example3.webp
+│  └─ example4.jpg
+├─ index.html
+├─ keyword-searches.txt
+├─ logo-minter-android-chrome-192x192.png
+├─ logo-minter-android-chrome-512x512.png
+├─ logo-minter-apple-touch-icon.png
+├─ logo-minter-favicon-16x16.png
+├─ logo-minter-favicon-32x32.png
+├─ logo-minter-favicon.ico
+├─ logo-minter-mstile-150x150.png
+├─ logo-minter-safari-pinned-tab.svg
+├─ logominter-sitemap.xml
+├─ logos
+│  ├─ .DS_Store
+│  ├─ 1 copy.png
+│  ├─ 1.png
+│  ├─ 12.png
+│  ├─ 123.png
+│  ├─ 1234.png
+│  ├─ 1235.png
+│  ├─ 13.png
+│  ├─ 2.png
+│  ├─ 3.png
+│  ├─ 4.png
+│  ├─ 5.png
+│  ├─ Icon
+│  ├─ Screenshot 2024-03-06 at 2.59.58 AM.png
+│  ├─ Screenshot 2024-03-06 at 3.05.20 AM.png
+│  ├─ logo-rounded.png
+│  ├─ logo.png
+│  ├─ out copy.png
+│  ├─ out-Photoroom.png-Photoroom copy.png
+│  ├─ out-Photoroom.png-Photoroom.png
+│  └─ out.png
+├─ package.json
+├─ project_tree.txt
+├─ scripts.js
+├─ site.webmanifest
+├─ styles.css
+├─ tailwind.config.js
+├─ vercel-python.json.txt
+├─ vercel.json
+├─ vercel.json.txt
+└─ vercel2.json.txt
+
+```

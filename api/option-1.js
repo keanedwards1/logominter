@@ -2,7 +2,8 @@ const express = require('express');
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
-const { createCanvas, loadImage, Image } = require('canvas');
+const os = require('os');
+const { createCanvas, Image } = require('canvas');
 require('dotenv').config();
 
 const app = express();
@@ -45,7 +46,7 @@ function saveImage(imageBuffer, prompt) {
     }
 
     const filename = `${prompt.split(' ').slice(0, 10).join('_')}.png`;
-    const filePath = path.join('/tmp', filename);
+    const filePath = path.join(os.tmpdir(), filename); // Save to temporary directory
 
     try {
         const image = new Image();
@@ -83,7 +84,7 @@ app.post('/api/option-1', async (req, res) => {
                 return res.status(200).json({
                     status: "success",
                     message: "Image generated and saved successfully.",
-                    file_path: filePath
+                    file_path: `/api/get-image?file_path=${path.basename(filePath)}` // Adjust the path as needed
                 });
             } else {
                 return res.status(500).json({ detail: "Failed to save image." });
@@ -94,6 +95,24 @@ app.post('/api/option-1', async (req, res) => {
     } catch (error) {
         console.error(`Unexpected error: ${error}`);
         return res.status(500).json({ detail: `Internal Server Error: ${error.message}` });
+    }
+});
+
+app.get('/api/get-image', (req, res) => {
+    const { file_path } = req.query;
+
+    if (file_path) {
+        const imagePath = path.join(os.tmpdir(), file_path);
+
+        if (fs.existsSync(imagePath)) {
+            res.setHeader('Content-Type', 'image/png');
+            res.setHeader('Cache-Control', 'private, max-age=0, no-cache'); // Set cache control headers
+            fs.createReadStream(imagePath).pipe(res);
+        } else {
+            res.status(404).json({ status: 'error', message: 'Image not found' });
+        }
+    } else {
+        res.status(400).json({ status: 'error', message: 'No file path provided' });
     }
 });
 

@@ -1,0 +1,19 @@
+#image-container {
+    text-align: center;
+    margin: 20px;
+  }
+
+  #image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #download-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: rgb(62, 40, 40);
+    text-decoration: none;
+    border-radius: 5px;
+  }
