@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mode: 'payment',
             clientReferenceId: data.file_path, // Pass image file path as reference
             successUrl: window.location.origin + '/frontend/html/success.html?payment_intent_client_secret={CHECKOUT_SESSION_ID}',
-            cancelUrl: window.location.origin + '/frontend/html/cancel.html'
+            cancelUrl: window.location.origin + '/frontend/html/option-1.html'
           });
         } else {
           alert('Image generation failed: ' + data.message);
