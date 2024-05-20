@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (technique) prompt += `, Technique: ${technique}`;
         if (composition) prompt += `, Composition: ${composition}`;
 
+        console.log(prompt); // Debugging
+
         return prompt;
       }
 
@@ -58,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const data = await response.json();
+        console.log(data); // Debugging
+        
         if (data.status === 'success') {
           console.log('Image generation started successfully.');
 
