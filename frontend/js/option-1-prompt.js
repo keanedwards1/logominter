@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log('Image generation started successfully.');
 
           stripe.redirectToCheckout({
-            lineItems: [{ price: 'price_1PINdIAXpFBkWrM5oJ41r2lg', quantity: 1 }],
+            lineItems: [{ price: 'price_1PIKooAXpFBkWrM5DggE4DNk', quantity: 1 }],
             mode: 'payment',
             clientReferenceId: data.file_path, // Pass image file path as reference
             successUrl: window.location.origin + '/frontend/html/success.html?payment_intent_client_secret={CHECKOUT_SESSION_ID}',
