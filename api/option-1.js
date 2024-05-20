@@ -2,7 +2,7 @@ const express = require('express');
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
-const { createCanvas, loadImage } = require('canvas');
+const { createCanvas, loadImage, Image } = require('canvas');
 require('dotenv').config();
 
 const app = express();
@@ -16,7 +16,8 @@ async function query(payload) {
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: headers,
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
+            timeout: 30000 // Increase timeout to 30 seconds
         });
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -47,7 +48,7 @@ function saveImage(imageBuffer, prompt) {
     const filePath = path.join('/tmp', filename);
 
     try {
-        const image = new Canvas.Image();
+        const image = new Image();
         image.src = imageBuffer;
         const canvas = createCanvas(image.width, image.height);
         const ctx = canvas.getContext('2d');
@@ -55,15 +56,20 @@ function saveImage(imageBuffer, prompt) {
         const out = fs.createWriteStream(filePath);
         const stream = canvas.createPNGStream();
         stream.pipe(out);
-        out.on('finish', () => console.log('Image saved.'));
-        return filePath;
+        return new Promise((resolve, reject) => {
+            out.on('finish', () => resolve(filePath));
+            out.on('error', (error) => {
+                console.error(`Error saving image: ${error}`);
+                reject(null);
+            });
+        });
     } catch (error) {
         console.error(`Error saving image: ${error}`);
         return null;
     }
 }
 
-app.post('/api/option-1.js', async (req, res) => {
+app.post('/api/option-1', async (req, res) => {
     try {
         const { prompt } = req.body;
         if (!prompt) {
@@ -72,7 +78,7 @@ app.post('/api/option-1.js', async (req, res) => {
 
         const imageBuffer = await generateLogo(prompt);
         if (imageBuffer) {
-            const filePath = saveImage(imageBuffer, prompt);
+            const filePath = await saveImage(imageBuffer, prompt);
             if (filePath) {
                 return res.status(200).json({
                     status: "success",
