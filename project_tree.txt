@@ -5,14 +5,18 @@
 ├── api
 │   ├── archive
 │   │   ├── main.py
+│   │   ├── may 20th
+│   │   │   ├── option-1.js
+│   │   │   ├── option-2.js
+│   │   │   ├── option-3.js
+│   │   │   └── option-4.js
+│   │   ├── may 20th-2
 │   │   ├── option-1.py
 │   │   ├── option-2.py
 │   │   ├── option-3.py
 │   │   └── option-4.py
+│   ├── check-status-1.js
 │   ├── option-1.js
-│   ├── option-2.js
-│   ├── option-3.js
-│   ├── option-4.js
 │   └── requirements.txt
 ├── backend
 │   ├── app
@@ -133,19 +137,6 @@
 │   │           ├── index.html
 │   │           ├── script.js
 │   │           └── style.css
-│   ├── html
-│   │   ├── archive
-│   │   │   └── pros-cons.html
-│   │   ├── blog.html
-│   │   ├── cancel.html
-│   │   ├── home.html
-│   │   ├── legal.html
-│   │   ├── logos.html
-│   │   ├── option-1.html
-│   │   ├── option-2.html
-│   │   ├── option-3.html
-│   │   ├── option-4.html
-│   │   └── success.html
 │   ├── images
 │   │   ├── logos
 │   │   │   ├── logo-beige.png
@@ -260,7 +251,21 @@
 │   └── out.png
 ├── package.json
 ├── project_tree.txt
+├── public
+│   ├── archive
+│   │   └── pros-cons.html
+│   ├── blog.html
+│   ├── cancel.html
+│   ├── home.html
+│   ├── legal.html
+│   ├── logos.html
+│   ├── option-1.html
+│   ├── option-2.html
+│   ├── option-3.html
+│   ├── option-4.html
+│   └── success.html
 ├── scripts.js
+├── server.js
 ├── site.webmanifest
 ├── styles.css
 ├── tailwind.config.js
@@ -269,4 +274,4 @@
 ├── vercel.json.txt
 └── vercel2.json.txt
 
-40 directories, 230 files
+42 directories, 233 files

@@ -100,10 +100,7 @@
   ],
   "routes": [
     { "src": "/api/option-1", "dest": "/api/option-1.js" },
-    { "src": "/api/check-status", "dest": "/api/check-status-1.js" },
-    { "src": "/api/option-2", "dest": "/api/option-2.js" },
-    { "src": "/api/option-3", "dest": "/api/option-3.js" },
-    { "src": "/api/option-4", "dest": "/api/option-4.js" },
+    { "src": "/api/check-status", "dest": "/api/check-status.js" },
     { "src": "/demo", "dest": "/demo.html" },
     { "src": "/", "dest": "/index.html" },
     { "src": "/static/(.*)", "dest": "/public/$1" },

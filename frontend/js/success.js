@@ -1,4 +1,30 @@
-const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL'); // Replace with your Stripe publishable key
+document.addEventListener('DOMContentLoaded', async function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const clientSecret = urlParams.get('payment_intent_client_secret');
+  const requestId = urlParams.get('requestId');
+
+  console.log('Client secret from URL:', clientSecret); // Debugging line
+  console.log('Request ID from URL:', requestId); // Debugging line
+
+  if (clientSecret) {
+    const paymentIntent = await fetchPaymentIntent(clientSecret);
+    if (paymentIntent && paymentIntent.status === 'succeeded') {
+      await fetchGeneratedImage(paymentIntent.client_reference_id);
+    } else {
+      console.error('Payment not successful:', paymentIntent);
+      // Handle error or redirect to error page
+    }
+  } else {
+    console.error('No payment_intent_client_secret found in URL.');
+    // Handle error or redirect to error page
+  }
+
+  if (requestId) {
+    await pollStatus(requestId);
+  } else {
+    console.error('No requestId found in URL');
+  }
+});
 
 async function fetchPaymentIntent(clientSecret) {
   console.log('Fetching payment intent for client secret:', clientSecret); // Debugging line
@@ -18,7 +44,7 @@ async function fetchGeneratedImage(clientReferenceId) {
 
     if (data.status === 'success' && data.file_path) {
       const imageUrl = data.file_path;
-      const displayedImage = document.getElementById('displayed-image');
+      const displayedImage = document.getElementById('generated-image');
       const downloadButton = document.getElementById('download-button');
 
       displayedImage.src = imageUrl;
@@ -34,59 +60,46 @@ async function fetchGeneratedImage(clientReferenceId) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const clientSecret = urlParams.get('payment_intent_client_secret');
-
-  console.log('Client secret from URL:', clientSecret); // Debugging line
-
-  if (clientSecret) {
-    const paymentIntent = await fetchPaymentIntent(clientSecret);
-    if (paymentIntent && paymentIntent.status === 'succeeded') {
-      await fetchGeneratedImage(paymentIntent.client_reference_id);
-    } else {
-      console.error('Payment not successful:', paymentIntent);
-      // Handle error or redirect to error page
-    }
-  } else {
-    console.error('No payment_intent_client_secret found in URL.');
-    // Handle error or redirect to error page
-  }
-});
-
-document.addEventListener('DOMContentLoaded', async function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const requestId = urlParams.get('requestId');
-
-  if (requestId) {
-    await pollStatus(requestId);
-  } else {
-    console.error('No requestId found in URL');
-  }
-});
-
 async function pollStatus(requestId) {
   try {
+    console.log('Polling status for request ID:', requestId); // Debugging line
+
     const response = await fetch(`/api/check-status?requestId=${requestId}`);
     const result = await response.json();
 
     if (result.status === 'processing') {
-      setTimeout(() => pollStatus(requestId), 1000); // Poll every 5 seconds
+      setTimeout(() => pollStatus(requestId), 1000); // Poll every second
     } else if (result.status === 'success') {
       console.log('Image ready:', result.file_path);
       showImage(result.file_path);
     } else {
-      console.error('Image generation failed');
-      document.getElementById('loading-screen').innerText = 'Image generation failed';
+      console.error('Image generation failed:', result.detail);
+      const loadingScreen = document.getElementById('loading-screen');
+      if (loadingScreen) {
+        loadingScreen.innerText = 'Image generation failed';
+      }
     }
   } catch (error) {
     console.error('Error checking status:', error);
-    document.getElementById('loading-screen').innerText = 'Error checking status: ' + error.message;
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+      loadingScreen.innerText = 'Error checking status: ' + error.message;
+    }
   }
 }
 
 function showImage(filePath) {
-  document.getElementById('loading-screen').style.display = 'none';
-  document.getElementById('content').style.display = 'block';
-  document.getElementById('generated-image').src = filePath;
+  const loadingScreen = document.getElementById('loading-screen');
+  const content = document.getElementById('content');
+  const generatedImage = document.getElementById('generated-image');
+
+  if (loadingScreen) {
+    loadingScreen.style.display = 'none';
+  }
+  if (content) {
+    content.style.display = 'block';
+  }
+  if (generatedImage) {
+    generatedImage.src = filePath;
+  }
 }
