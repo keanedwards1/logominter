@@ -60,6 +60,14 @@
     {
       "src": "logo-minter-safari-pinned-tab.svg",
       "use": "@vercel/static"
+    },
+    {
+      "src": "frontend/**/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "images/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -86,6 +94,8 @@
     { "src": "/logo-minter-favicon-32x32.png", "dest": "/logo-minter-favicon-32x32.png" },
     { "src": "/logo-minter-favicon.ico", "dest": "/logo-minter-favicon.ico" },
     { "src": "/logo-minter-mstile-150x150.png", "dest": "/logo-minter-mstile-150x150.png" },
-    { "src": "/logo-minter-safari-pinned-tab.svg", "dest": "/logo-minter-safari-pinned-tab.svg" }
+    { "src": "/logo-minter-safari-pinned-tab.svg", "dest": "/logo-minter-safari-pinned-tab.svg" },
+    { "src": "/frontend/(.*)", "dest": "/frontend/$1" },
+    { "src": "/images/(.*)", "dest": "/images/$1" }
   ]
 }
