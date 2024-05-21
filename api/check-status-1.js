@@ -10,6 +10,8 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 
+const requestStatus = {}; // This should be shared or persisted appropriately
+
 app.get('/api/check-status', async (req, res) => {
     const { requestId } = req.query;
 
@@ -25,7 +27,7 @@ app.get('/api/check-status', async (req, res) => {
             return res.status(200).json({
                 status: "success",
                 message: "Image generated and saved successfully.",
-                file_path: `/api/get-image?file_path=${path.basename(filePath)}` // Adjust the path as needed
+                file_path: filePath
             });
         } else {
             return res.status(500).json({ detail: "Failed to save image." });
@@ -63,7 +65,5 @@ function saveImage(imageBuffer, requestId) {
     }
 }
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// Export the Express app to be used as a serverless function
+module.exports = app;

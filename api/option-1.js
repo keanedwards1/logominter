@@ -65,3 +65,6 @@ app.post('/api/option-1', async (req, res) => {
         return res.status(500).json({ detail: `Internal Server Error: ${error.message}` });
     }
 });
+
+// Export the Express app to be used as a serverless function
+module.exports = app;
