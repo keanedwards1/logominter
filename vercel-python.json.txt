@@ -110,7 +110,7 @@
     { "src": "/frontend/css/(.*)", "dest": "/frontend/css/$1" },
     { "src": "/frontend/fonts/(.*)", "dest": "/frontend/fonts/$1" },
     { "src": "/frontend/for-the-future/(.*)", "dest": "/frontend/for-the-future/$1" },
-    { "src": "/frontend/html/(.*)", "dest": "/frontend/html/$1" },
+    { "src": "/public/(.*)", "dest": "/public/$1" },
     { "src": "/frontend/images/(.*)", "dest": "/frontend/images/$1" },
     { "src": "/frontend/js/(.*)", "dest": "/frontend/js/$1" },
     { "src": "/images/(.*)", "dest": "/images/$1" },

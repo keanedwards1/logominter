@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
             lineItems: [{ price: 'price_1PIKooAXpFBkWrM5DggE4DNk', quantity: 1 }],
             mode: 'payment',
             clientReferenceId: data.requestId, // Pass requestId as reference
-            successUrl: window.location.origin + '/frontend/html/success.html?requestId=' + data.requestId,
-            cancelUrl: window.location.origin + '/frontend/html/option-1.html'
+            successUrl: window.location.origin + '/public/success.html?requestId=' + data.requestId,
+            cancelUrl: window.location.origin + '/public/option-1.html'
           });
         } else {
           alert('Image generation failed: ' + data.message);
