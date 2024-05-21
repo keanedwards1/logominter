@@ -53,3 +53,40 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Handle error or redirect to error page
   }
 });
+
+document.addEventListener('DOMContentLoaded', async function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const requestId = urlParams.get('requestId');
+
+  if (requestId) {
+    await pollStatus(requestId);
+  } else {
+    console.error('No requestId found in URL');
+  }
+});
+
+async function pollStatus(requestId) {
+  try {
+    const response = await fetch(`/api/check-status?requestId=${requestId}`);
+    const result = await response.json();
+
+    if (result.status === 'processing') {
+      setTimeout(() => pollStatus(requestId), 1000); // Poll every 5 seconds
+    } else if (result.status === 'success') {
+      console.log('Image ready:', result.file_path);
+      showImage(result.file_path);
+    } else {
+      console.error('Image generation failed');
+      document.getElementById('loading-screen').innerText = 'Image generation failed';
+    }
+  } catch (error) {
+    console.error('Error checking status:', error);
+    document.getElementById('loading-screen').innerText = 'Error checking status: ' + error.message;
+  }
+}
+
+function showImage(filePath) {
+  document.getElementById('loading-screen').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+  document.getElementById('generated-image').src = filePath;
+}
