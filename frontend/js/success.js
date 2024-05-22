@@ -1,4 +1,6 @@
 let imgElement = document.getElementById("generated-image");
+let loadScreen = document.getElementById("loading-screen");
+let content = document.getElementById("content");
 
 document.addEventListener("DOMContentLoaded", async function () {
   let imgElement = document.getElementById("generated-image");
@@ -34,6 +36,14 @@ document.addEventListener("DOMContentLoaded", async function () {
   
     // Set the Object URL as the src of the img element
     imgElement.src = imageUrl;
+    loadScreen.style.display = "none";
+    content.style.display = "block";
+
+    imgElement.onload = () => {
+      URL.revokeObjectURL(imageUrl);
+  };
+
+  
 
     return;
   }, 30 * 1000);
