@@ -1,3 +1,5 @@
+let imgElement = document.getElementById("generated-image");
+
 document.addEventListener("DOMContentLoaded", async function () {
   /*   const urlParams = new URLSearchParams(window.location.search);
    */ /*   const clientSecret = urlParams.get('payment_intent_client_secret');
@@ -14,8 +16,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
     let resp2 = await response.json(); 
     console.log(resp2);
+
+    const imageData = resp2.image.data; // Base64 or binary image data
+    const byteCharacters = atob(imageData);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'image/jpeg' });
+  
+    // Create an Object URL for the Blob
+    const imageUrl = URL.createObjectURL(blob);
+  
+    // Set the Object URL as the src of the img element
+    imgElement.src = imageUrl;
+
     return;
   }, 30 * 1000);
+
 
 
   
