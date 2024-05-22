@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const submitButton = document.getElementById('submit-button');
-  const stripe = Stripe('pk_live_51OxMMsAXpFBkWrM5X496rrJI4PzWFFW0ZAi77BLlN8VyOYJaDOKI2P3Xa1jaMiviRsFcNHdzbNt6OITW93ngAQcI00E9yQXxhL');
+  const stripe = Stripe('pk_test_51OxMMsAXpFBkWrM5u2vjHetldxTDnQuy5QTlNrWWgswAbhdrGVUtl6VUFT7NbIKpEtJet9OusmvVmsHpEUHwvS8g00mtMhzn5m');
 
   if (submitButton) {
     submitButton.addEventListener('click', async function () {
