@@ -1,29 +1,43 @@
 document.addEventListener('DOMContentLoaded', async function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const clientSecret = urlParams.get('payment_intent_client_secret');
-  const requestId = urlParams.get('requestId');
+/*   const urlParams = new URLSearchParams(window.location.search);
+ *//*   const clientSecret = urlParams.get('payment_intent_client_secret');
+  const requestId = urlParams.get('requestId'); */
 
-  console.log('Client secret from URL:', clientSecret); // Debugging line
-  console.log('Request ID from URL:', requestId); // Debugging line
+  let prompt = localStorage.getItem("prompt", prompt);
+  prompt = JSON.parse(prompt);
 
-  if (clientSecret) {
-    const paymentIntent = await fetchPaymentIntent(clientSecret);
-    if (paymentIntent && paymentIntent.status === 'succeeded') {
-      await fetchGeneratedImage(paymentIntent.client_reference_id);
-    } else {
-      console.error('Payment not successful:', paymentIntent);
-      // Handle error or redirect to error page
-    }
-  } else {
-    console.error('No payment_intent_client_secret found in URL.');
-    // Handle error or redirect to error page
-  }
+        const response = await fetch('/api/option-1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ prompt: prompt })
+      });
 
-  if (requestId) {
-    await pollStatus(requestId);
-  } else {
-    console.error('No requestId found in URL');
-  }
+console.log(response)
+  // console.log('Client secret from URL:', clientSecret); // Debugging line
+  // console.log('Request ID from URL:', requestId); // Debugging line
+
+
+
+  // if (clientSecret) {
+  //   const paymentIntent = await fetchPaymentIntent(clientSecret);
+  //   if (paymentIntent && paymentIntent.status === 'succeeded') {
+  //     await fetchGeneratedImage(paymentIntent.client_reference_id);
+  //   } else {
+  //     console.error('Payment not successful:', paymentIntent);
+  //     // Handle error or redirect to error page
+  //   }
+  // } else {
+  //   console.error('No payment_intent_client_secret found in URL.');
+  //   // Handle error or redirect to error page
+  // }
+
+  // if (requestId) {
+  //   await pollStatus(requestId);
+  // } else {
+  //   console.error('No requestId found in URL');
+  // }
 });
 
 async function fetchPaymentIntent(clientSecret) {
