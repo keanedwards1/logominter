@@ -18,13 +18,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log(resp2);
 
     const imageData = resp2.image.data; // Base64 or binary image data
-    const byteCharacters = atob(imageData);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    const blob = new Blob([byteArray], { type: 'image/jpeg' });
+    // const byteCharacters = atob(imageData);
+    // const byteNumbers = new Array(byteCharacters.length);
+    // for (let i = 0; i < byteCharacters.length; i++) {
+    //     byteNumbers[i] = byteCharacters.charCodeAt(i);
+    // }
+    // const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([imageData], { type: 'image/jpeg' });
   
     // Create an Object URL for the Blob
     const imageUrl = URL.createObjectURL(blob);
