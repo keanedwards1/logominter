@@ -1,24 +1,23 @@
-document.addEventListener('DOMContentLoaded', async function () {
-/*   const urlParams = new URLSearchParams(window.location.search);
- *//*   const clientSecret = urlParams.get('payment_intent_client_secret');
+document.addEventListener("DOMContentLoaded", async function () {
+  /*   const urlParams = new URLSearchParams(window.location.search);
+   */ /*   const clientSecret = urlParams.get('payment_intent_client_secret');
   const requestId = urlParams.get('requestId'); */
-
   let prompt = localStorage.getItem("prompt");
   prompt = JSON.parse(prompt);
+  setTimeout(async  () => {
+    const response = await fetch("/api/option-1", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt: prompt }),
+    });
+    console.log(response);
+  }, 30 * 1000);
 
-        const response = await fetch('/api/option-1', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ prompt: prompt })
-      });
-
-console.log(response)
+  
   // console.log('Client secret from URL:', clientSecret); // Debugging line
   // console.log('Request ID from URL:', requestId); // Debugging line
-
-
 
   // if (clientSecret) {
   //   const paymentIntent = await fetchPaymentIntent(clientSecret);
@@ -41,77 +40,80 @@ console.log(response)
 });
 
 async function fetchPaymentIntent(clientSecret) {
-  console.log('Fetching payment intent for client secret:', clientSecret); // Debugging line
+  console.log("Fetching payment intent for client secret:", clientSecret); // Debugging line
   try {
     const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
     return paymentIntent;
   } catch (error) {
-    console.error('Error retrieving payment intent:', error);
+    console.error("Error retrieving payment intent:", error);
     return null;
   }
 }
 
 async function fetchGeneratedImage(clientReferenceId) {
   try {
-    const response = await fetch(`/api/get-image?file_path=${clientReferenceId}`, { method: 'GET' });
+    const response = await fetch(
+      `/api/get-image?file_path=${clientReferenceId}`,
+      { method: "GET" }
+    );
     const data = await response.json();
 
-    if (data.status === 'success' && data.file_path) {
+    if (data.status === "success" && data.file_path) {
       const imageUrl = data.file_path;
-      const displayedImage = document.getElementById('generated-image');
-      const downloadButton = document.getElementById('download-button');
+      const displayedImage = document.getElementById("generated-image");
+      const downloadButton = document.getElementById("download-button");
 
       displayedImage.src = imageUrl;
       downloadButton.href = imageUrl;
 
-      displayedImage.style.display = 'block';
-      downloadButton.style.display = 'block';
+      displayedImage.style.display = "block";
+      downloadButton.style.display = "block";
     } else {
-      console.error('Failed to fetch image:', data.message);
+      console.error("Failed to fetch image:", data.message);
     }
   } catch (error) {
-    console.error('Error fetching image:', error);
+    console.error("Error fetching image:", error);
   }
 }
 
 async function pollStatus(requestId) {
   try {
-    console.log('Polling status for request ID:', requestId); // Debugging line
+    console.log("Polling status for request ID:", requestId); // Debugging line
 
     const response = await fetch(`/api/check-status?requestId=${requestId}`);
     const result = await response.json();
 
-    if (result.status === 'processing') {
+    if (result.status === "processing") {
       setTimeout(() => pollStatus(requestId), 1000); // Poll every second
-    } else if (result.status === 'success') {
-      console.log('Image ready:', result.file_path);
+    } else if (result.status === "success") {
+      console.log("Image ready:", result.file_path);
       showImage(result.file_path);
     } else {
-      console.error('Image generation failed:', result.detail);
-      const loadingScreen = document.getElementById('loading-screen');
+      console.error("Image generation failed:", result.detail);
+      const loadingScreen = document.getElementById("loading-screen");
       if (loadingScreen) {
-        loadingScreen.innerText = 'Image generation failed';
+        loadingScreen.innerText = "Image generation failed";
       }
     }
   } catch (error) {
-    console.error('Error checking status:', error);
-    const loadingScreen = document.getElementById('loading-screen');
+    console.error("Error checking status:", error);
+    const loadingScreen = document.getElementById("loading-screen");
     if (loadingScreen) {
-      loadingScreen.innerText = 'Error checking status: ' + error.message;
+      loadingScreen.innerText = "Error checking status: " + error.message;
     }
   }
 }
 
 function showImage(filePath) {
-  const loadingScreen = document.getElementById('loading-screen');
-  const content = document.getElementById('content');
-  const generatedImage = document.getElementById('generated-image');
+  const loadingScreen = document.getElementById("loading-screen");
+  const content = document.getElementById("content");
+  const generatedImage = document.getElementById("generated-image");
 
   if (loadingScreen) {
-    loadingScreen.style.display = 'none';
+    loadingScreen.style.display = "none";
   }
   if (content) {
-    content.style.display = 'block';
+    content.style.display = "block";
   }
   if (generatedImage) {
     generatedImage.src = filePath;
