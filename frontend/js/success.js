@@ -12,8 +12,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       },
       body: JSON.stringify({ prompt: prompt }),
     });
-    console.log(response);
+    let resp2 = await response.json(); 
+    console.log(resp2);
+    return;
   }, 30 * 1000);
+
 
   
   // console.log('Client secret from URL:', clientSecret); // Debugging line
