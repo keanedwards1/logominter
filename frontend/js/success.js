@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async function () {
  *//*   const clientSecret = urlParams.get('payment_intent_client_secret');
   const requestId = urlParams.get('requestId'); */
 
-  let prompt = localStorage.getItem("prompt", prompt);
+  let prompt = localStorage.getItem("prompt");
   prompt = JSON.parse(prompt);
 
         const response = await fetch('/api/option-1', {
