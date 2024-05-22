@@ -1,6 +1,8 @@
 let imgElement = document.getElementById("generated-image");
 
 document.addEventListener("DOMContentLoaded", async function () {
+  let imgElement = document.getElementById("generated-image");
+
   /*   const urlParams = new URLSearchParams(window.location.search);
    */ /*   const clientSecret = urlParams.get('payment_intent_client_secret');
   const requestId = urlParams.get('requestId'); */
@@ -19,12 +21,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const imageData = resp2.image.data; // Base64 or binary image data
     // const byteCharacters = atob(imageData);
-    // const byteNumbers = new Array(byteCharacters.length);
+    // const byteNumbers = new Array(imageData.length);
     // for (let i = 0; i < byteCharacters.length; i++) {
     //     byteNumbers[i] = byteCharacters.charCodeAt(i);
     // }
-    // const byteArray = new Uint8Array(byteNumbers);
-    const blob = new Blob([imageData], { type: 'image/jpeg' });
+    const byteArray = new Uint8Array(imageData);
+
+    const blob = new Blob([byteArray], { type: 'image/jpeg' });
   
     // Create an Object URL for the Blob
     const imageUrl = URL.createObjectURL(blob);
@@ -60,6 +63,141 @@ document.addEventListener("DOMContentLoaded", async function () {
   //   console.error('No requestId found in URL');
   // }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* document.addEventListener("DOMContentLoaded", async function () {
+  let imgElement = document.getElementById("generated-image");
+
+  let prompt = localStorage.getItem("prompt");
+  prompt = JSON.parse(prompt);
+
+  setTimeout(async () => {
+    try {
+      const response = await fetch("/api/option-1", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: prompt }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      let resp2 = await response.json();
+      console.log(resp2);
+
+      const imageData = resp2.image.data; // Base64 or binary image data
+      const byteCharacters = atob(imageData);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+
+      const blob = new Blob([byteArray], { type: 'image/jpeg' });
+
+      // Create an Object URL for the Blob
+      const imageUrl = URL.createObjectURL(blob);
+
+      // Set the Object URL as the src of the img element
+      if (imgElement) {
+        imgElement.src = imageUrl;
+      } else {
+        console.error('Image element not found');
+      }
+    } catch (error) {
+      console.error('Error fetching or processing image:', error);
+    }
+  }, 30 * 1000);
+
+  // Commented out code for handling URL parameters and payment intent
+  // const urlParams = new URLSearchParams(window.location.search);
+  // const clientSecret = urlParams.get('payment_intent_client_secret');
+  // const requestId = urlParams.get('requestId');
+  // console.log('Client secret from URL:', clientSecret); // Debugging line
+  // console.log('Request ID from URL:', requestId); // Debugging line
+  // if (clientSecret) {
+  //   const paymentIntent = await fetchPaymentIntent(clientSecret);
+  //   if (paymentIntent && paymentIntent.status === 'succeeded') {
+  //     await fetchGeneratedImage(paymentIntent.client_reference_id);
+  //   } else {
+  //     console.error('Payment not successful:', paymentIntent);
+  //     // Handle error or redirect to error page
+  //   }
+  // } else {
+  //   console.error('No payment_intent_client_secret found in URL.');
+  //   // Handle error or redirect to error page
+  // }
+  // if (requestId) {
+  //   await pollStatus(requestId);
+  // } else {
+  //   console.error('No requestId found in URL');
+  // }
+}); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 async function fetchPaymentIntent(clientSecret) {
   console.log("Fetching payment intent for client secret:", clientSecret); // Debugging line
