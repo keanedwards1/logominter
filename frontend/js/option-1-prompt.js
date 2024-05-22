@@ -87,11 +87,11 @@ document.addEventListener("DOMContentLoaded", function () {
       stripe.redirectToCheckout({
         lineItems: [{ price: "price_1PINdIAXpFBkWrM5oJ41r2lg", quantity: 1 }],
         mode: "payment",
-        clientReferenceId: data.requestId, // Pass requestId as reference
+        // clientReferenceId: data.requestId, // Pass requestId as reference
         successUrl:
           window.location.origin +
           "/public/success.html?requestId=" +
-          data.requestId,
+          1222,
         cancelUrl: window.location.origin + "/public/option-1.html",
       });
       /*         } else {
