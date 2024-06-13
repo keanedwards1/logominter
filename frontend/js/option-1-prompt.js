@@ -37,10 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         const atmosphere = atmosphereElement ? atmosphereElement.value : "";
 
-        const techniqueElement = document.querySelector(
+/*         const techniqueElement = document.querySelector(
           'select[title="technique"]'
         );
-        const technique = techniqueElement ? techniqueElement.value : "";
+        const technique = techniqueElement ? techniqueElement.value : ""; */
+
+        const artistElement = document.querySelector(
+          'select[title="artist"]'
+        );
+        const artist = techniqueElement ? techniqueElement.value : "";
 
         const compositionElement = document.querySelector(
           'select[title="composition"]'
@@ -54,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (style) prompt += `. The style is reminiscent of ${style}`;
         if (color) prompt += `, with pronounced ${color} perfectly capturing the mood of the scene`;
         if (composition) prompt += `. The ${composition} composition draws the viewers eyes towards ${mainObject}`;
-        if (technique) prompt += `, while using a ${technique} artistic technique`;
+        if (artist) prompt += `, in the style of ${artist}`;
 
         console.log("Normal Prompt: " + prompt); // Debugging
         return prompt;
