@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const composition = compositionElement ? compositionElement.value : "";
 
         let prompt = `Imagine a logo of ${mainObject}`;
-        if (atmosphere) prompt += `, The atmostphere is ${atmosphere}`;
+        if (atmosphere) prompt += `, with a ${atmosphere} atmostphere`;
         if (lighting) prompt += `, and bathed in a beautiful ${lighting} lighting`;
         if (background) prompt += `. In the background, there is ${background}`;
         if (style) prompt += `. The style is reminiscent of ${style}`;
