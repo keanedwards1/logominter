@@ -47,17 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         const composition = compositionElement ? compositionElement.value : "";
 
-        let prompt = `Image of: ${mainObject}`;
-        if (background) prompt += `, Background: ${background}`;
-        if (color) prompt += `, Color: ${color}`;
-        if (lighting) prompt += `, Lighting: ${lighting}`;
-        if (style) prompt += `, Style: ${style}`;
-        if (atmosphere) prompt += `, Atmosphere: ${atmosphere}`;
-        if (technique) prompt += `, Technique: ${technique}`;
-        if (composition) prompt += `, Composition: ${composition}`;
+        let prompt = `Imagine a logo of ${mainObject}`;
+        if (atmosphere) prompt += `, The atmostphere is ${atmosphere}`;
+        if (lighting) prompt += `, and bathed in a beautiful ${lighting} lighting`;
+        if (background) prompt += `. In the background, there is ${background}`;
+        if (style) prompt += `. The style is reminiscent of ${style}`;
+        if (color) prompt += `, with pronounced ${color} perfectly capturing the mood of the scene`;
+        if (composition) prompt += `. The ${composition} composition draws the viewers eyes towards ${mainObject}`;
+        if (technique) prompt += `, while using ${technique} as the artistic technique`;
 
-        console.log(prompt); // Debugging
-
+        console.log("normal prompt" + prompt); // Debugging
         return prompt;
       }
 
@@ -71,8 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
       //   body: JSON.stringify({ prompt: prompt })
       // });
 
+
+
       const jsonPrompt = JSON.stringify(prompt);
-      console.log(jsonPrompt);
+      console.log("JSON Prompt:" + jsonPrompt);
 
       localStorage.setItem("prompt", jsonPrompt);
 
@@ -88,6 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // if (data.status === 'processing') {
       //   console.log('Image generation started successfully.');
+
+
 
 /*       stripe.redirectToCheckout({
         lineItems: [{ price: "price_1PINdIAXpFBkWrM5oJ41r2lg", quantity: 1 }],
