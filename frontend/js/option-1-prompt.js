@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (style) prompt += `. The style is reminiscent of ${style}`;
         if (color) prompt += `, with pronounced ${color} perfectly capturing the mood of the scene`;
         if (composition) prompt += `. The ${composition} composition draws the viewers eyes towards ${mainObject}`;
-        if (technique) prompt += `, while using ${technique} as the artistic technique`;
+        if (technique) prompt += `, while using a ${technique} artistic technique`;
 
         console.log("Normal Prompt: " + prompt); // Debugging
         return prompt;
