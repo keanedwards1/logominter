@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // if (data.status === 'processing') {
       //   console.log('Image generation started successfully.');
 
-      stripe.redirectToCheckout({
+/*       stripe.redirectToCheckout({
         lineItems: [{ price: "price_1PINdIAXpFBkWrM5oJ41r2lg", quantity: 1 }],
         mode: "payment",
         // clientReferenceId: data.requestId, // Pass requestId as reference
@@ -96,7 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
           window.location.origin +
           "/public/success.html?requestId=" + 1222,
         cancelUrl: window.location.origin + "/public/option-1.html",
-      });
+      }); */
+
+
+
       /*         } else {
           alert('Image generation failed: ' + data.message);
         } */
