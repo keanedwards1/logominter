@@ -71,9 +71,10 @@ document.addEventListener("DOMContentLoaded", function () {
       //   body: JSON.stringify({ prompt: prompt })
       // });
 
-      
+      const jsonPrompt = JSON.stringify(prompt);
+      console.log(jsonPrompt);
 
-      localStorage.setItem("prompt", JSON.stringify(prompt));
+      localStorage.setItem("prompt", jsonPrompt);
 
 
 
