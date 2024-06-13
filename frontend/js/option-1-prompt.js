@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (style) prompt += `. The style is reminiscent of ${style}`;
         if (color) prompt += `, with pronounced ${color} perfectly capturing the mood of the scene`;
         if (composition) prompt += `. The ${composition} composition draws the viewers eyes towards ${mainObject}`;
-        if (artist) prompt += `, in the style of ${artist}`;
+        if (artist) prompt += `, in the artistic style of ${artist}`;
 
         console.log("Normal Prompt: " + prompt); // Debugging
         return prompt;
