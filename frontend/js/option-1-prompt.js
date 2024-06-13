@@ -71,7 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
       //   body: JSON.stringify({ prompt: prompt })
       // });
 
+      
+
       localStorage.setItem("prompt", JSON.stringify(prompt));
+
+
 
       // if (!response.ok) {
       //   const errorText = await response.text();
@@ -90,8 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // clientReferenceId: data.requestId, // Pass requestId as reference
         successUrl:
           window.location.origin +
-          "/public/success.html?requestId=" +
-          1222,
+          "/public/success.html?requestId=" + 1222,
         cancelUrl: window.location.origin + "/public/option-1.html",
       });
       /*         } else {

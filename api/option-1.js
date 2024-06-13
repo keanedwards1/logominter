@@ -13,15 +13,15 @@ const API_URL =
   "https://api-inference.huggingface.co/models/artificialguybr/LogoRedmond-LogoLoraForSDXL-V2";
 const headers = { Authorization: `Bearer ${process.env.API_KEY}` };
 
-const requestStatus = {};
-
+/* const requestStatus = {};
+ */
 async function query(payload) {
   try {
     const response = await fetch(API_URL, {
       method: "POST",
       headers: headers,
       body: JSON.stringify(payload),
-      timeout: 30000, // Increase timeout to 30 seconds
+      timeout: 40000, // Increase timeout to 40 seconds
     });
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);

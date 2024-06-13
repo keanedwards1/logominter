@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const requestId = urlParams.get('requestId'); */
   let prompt = localStorage.getItem("prompt");
   prompt = JSON.parse(prompt);
-  setTimeout(async  () => {
+  setTimeout(async () => {
     const response = await fetch("/api/option-1", {
       method: "POST",
       headers: {
@@ -42,9 +42,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     imgElement.onload = () => {
       URL.revokeObjectURL(imageUrl);
   };
-
-  
-
     return;
   }, 30 * 1000);
 
