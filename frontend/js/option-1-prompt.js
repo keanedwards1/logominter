@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (composition) prompt += `. The ${composition} composition draws the viewers eyes towards ${mainObject}`;
         if (technique) prompt += `, while using ${technique} as the artistic technique`;
 
-        console.log("normal prompt" + prompt); // Debugging
+        console.log("Normal Prompt: " + prompt); // Debugging
         return prompt;
       }
 
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       const jsonPrompt = JSON.stringify(prompt);
-      console.log("JSON Prompt:" + jsonPrompt);
+      console.log("JSON Prompt: " + jsonPrompt);
 
       localStorage.setItem("prompt", jsonPrompt);
 
