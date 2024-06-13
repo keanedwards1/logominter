@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const artistElement = document.querySelector(
           'select[title="artist"]'
         );
-        const artist = techniqueElement ? techniqueElement.value : "";
+        const artist = artistElement ? artistElement.value : "";
 
         const compositionElement = document.querySelector(
           'select[title="composition"]'
