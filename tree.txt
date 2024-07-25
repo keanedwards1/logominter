@@ -1,6 +1,5 @@
 .
 ├── LICENSE
-├── README.md
 ├── TODO
 ├── api
 │   ├── archive
@@ -11,16 +10,31 @@
 │   │   │   ├── option-3.js
 │   │   │   └── option-4.js
 │   │   ├── may 20th-2
+│   │   ├── may-21th
+│   │   │   ├── check-status-1.js
+│   │   │   └── option-1.js
 │   │   ├── option-1.py
 │   │   ├── option-2.py
 │   │   ├── option-3.py
-│   │   └── option-4.py
+│   │   ├── option-4.py
+│   │   └── requirements.txt
 │   ├── check-status-1.js
-│   ├── option-1.js
-│   └── requirements.txt
+│   └── option-1.js
 ├── backend
 │   ├── app
 │   │   ├── images
+│   │   │   ├── Craft_a_logo_with_the_fractal_patterns_seen_in_coral.png
+│   │   │   ├── Create_a_logo_inspired_by_the_Sierpinski_Triangle,_featuring_recursive.png
+│   │   │   ├── Create_a_logo_that_abstracts_the_fractal_geometry_of_mountain.png
+│   │   │   ├── Create_a_logo_with_the_dynamic_and_fluid_fractal_patterns.png
+│   │   │   ├── Design_a_logo_based_on_the_Julia_set_fractal,_creating.png
+│   │   │   ├── Design_a_logo_inspired_by_the_repetitive_patterns_of_Romanesco.png
+│   │   │   ├── Design_a_logo_using_the_fractal_pattern_of_a_snowflake,.png
+│   │   │   ├── Develop_a_logo_inspired_by_the_branching_patterns_of_trees,.png
+│   │   │   ├── Generate_a_logo_based_on_fractal_art,_specifically_inspired_by.png
+│   │   │   ├── Generate_a_logo_based_on_fractal_art,_using_a_Mandelbrot.png
+│   │   │   ├── Generate_a_logo_that_incorporates_the_fractal_patterns_of_lightning.png
+│   │   │   └── Generate_a_logo_that_resembles_the_intricate_spirals_of_a.png
 │   │   ├── logo-concurrent.py
 │   │   ├── logo-simple.js
 │   │   ├── logo-simple.py
@@ -229,28 +243,8 @@
 ├── logo-minter-safari-pinned-tab.svg
 ├── logominter-sitemap.xml
 ├── logos
-│   ├── 1 copy.png
-│   ├── 1.png
-│   ├── 12.png
-│   ├── 123.png
-│   ├── 1234.png
-│   ├── 1235.png
-│   ├── 13.png
-│   ├── 2.png
-│   ├── 3.png
-│   ├── 4.png
-│   ├── 5.png
-│   ├── Icon\015
-│   ├── Screenshot 2024-03-06 at 2.59.58 AM.png
-│   ├── Screenshot 2024-03-06 at 3.05.20 AM.png
-│   ├── logo-rounded.png
-│   ├── logo.png
-│   ├── out copy.png
-│   ├── out-Photoroom.png-Photoroom copy.png
-│   ├── out-Photoroom.png-Photoroom.png
-│   └── out.png
+│   └── 13.png
 ├── package.json
-├── project_tree.txt
 ├── public
 │   ├── archive
 │   │   └── pros-cons.html
@@ -264,14 +258,14 @@
 │   ├── option-3.html
 │   ├── option-4.html
 │   └── success.html
-├── scripts.js
 ├── server.js
 ├── site.webmanifest
 ├── styles.css
 ├── tailwind.config.js
-├── vercel-python.json.txt
-├── vercel.json
-├── vercel.json.txt
-└── vercel2.json.txt
+├── tmp
+│   ├── data
+│   └── img
+├── tree.txt
+└── vercel.json
 
-42 directories, 233 files
+46 directories, 223 files
