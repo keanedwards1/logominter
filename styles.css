@@ -1038,7 +1038,7 @@ box-shadow: 20px 20px 60px #e8e7e6;
 
 .fourth-section {
   position: relative;
-  background-color: #f3f1e8;
+background: linear-gradient(to bottom, transparent, #f3f1e8);
   z-index: 997;
 }
 
