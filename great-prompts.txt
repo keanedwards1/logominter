@@ -1,1 +1,7 @@
 LogoRedmAF, Icons Visualize a night scene where stars illuminate the sky above the gentle Hawaiian waters. A single ukulele is being played by a person on a small wooden boat, floating aimlessly under a moonlit sky, capturing the song's dreamlike and peaceful essence.
+
+
+
+  const prompt = `Imagine a simple logo using the style of vector art with a mono-colored background that matches or contrasts the color scheme of the logo of ${imageOfInput.value}. In the background, there is a simple drawing of ${backgroundInput.value},
+                  with pronounced ${colorSelect.value}, and bathed in a beautiful ${lightingSelect.value} lighting. 
+                  The style is reminiscent of ${styleSelect.value}, in the artistic style of ${artistSelect.value}.`;

@@ -1,19 +1,34 @@
 # TODO
 
-## [3/16/24] Kean - Make A Blog Section
+## Where I left off:
+While it's technically possible to add an IP address to a .env file on the frontend and load it, it's generally not recommended for a few reasons:
 
-- This if for SEO purposes
-- unsure whether to include in header of all html
-- super open ended project
+Security: .env files are typically used for sensitive information, and storing them on the client-side (frontend) makes them accessible to anyone who can view your website's source code.
+Reliability: IP addresses can change, especially if you're using a dynamic IP. Having a hardcoded IP in your frontend could lead to connectivity issues if the IP changes.
+Best Practices: Environment variables in .env files are typically used in server-side code, not client-side JavaScript.
 
-## [3/16/24] Kean - Make Dropdown Pricing
+Instead of storing the IP address in a frontend .env file, here are some better alternatives:
 
-- Pretty Open Ended
-- Nice, Clean, Look
-  
-## [3/16/24] Kean - Make Hamburger Menu When Browser Width Is Narrow Enough
+Use a domain name: Instead of an IP address, use a domain name that points to your server. This is more flexible and user-friendly.
+Store the IP or domain in a configuration file: You can create a separate configuration file (like config.js) that stores your server address. This makes it easier to update if needed.
+Use environment variables during build time: If you're using a build tool like webpack, you can use environment variables during the build process to inject the IP address into your code.
+Fetch the server address from your backend: Have a simple endpoint on your server that returns the correct address to use. This allows you to change the address server-side without updating the frontend code.
 
-- Simple Enough
-- I have an implementation with the html, css, and js that I can copy paste.
+In your specific case, you're making a request to 'http://:5000/generate'. Instead of hardcoding this, you could create a config.js file:
+javascriptCopy// config.js
+export const SERVER_URL = 'http://:5000';
+Then in your main JavaScript file:
+javascriptCopyimport { SERVER_URL } from './config.js';
+
+// ...
+
+async function sendPromptOne() {
+  // ...
+  const response = await fetch(`${SERVER_URL}/generate`, {
+    // ...
+  });
+  // ...
+}
+
 
 ...

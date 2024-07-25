@@ -31,10 +31,10 @@
 │   │   │   ├── Design_a_logo_inspired_by_the_repetitive_patterns_of_Romanesco.png
 │   │   │   ├── Design_a_logo_using_the_fractal_pattern_of_a_snowflake,.png
 │   │   │   ├── Develop_a_logo_inspired_by_the_branching_patterns_of_trees,.png
-│   │   │   ├── create_a_logo_based_on_fractal_art,_specifically_inspired_by.png
-│   │   │   ├── create_a_logo_based_on_fractal_art,_using_a_Mandelbrot.png
-│   │   │   ├── create_a_logo_that_incorporates_the_fractal_patterns_of_lightning.png
-│   │   │   └── create_a_logo_that_resembles_the_intricate_spirals_of_a.png
+│   │   │   ├── Generate_a_logo_based_on_fractal_art,_specifically_inspired_by.png
+│   │   │   ├── Generate_a_logo_based_on_fractal_art,_using_a_Mandelbrot.png
+│   │   │   ├── Generate_a_logo_that_incorporates_the_fractal_patterns_of_lightning.png
+│   │   │   └── Generate_a_logo_that_resembles_the_intricate_spirals_of_a.png
 │   │   ├── logo-concurrent.py
 │   │   ├── logo-simple.js
 │   │   ├── logo-simple.py
@@ -202,7 +202,21 @@
 │   │   │   ├── image-6.png
 │   │   │   ├── image-7.png
 │   │   │   ├── image-8.png
-│   │   │   └── image-9.png
+│   │   │   ├── image-9.png
+│   │   │   ├── resize-images.py
+│   │   │   └── sm
+│   │   │       ├── resized_free-logo.png
+│   │   │       ├── resized_image-1.png
+│   │   │       ├── resized_image-10.png
+│   │   │       ├── resized_image-11.png
+│   │   │       ├── resized_image-2.png
+│   │   │       ├── resized_image-3.png
+│   │   │       ├── resized_image-4.png
+│   │   │       ├── resized_image-5.png
+│   │   │       ├── resized_image-6.png
+│   │   │       ├── resized_image-7.png
+│   │   │       ├── resized_image-8.png
+│   │   │       └── resized_image-9.png
 │   │   └── social
 │   │       ├── intagram-logo.svg
 │   │       ├── tiktok-logo.svg
@@ -232,7 +246,6 @@
 │   ├── example3.webp
 │   └── example4.jpg
 ├── index.html
-├── keyword-searches.txt
 ├── logo-minter-android-chrome-192x192.png
 ├── logo-minter-android-chrome-512x512.png
 ├── logo-minter-apple-touch-icon.png
@@ -244,6 +257,7 @@
 ├── logominter-sitemap.xml
 ├── logos
 │   └── 13.png
+├── model-setup.txt
 ├── package.json
 ├── public
 │   ├── archive
@@ -268,4 +282,4 @@
 ├── tree.txt
 └── vercel.json
 
-46 directories, 223 files
+47 directories, 236 files

@@ -36,14 +36,15 @@
   <link rel="mask-icon" href="/logo-minter-safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-<meta http-equiv="Content-Security-Policy" content="
+  <meta http-equiv="Content-Security-Policy" content="
   default-src 'self'; 
   script-src 'self' https://js.stripe.com 'unsafe-inline'; 
   style-src 'self' 'unsafe-inline'; 
-  connect-src 'self' https://api.stripe.com; 
-  img-src 'self' data:; 
+  connect-src 'self' https://api.stripe.com http://146.190.132.152:5000; 
+  img-src 'self' data: blob:; 
   frame-src 'self' https://js.stripe.com; 
-  font-src 'self' https://js.stripe.com https://js.stripe.com/type-font/Colfax-Medium.woff;">  
+  font-src 'self' https://js.stripe.com;">
+
   <script src="https://js.stripe.com/v3/"></script>
   <script type="application/ld+json">
       {
@@ -277,20 +278,19 @@
         <form class="wizard-form">
           <!--           <div class="title">Welcome,<br><span>sign up to continue</span></div>
         -->
-        <div class="description-grid">
-          <div class="input-logo-design-1-wrapper">
-            <div class="input-title input-title-1">Describe your logo in as much detail as possible.
+          <div class="description-grid">
+            <div class="input-logo-design-1-wrapper">
+              <div class="input-title input-title-1">Describe your logo in as much detail as possible.
+              </div>
+              <input type="Image Of" placeholder="A deer in a meadow, a skyscraper at sunset" name="Image Of"
+                class="input input-logo-design-1">
             </div>
-            <input type="Image Of"
-              placeholder="A deer in a meadow, a skyscraper at sunset" name="Image Of"
-              class="input input-logo-design-1">
+            <div class="input-logo-design-1-wrapper">
+              <div class="input-title description-title-2">Background?</div>
+              <input type="Background" placeholder="Mountains, birds, a blue background" name="Background"
+                class="input input-logo-design-1">
+            </div>
           </div>
-          <div class="input-logo-design-1-wrapper">
-            <div class="input-title description-title-2">Background?</div>
-            <input type="Background" placeholder="Mountains, birds, a blue background" name=""
-              class="input input-logo-design-1">
-          </div>
-        </div>
 
           <div class="logo-creation-grid">
 
@@ -329,7 +329,7 @@
             </div>
 
             <!-- Style and Technique -->
-<div class="input-wrapper">
+            <div class="input-wrapper">
               <div class="input-title">Style</div>
               <select class="input input-logo-design-2" title="style and technique">
                 <option value="">sans</option>
@@ -353,7 +353,7 @@
             </div>
 
             <!-- Emotion and Atmosphere -->
-<!--            <div class="input-wrapper">
+            <!--            <div class="input-wrapper">
               <div class="input-title">Atmosphere</div>
               <select class="input input-logo-design-2" title="emotion and atmosphere">
                 <option value="">sans</option>
@@ -399,10 +399,10 @@
                 <option value="Vincent van Gogh">Vincent van Gogh</option>
               </select>
             </div>
-            
+
 
             <!-- Composition -->
-<!--            <div class="input-wrapper">
+            <!--            <div class="input-wrapper">
               <div class="input-title">Composition</div>
               <select class="input input-logo-design-2" title="composition">
                 <option value="">sans</option>
@@ -477,6 +477,11 @@
         </a>
       </div>
 
+      <div id="generated-logo-container" style="display: none; margin-top: 20px;">
+        <h3>Your Generated Logo:</h3>
+        <img id="generated-logo" src="" alt="Generated Logo" style="max-width: 100%; height: auto;">
+      </div>
+
       <!--<div class="home-button-wrapper">
         <a onclick="sendPromptOne()" class="button-link">  onclick="firstLogoOption()"" rel="noopener" target="_blank" href="https://buy.stripe.com/aEUcNpdCB8uw5AAeV0"
           <span class="button-top">Submit</span>
@@ -489,7 +494,7 @@
   <script src="/frontend/js/wizard.js"></script>
   <script defer src="/frontend/js/toggle-sample.js"></script>
   <script src="/frontend/js/option-1-prompt.js"> </script>
-  
+
 
 </body>
 

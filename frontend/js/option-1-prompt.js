@@ -1,4 +1,57 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function() {
+  const submitButton = document.getElementById('submit-button');
+  submitButton.addEventListener('click', sendPromptOne);
+});
+
+async function sendPromptOne() {
+  const imageOfInput = document.querySelector('input[name="Image Of"]');
+  const backgroundInput = document.querySelector('input[name="Background"]');
+  const colorSelect = document.querySelector('select[title="color"]');
+  const lightingSelect = document.querySelector('select[title="lighting and time of day"]');
+  const styleSelect = document.querySelector('select[title="style and technique"]');
+  const artistSelect = document.querySelector('select[title="artist"]');
+
+  const prompt = `Imagine a simple logo using the style of vector art with a mono-colored background of ${imageOfInput.value}. In the background, there is ${backgroundInput.value},
+                  with pronounced ${colorSelect.value}, and bathed in a beautiful ${lightingSelect.value} lighting. 
+                  The style is reminiscent of ${styleSelect.value}, in the artistic style of ${artistSelect.value}.`;
+
+  try {
+    const response = await fetch('http://youripaddress:5000/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ prompt: prompt }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const blob = await response.blob();
+    const imageUrl = URL.createObjectURL(blob);
+    
+    const generatedLogo = document.getElementById('generated-logo');
+    if (generatedLogo) {
+      generatedLogo.src = imageUrl;
+    } else {
+      console.error('Element with id "generated-logo" not found');
+    }
+    
+    const logoContainer = document.getElementById('generated-logo-container');
+    if (logoContainer) {
+      logoContainer.style.display = 'block';
+    } else {
+      console.error('Element with id "generated-logo-container" not found');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred while generating the logo. Please try again.');
+  }
+}
+
+
+/* document.addEventListener("DOMContentLoaded", function () {
   const submitButton = document.getElementById("submit-button");
   const stripe = Stripe(
     "pk_test_51OxMMsAXpFBkWrM5u2vjHetldxTDnQuy5QTlNrWWgswAbhdrGVUtl6VUFT7NbIKpEtJet9OusmvVmsHpEUHwvS8g00mtMhzn5m"
@@ -37,11 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         const atmosphere = atmosphereElement ? atmosphereElement.value : "";
 
-/*         const techniqueElement = document.querySelector(
-          'select[title="technique"]'
-        );
-        const technique = techniqueElement ? techniqueElement.value : ""; */
-
         const artistElement = document.querySelector(
           'select[title="artist"]'
         );
@@ -65,57 +113,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return prompt;
       }
 
-      // try {
-
-      // const response = await fetch('/api/option-1', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify({ prompt: prompt })
-      // });
-
-
-
       const jsonPrompt = JSON.stringify(prompt);
       console.log("JSON Prompt: " + jsonPrompt);
 
       localStorage.setItem("prompt", jsonPrompt);
 
-
-
-      // if (!response.ok) {
-      //   const errorText = await response.text();
-      //   throw new Error(errorText);
-      // }
-
-      // const data = await response.json();
-      // console.log(data); // Debugging
-
-      // if (data.status === 'processing') {
-      //   console.log('Image generation started successfully.');
-
-
-
-/*       stripe.redirectToCheckout({
-        lineItems: [{ price: "price_1PINdIAXpFBkWrM5oJ41r2lg", quantity: 1 }],
-        mode: "payment",
-        // clientReferenceId: data.requestId, // Pass requestId as reference
-        successUrl:
-          window.location.origin +
-          "/public/success.html?requestId=" + 1222,
-        cancelUrl: window.location.origin + "/public/option-1.html",
-      }); */
-
-
-
-      /*         } else {
-          alert('Image generation failed: ' + data.message);
-        } */
-      // } catch (error) {
-      //   console.error('Image generation error:', error);
-      //   alert('An error occurred: ' + error.message);
-      // }
     });
   }
 });
+ */
