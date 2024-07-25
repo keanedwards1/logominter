@@ -16,12 +16,11 @@
 }
 
 .wizard-card-title {
-  font-size: 25px;
   color: rgb(44, 44, 44);
-  font-weight: 900;
-  font-size: 28px;
+  font-weight: 400;
+  font-size:28px;
   margin-bottom: 5px;
-  text-decoration: underline;
+  font-family:'Gambetta', serif !important;
   margin-left: -4rem;
   text-align: center;
 }
@@ -54,7 +53,7 @@
     --font-color-sub: #494949;
     --bg-color: #fff;
     --main-color: #323232;
-    padding: 20px;
+    padding: 30px;
     background: rgb(244, 223, 67);
     background: #f7f1c7;
     background: #ffffff;
@@ -69,7 +68,7 @@
     height: 82%;
     font-family: Tiempos, sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: normal-pulsate 5s infinite;
+/*     animation: normal-pulsate 5s infinite; */
   }
 
   .wizard-form:hover {
@@ -122,6 +121,8 @@
     grid-template-columns: repeat(2, 2fr);
     width: 100%;
     gap: 1rem;
+    margin-top: 25px;
+    margin-bottom: 12px;
   }
 
   @media (max-width: 1050px) {
@@ -143,9 +144,28 @@
     font-style: bold;
   }
 
-.input-title > :nth-child(-n+2) {
-  text-align: left;
-}
+  .input-title > :nth-child(-n+2) {
+    text-align: left;
+  }
+
+/*   .input-title-1 {
+    margin-top:20px !important;
+  } */
+
+
+  .description-grid {
+    width: 100%;
+    margin-left: 7px;
+    margin-top: 7px;
+  }
+
+  .description-title-2 {
+    margin-top: 20px;
+  }
+
+  .input-logo-design-1-wrapper {
+    text-align: left;
+  }
   
   .login-with {
     display: flex;
@@ -164,7 +184,7 @@
 
   .input-logo-design-1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to the transition */
-    margin-top: 5px;
+    margin-top: 12px;
     width: 100%;
     box-shadow: 1px 3px var(--main-color); /* Larger shadow to appear higher */
   }
@@ -184,6 +204,7 @@
   .input-logo-design-2:hover {
     transform: translateY(-2px);
     box-shadow: 1px 5px var(--main-color); /* Smaller shadow to mimic stationary shadow */
+    cursor: pointer;
   }
   
   .button-log:active, .button-confirm:active {

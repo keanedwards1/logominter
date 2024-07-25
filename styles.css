@@ -401,7 +401,7 @@ visibility: visible;
 .image-1 {
   background-size: cover;
   background-position: center;
-  background-image: url('/frontend/images/logos-page/image-5.png');
+  background-image: url('/frontend/images/logos-page/sm/resized_image-5.png');
   width: 100px;
   height: 100px;
   
@@ -410,28 +410,28 @@ visibility: visible;
 .image-2 {
   background-size: cover;
   background-position: center;
-  background-image: url('/frontend/images/logos-page/image-2.png');
+  background-image: url('/frontend/images/logos-page/sm/resized_image-2.png');
   width: 110px;
   height: 100px;}
 
 .image-3 {
   background-size: cover;
   background-position: center;
-  background-image: url('/frontend/images/logos-page/image-3.png');
+  background-image: url('/frontend/images/logos-page/sm/resized_image-3.png');
   width: 130px;
   height: 100px;}
 
 .image-4 {
   background-size: cover;
   background-position: center;
-  background-image: url('/frontend/images/logos-page/image-6.png');
+  background-image: url('/frontend/images/logos-page/sm/resized_image-6.png');
   width: 100px;
   height: 100px;}
 
 .image-5 {
   background-size: cover;
   background-position: center;
-  background-image: url('/frontend/images/logos-page/image-7.png');
+  background-image: url('/frontend/images/logos-page/sm/resized_image-7.png');
   width: 100px;
   height: 100px;}
 
@@ -584,7 +584,7 @@ logo-slider > div img {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #f8f8f8;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 600ms ease, box-shadow 600ms ease-in-out;
   z-index: 1;
   width: 100%;
 }
@@ -594,7 +594,7 @@ text-align: center;
 }
 
 .pricing-card:hover {
-  transform: scale(1.015);
+  transform: scale(1.01);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -1497,14 +1497,14 @@ footer {
   font-family: 'Gambetta', serif !important;
   text-transform: uppercase;
   letter-spacing: 0px;
-  transition: 1500ms ease;
+  transition: 800ms ease;
   font-variation-settings: "wght" 311;
   text-decoration: none;
 }
 
 .logo-menu h1:hover {
   font-variation-settings: "wght" 582; 
-  letter-spacing: 4px;
+  letter-spacing: 0.5px;
 }
 
 hero.logo-menu {

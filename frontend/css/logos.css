@@ -224,8 +224,8 @@ body {
 
 .logos-pricing-card:hover {
   box-shadow: 4px 6px var(--main-color);
-  transform: translateY(-2px);
-  cursor: pointer;
+/*   transform: translateY(-2px);
+ */  cursor: pointer;
 }
 
 /* .logos-pricing-card:last-child {

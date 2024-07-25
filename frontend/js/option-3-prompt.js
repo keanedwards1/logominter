@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (data.file_path) {
                 const img = document.createElement('img');
                 img.src = data.file_path.replace('../', '/');
-                img.alt = 'Generated Logo';
+                img.alt = 'created Logo';
                 document.getElementById('result').appendChild(img);
             }
         } catch (error) {
