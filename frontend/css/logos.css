@@ -245,7 +245,7 @@ body {
 .img1 {
   background-size: cover;
   background-position: center;
-  background-image: url('/frontend/images/logos-page/image-1.png');
+  background-image: url('/frontend/images/logos-page/sm/resized_image-1.png');
   width: 100px;
   height: 100px;
 }
@@ -253,21 +253,21 @@ body {
 .img2 {
   background-size: cover;
   background-position: center;
-  background-image: url('/frontend/images/logos-page/image-2.png');
+  background-image: url('/frontend/images/logos-page/sm/resized_image-2.png');
   width: 110px;
   height: 100px;}
 
 .img3 {
   background-size: cover;
   background-position: center;
-  background-image: url('/frontend/images/logos-page/image-3.png');
+  background-image: url('/frontend/images/logos-page/sm/resized_image-3.png');
   width: 130px;
   height: 100px;}
 
 .img4 {
   background-size: cover;
   background-position: center;
-  background-image: url('/frontend/images/logos-page/image-4.png');
+  background-image: url('/frontend/images/logos-page/sm/resized_image-4.png');
   width: 100px;
   height: 100px;}
 
