@@ -16,7 +16,7 @@ async function sendPromptOne() {
                   The style is reminiscent of ${styleSelect.value}, in the artistic style of ${artistSelect.value}.`;
 
   try {
-    const response = await fetch('http://youripaddress:5000/generate', {
+    const response = await fetch('http://146.190.132.152:5000/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

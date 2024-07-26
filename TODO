@@ -14,9 +14,9 @@ Store the IP or domain in a configuration file: You can create a separate config
 Use environment variables during build time: If you're using a build tool like webpack, you can use environment variables during the build process to inject the IP address into your code.
 Fetch the server address from your backend: Have a simple endpoint on your server that returns the correct address to use. This allows you to change the address server-side without updating the frontend code.
 
-In your specific case, you're making a request to 'http://:5000/generate'. Instead of hardcoding this, you could create a config.js file:
+In your specific case, you're making a request to 'http://yourserverip:5000/generate'. Instead of hardcoding this, you could create a config.js file:
 javascriptCopy// config.js
-export const SERVER_URL = 'http://:5000';
+export const SERVER_URL = 'http://yourserverip:5000';
 Then in your main JavaScript file:
 javascriptCopyimport { SERVER_URL } from './config.js';
 
