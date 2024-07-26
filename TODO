@@ -32,3 +32,7 @@ async function sendPromptOne() {
 
 
 ...
+
+## Make changes to the home page largeness of the center element (make it larger)
+
+## Clone the project and make a version of it that has the selector for how many images you want from the option-1.html and delete option-2, option-3, and option-4
