@@ -206,7 +206,7 @@
 │   │   │   ├── resize-images.py
 │   │   │   └── sm
 │   │   │       ├── resized_free-logo.png
-│   │   │       ├── resized_image-1.png
+│   │   │       ├── resized_image-1.png`
 │   │   │       ├── resized_image-10.png
 │   │   │       ├── resized_image-11.png
 │   │   │       ├── resized_image-2.png
