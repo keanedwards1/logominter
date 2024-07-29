@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/frontend/css/logos.css" />
   <link rel="stylesheet" href="/frontend/css/wizard.css" />
-  <link rel="stylesheet" href="/public/output.css"/>
+  <link rel="stylesheet" href="/public/output.css" />
   <!-- don't link /frontend/css/sample-images.css here unless you want to/ need to do a bunch of refactoring -->
 
   <link rel="apple-touch-icon" sizes="180x180" href="/logo-minter-apple-touch-icon.png">
@@ -210,8 +210,23 @@
         -->
           <div class="description-grid">
             <div class="input-logo-design-1-wrapper">
-              <div class="input-title input-title-1">Describe your logo in as much detail as possible.
+
+              <div class="flex flex-row justify-between w-full">
+                <div class="input-title input-title-1">Describe your logo in as much detail as possible.
+                </div>
+                <div class="input-logo-design-1-wrapper input-logo-design-12-wrapper !text-right">
+                  <div class="input-title description-title-3"># of versions?</div>
+                  <select class="custom-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="7">7</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
               </div>
+
               <input type="Image Of" placeholder="A deer in a meadow, a skyscraper at sunset" name="Image Of"
                 class="input input-logo-design-1">
             </div>
@@ -220,6 +235,8 @@
               <input type="Background" placeholder="Mountains, birds, a blue background" name="Background"
                 class="input input-logo-design-1">
             </div>
+
+
           </div>
 
           <div class="logo-creation-grid">
@@ -423,47 +440,47 @@
 
   <footer class="footer">
     <div class="footer-top">
-        <p class="flex flex-row"> <!--create quality logos.<br>-->
-            <img style="width: 30px; height: 30px; margin-bottom: -6px; margin-right: 10px;"
-                src="/frontend/images/logos/logo-beige.png" alt="Logo">
-            Logo Minter
-            <!--         create a unique logo in minutes.-->
-        </p>
-        <div class="footer-icons">
-            <a class="footer-icon" href="#"><img src="/frontend/images/social/youtube-logo.svg" alt="YouTube"></a>
-            <a class="footer-icon" target="_blank" rel="noopener" href="https://www.instagram.com/logominter_/">
-                <img src="/frontend/images/social/intagram-logo.svg" alt="Instagram"></a>
-            <a class="footer-icon" href="#"><img src="/frontend/images/social/x-logo.svg.png" alt="X"></a>
-            <a class="footer-icon" href="#"><img src="/frontend/images/social/tiktok-logo.svg" alt="TikTok"></a>
+      <p class="flex flex-row"> <!--create quality logos.<br>-->
+        <img style="width: 30px; height: 30px; margin-bottom: -6px; margin-right: 10px;"
+          src="/frontend/images/logos/logo-beige.png" alt="Logo">
+        Logo Minter
+        <!--         create a unique logo in minutes.-->
+      </p>
+      <div class="footer-icons">
+        <a class="footer-icon" href="#"><img src="/frontend/images/social/youtube-logo.svg" alt="YouTube"></a>
+        <a class="footer-icon" target="_blank" rel="noopener" href="https://www.instagram.com/logominter_/">
+          <img src="/frontend/images/social/intagram-logo.svg" alt="Instagram"></a>
+        <a class="footer-icon" href="#"><img src="/frontend/images/social/x-logo.svg.png" alt="X"></a>
+        <a class="footer-icon" href="#"><img src="/frontend/images/social/tiktok-logo.svg" alt="TikTok"></a>
 
-        </div>
+      </div>
     </div>
 
     <div class="footer-bottom">
-        <div class="footer-section">
-            <h4>About</h4>
-            <a href="/public/blog.html">Blog ✍️</a>
-            <a href="/home#pricing-grid" class="pricing-menu">Pricing</a>
-            <a href="#">How it Works</a>
-            <a href="#">API Documentation</a>
-        </div>
-        <div class="footer-section">
-            <h4>Help</h4>
-            <a href="#">FAQ</a>
-            <a href="#">Resources</a>
-            <a href="/home#use-cases">Use Cases</a>
-            <a href="#">Video Tutorials</a>
-        </div>
+      <div class="footer-section">
+        <h4>About</h4>
+        <a href="/public/blog.html">Blog ✍️</a>
+        <a href="/home#pricing-grid" class="pricing-menu">Pricing</a>
+        <a href="#">How it Works</a>
+        <a href="#">API Documentation</a>
+      </div>
+      <div class="footer-section">
+        <h4>Help</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Resources</a>
+        <a href="/home#use-cases">Use Cases</a>
+        <a href="#">Video Tutorials</a>
+      </div>
 
-        <div class="footer-section">
-            <h4>Company</h4>
-            <a href="/public/legal.html">Legal</a>
-            <a href="#">Affiliate program 💅</a>
-            <a href="#">LogoMinter vs Looka</a>
-            <a href="#">LogoMinter vs LogoAi</a>
-        </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="/public/legal.html">Legal</a>
+        <a href="#">Affiliate program 💅</a>
+        <a href="#">LogoMinter vs Looka</a>
+        <a href="#">LogoMinter vs LogoAi</a>
+      </div>
     </div>
-</footer>
+  </footer>
 
   <script src="/frontend/js/wizard.js"></script>
   <script defer src="/frontend/js/toggle-sample.js"></script>
