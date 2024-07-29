@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="/frontend/css/logos.css" />
   <link rel="stylesheet" href="/frontend/css/wizard.css" />
   <link rel="stylesheet" href="/public/output.css"/>
+  <!-- don't link /frontend/css/sample-images.css here unless you want to/ need to do a bunch of refactoring -->
+
   <link rel="apple-touch-icon" sizes="180x180" href="/logo-minter-apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/logo-minter-favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/logo-minter-favicon-16x16.png">
@@ -112,54 +114,49 @@
     <div id="hero-wrapper" <section class="hero">
 
       <div class="sample-card">
-        <section class="more-samples">
 
-          <div class="sample-logo-menu-wrapper">
-            <div class="hero logo-menu sample-logo-menu">
-              <h1>Samples</h1>
-            </div>
+        <div class="sample-logo-menu-wrapper">
+          <div class="hero logo-menu sample-logo-menu">
+            <h1>Samples</h1>
           </div>
+        </div>
 
-          <div id="pricing-grid" class="pricing-grid sample-image-grid">
-            <img src="/frontend/images/logos/samples/1.png" alt="Sample Image 1">
-            <img src="/frontend/images/logos/samples/2.png" alt="Sample Image 2">
-            <img src="/frontend/images/logos/samples/3.png" alt="Sample Image 3">
-            <img src="/frontend/images/logos/samples/4.png" alt="Sample Image 4">
-            <img src="/frontend/images/logos/samples/5.png" alt="Sample Image 5">
-            <img src="/frontend/images/logos/samples/6.png" alt="Sample Image 6">
-            <img src="/frontend/images/logos/samples/7.png" alt="Sample Image 7">
-            <img src="/frontend/images/logos/samples/8.png" alt="Sample Image 8">
-            <img src="/frontend/images/logos/samples/9.png" alt="Sample Image 9">
-            <img src="/frontend/images/logos/samples/10.png" alt="Sample Image 10">
-            <img src="/frontend/images/logos/samples/11.png" alt="Sample Image 11">
-            <img src="/frontend/images/logos/samples/12.png" alt="Sample Image 12">
-            <img src="/frontend/images/logos/samples/13.png" alt="Sample Image 13">
-            <img src="/frontend/images/logos/samples/14.png" alt="Sample Image 14">
-            <img src="/frontend/images/logos/samples/15.png" alt="Sample Image 15">
-            <img src="/frontend/images/logos/samples/16.png" alt="Sample Image 16">
-            <img src="/frontend/images/logos/samples/17.png" alt="Sample Image 17">
-            <img src="/frontend/images/logos/samples/18.png" alt="Sample Image 18">
-            <img src="/frontend/images/logos/samples/19.png" alt="Sample Image 19">
-            <img src="/frontend/images/logos/samples/20.png" alt="Sample Image 20">
-            <img src="/frontend/images/logos/samples/21.png" alt="Sample Image 21">
-            <img src="/frontend/images/logos/samples/22.png" alt="Sample Image 22">
-            <img src="/frontend/images/logos/samples/23.png" alt="Sample Image 23">
-            <img src="/frontend/images/logos/samples/24.png" alt="Sample Image 24">
-            <img src="/frontend/images/logos/samples/25.png" alt="Sample Image 25">
-            <img src="/frontend/images/logos/samples/26.png" alt="Sample Image 26">
-            <img src="/frontend/images/logos/samples/27.png" alt="Sample Image 27">
-            <img src="/frontend/images/logos/samples/28.png" alt="Sample Image 28">
-            <img src="/frontend/images/logos/samples/29.png" alt="Sample Image 29">
-            <img src="/frontend/images/logos/samples/30.png" alt="Sample Image 30">
-            <img src="/frontend/images/logos/samples/31.png" alt="Sample Image 31">
-            <img src="/frontend/images/logos/samples/32.png" alt="Sample Image 32">
-            <img src="/frontend/images/logos/samples/33.png" alt="Sample Image 33">
-            <img src="/frontend/images/logos/samples/34.png" alt="Sample Image 34">
-          </div>
-
-          <section class="features">
-          </section>
-
+        <div id="pricing-grid" class="pricing-grid sample-image-grid">
+          <img loading="lazy" src="/frontend/images/logos/samples/1.png" alt="Sample Image 1">
+          <img loading="lazy" src="/frontend/images/logos/samples/2.png" alt="Sample Image 2">
+          <img loading="lazy" src="/frontend/images/logos/samples/3.png" alt="Sample Image 3">
+          <img loading="lazy" src="/frontend/images/logos/samples/4.png" alt="Sample Image 4">
+          <img loading="lazy" src="/frontend/images/logos/samples/5.png" alt="Sample Image 5">
+          <img loading="lazy" src="/frontend/images/logos/samples/6.png" alt="Sample Image 6">
+          <img loading="lazy" src="/frontend/images/logos/samples/7.png" alt="Sample Image 7">
+          <img loading="lazy" src="/frontend/images/logos/samples/8.png" alt="Sample Image 8">
+          <img loading="lazy" src="/frontend/images/logos/samples/9.png" alt="Sample Image 9">
+          <img loading="lazy" src="/frontend/images/logos/samples/10.png" alt="Sample Image 10">
+          <img loading="lazy" src="/frontend/images/logos/samples/11.png" alt="Sample Image 11">
+          <img loading="lazy" src="/frontend/images/logos/samples/12.png" alt="Sample Image 12">
+          <img loading="lazy" src="/frontend/images/logos/samples/13.png" alt="Sample Image 13">
+          <img loading="lazy" src="/frontend/images/logos/samples/14.png" alt="Sample Image 14">
+          <img loading="lazy" src="/frontend/images/logos/samples/15.png" alt="Sample Image 15">
+          <img loading="lazy" src="/frontend/images/logos/samples/16.png" alt="Sample Image 16">
+          <img loading="lazy" src="/frontend/images/logos/samples/17.png" alt="Sample Image 17">
+          <img loading="lazy" src="/frontend/images/logos/samples/18.png" alt="Sample Image 18">
+          <img loading="lazy" src="/frontend/images/logos/samples/19.png" alt="Sample Image 19">
+          <img loading="lazy" src="/frontend/images/logos/samples/20.png" alt="Sample Image 20">
+          <img loading="lazy" src="/frontend/images/logos/samples/21.png" alt="Sample Image 21">
+          <img loading="lazy" src="/frontend/images/logos/samples/22.png" alt="Sample Image 22">
+          <img loading="lazy" src="/frontend/images/logos/samples/23.png" alt="Sample Image 23">
+          <img loading="lazy" src="/frontend/images/logos/samples/24.png" alt="Sample Image 24">
+          <img loading="lazy" src="/frontend/images/logos/samples/25.png" alt="Sample Image 25">
+          <img loading="lazy" src="/frontend/images/logos/samples/26.png" alt="Sample Image 26">
+          <img loading="lazy" src="/frontend/images/logos/samples/27.png" alt="Sample Image 27">
+          <img loading="lazy" src="/frontend/images/logos/samples/28.png" alt="Sample Image 28">
+          <img loading="lazy" src="/frontend/images/logos/samples/29.png" alt="Sample Image 29">
+          <img loading="lazy" src="/frontend/images/logos/samples/30.png" alt="Sample Image 30">
+          <img loading="lazy" src="/frontend/images/logos/samples/31.png" alt="Sample Image 31">
+          <img loading="lazy" src="/frontend/images/logos/samples/32.png" alt="Sample Image 32">
+          <img loading="lazy" src="/frontend/images/logos/samples/33.png" alt="Sample Image 33">
+          <img loading="lazy" src="/frontend/images/logos/samples/34.png" alt="Sample Image 34">
+        </div>
       </div>
 
       <div class="pricing-popup">
@@ -167,78 +164,20 @@
           <h1>Pricing</h1>
         </div>
         <section class="pricing pricing-menu-popup">
-          <div class="pricing-grid">
 
-            <a href="/public/option-1.html" class="pricing-card">
-              <h2>A Single<br> Logo</h2>
-              <p class="price">$6.00</p>
-              <ul>
-                <li class="pricing-first-li">1 Logo</li>
-                <li>Below Market Price</li>
-                <li>Starter Package</li>
-              </ul>
-              <button type="button" class="button-link pricing-grid-button">
-                <span class="button-top">Choose</span>
-              </button>
-            </a>
-
-            <a href="/public/option-2.html" class="pricing-card">
-              <h2>A Handful<br>Of Logos</h2>
-              <p class="price">$8.00</p>
-              <ul>
-                <li class="pricing-first-li">3 Logos</li>
-                <li>Save $4</li>
-                <li>Try Different Looks</li>
-              </ul>
-              <!--               <button class="pricing-grid-button">
-                <span> Choose
-                </span>
-              </button> -->
-              <button type="button" class="button-link pricing-grid-button">
-                <span class="button-top">Choose</span>
-              </button>
-            </a>
-
-            <a href="/public/option-3.html" class="pricing-card">
-              <h2>A Bundle<br> Of Logos</h2>
-              <p class="price">$10.00</p>
-              <ul>
-                <li class="pricing-first-li">7 Logos</li>
-                <li>Save $18</li>
-                <li>To Find The <br>Best Of The Best</li>
-              </ul>
-              <div href="/public/home.html" class="button-link pricing-grid-button">
-                <span class="button-top">Choose</span>
-              </div>
-            </a>
-
-            <a href="/public/option-4.html" class="pricing-card">
-              <h2>Custom Logos</h2>
-              <p class="price">$20.00 +</p>
-              <ul>
-
-                <li class="pricing-first-li">
-                  Up to 10 Logos
-                </li>
-
-                <li>
-                  Up to 2 revisions on each
-                </li>
-
-                <li>
-                  Hire Our Professional Team <br>to Make Quality Logos in <br>Exactly the Style You Need
-                </li>
-
-              </ul>
-              <button type="button" class="button-link pricing-grid-button">
-                <span class="button-top">Choose</span>
-              </button>
-            </a>
-
-          </div>
-
-          <section class="features">
-          </section>
+          <h2 class="pricing-title-home-page">
+            <div class="flex flex-col gap-10 justify-between">
+              <li class="flex justify-between pricing-li">Each Logo costs you $3.00 plus 1.50 for each iteration
+                <span>🐋</span>
+              </li>
+              <li class="flex justify-between pricing-li">You own the rights to the images you create <span>🥳</span>
+              </li>
+              <li class="flex justify-between pricing-li">Garenteed to get a cool looking and 100% original logo
+                <span>🐉</span>
+              </li>
+              <li class="flex justify-between pricing-li">Please share my site with your friends if you like the image
+                you get ! <span class="fourth-emoji">🫸🫷</span></li>
+            </div>
 
       </div>
 

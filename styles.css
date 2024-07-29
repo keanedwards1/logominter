@@ -472,11 +472,16 @@ visibility: visible;
   }
 
 .home-button-wrapper {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   justify-content: center;
+}
+
+.sample-image-grid img {
+  box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
+  border-radius: 20px;
 }
 
 .button-link {
@@ -595,16 +600,16 @@ logo-slider > div img {
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 3rem;
-  column-gap: 3rem;
+  gap: 45px;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto 60px auto;
+/*   max-width: 1200px;
+ */  margin: 0 auto 60px auto;
   align-items: center;
   justify-items: center;
   justify-content: center;
-  transform: scale(0.8);
-  margin-top: -60px;
+  transform: scale(1.0);
+  margin-top: 40px;
+  position: static;
 }
 
 .pricing-card {
@@ -619,8 +624,8 @@ logo-slider > div img {
   background-color: #f8f8f8;
   transition: transform 600ms ease, box-shadow 600ms ease-in-out;
   z-index: 1;
-  width: 100%;
-  height: max-content;
+  width: min-content;
+  height: min-content;
 }
 
 .pricing-card p, .pricing-card p.price {
@@ -724,26 +729,11 @@ text-align: center;
     font-weight: 600;
   }
 
-/* .pricing-card .button-link {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  background-color: #C3C8DE;
-  color: #000000;
-  text-decoration: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-.pricing-card:hover .button-link {
-  background-color: #787b87;
-  color: white;
-} */
-
 /* Media Queries */
 @media  (min-width: 1200px) {
   .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
+    padding: 0 140px;
   }
 }
 
@@ -762,9 +752,9 @@ text-align: center;
 @media (max-width: 768px) {
   .pricing-grid {
     grid-template-columns: 1fr;
-    transform: scale(0.9);
+    transform: scale(1.0);
     gap: 2.5rem;
-  }
+}
 }
 
 
@@ -1297,264 +1287,6 @@ footer {
   }
 }
 
-
-
-/* Different button options */
-
-
-
-/* 
-.pricing-grid-button {
-  position: relative;
-  height: 50px;
-  padding: 0 30px;
-  border: 2px solid #000;
-  background: #f8f8f8;
-  -webkit-user-select: none;
-  user-select: none;
-  white-space: nowrap;
-  transition: all .02s linear;
-  font-family: inherit;
-  margin-top: 20px;
-  cursor: default;
- }
- 
- .pricing-grid-button:before, .pricing-grid-button:after {
-  content: "";
-  position: absolute;
-  background: #f8f8f8;
-  transition: all .2s linear;
- }
- 
- .pricing-grid-button:before {
-  width: calc(100% + 16px);
-  height: calc(100% - 16px);
-  top: 8px;
-  left: -3px;
- }
- 
- .pricing-grid-button:after {
-  width: calc(100% - 16px);
-  height: calc(100% + 10px);
-  top: -3px;
-  left: 8px;
- }
-
- .pricing-grid-button:hover {
-  cursor: pointer;
- }
- 
- .pricing-grid-button:active {
-  transform: scale(0.95);
- }
- 
- .pricing-grid-button:hover:before {
-  height: calc(100% - 32px);
-  top: 16px;
- }
- 
- .pricing-grid-button:hover:after {
-  width: calc(100% - 32px);
-  left: 16px;
- }
- 
- .pricing-grid-button span {
-  font-size: 15px;
-  z-index: 3;
-  position: relative;
-  font-weight: 600;
- } */
-
-
-
-/*  .pricing-grid-button {
-  font-size: 18px;
-  color: #1b1b1b;
-  font-family: inherit;
-  font-weight: 300;
-  font-style: bold;
-  cursor: pointer;
-  position: relative;
-  border: none;
-  background: none;
-  text-transform: uppercase;
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 400ms;
-  transition-property: color;
-}
-
-.pricing-grid-button:focus,
-.pricing-grid-button:hover {
-  color: #000000;
-}
-
-.pricing-grid-button:focus:after,
-.pricing-grid-button:hover:after {
-  width: 100%;
-  left: 0%;
-}
-
-.pricing-grid-button:after {
-  content: "";
-  pointer-events: none;
-  bottom: -2px;
-  left: 50%;
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background-color: #000000;
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 400ms;
-  transition-property: width, left;
-} */
-
-/* .pricing-grid-button {
-  align-items: center;
-  appearance: none;
-  background-color: #FCFCFD;
-  border-radius: 4px;
-  border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,rgba(45, 35, 66, 0.15) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #36395A;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
-  height: 43px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
-  -webkit-user-select: none;
-  user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
-  margin-top: 20px;
- }
- 
- .pricing-grid-button:focus {
-  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
- }
- 
- .pricing-grid-button:hover {
-  box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px, rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-  transform: translateY(-2px);
- }
- 
- .pricing-grid-button:active {
-  box-shadow: #D6D6E7 0 3px 7px inset;
-  transform: translateY(2px);
- } */
-
-/*  .pricing-grid-button {
-  width: 100%;
-  height: 20vh;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .pushable {
-  position: relative;
-  background: transparent;
-  padding: 0px;
-  border: none;
-  cursor: pointer;
-  outline-offset: 4px;
-  outline-color: deeppink;
-  transition: filter 650ms;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  tap-highlight-color: rgba(0, 0, 0, 0); /* For non-webkit browsers 
-}
-
-.shadow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: hsl(226, 25%, 69%);
-  border-radius: 8px;
-  filter: blur(2px);
-  will-change: transform;
-  transform: translateY(2px);
-  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-}
-
-.edge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border-radius: 8px;
-  background: linear-gradient(
-    to right,
-    hsl(248, 39%, 39%) 0%,
-    hsl(248, 39%, 49%) 8%,
-    hsl(248, 39%, 39%) 92%,
-    hsl(248, 39%, 29%) 100%
-  );
-}
-
-.front {
-  display: block;
-  position: relative;
-  border-radius: 8px;
-  background: hsl(248, 53%, 58%);
-  background: hsl(240, 20%, 98%);
-  padding: 16px 32px;
-  color: rgb(0, 0, 0);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 1rem;
-  transform: translateY(-4px);
-  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
-}
-
-.pushable:hover {
-  filter: brightness(110%);
-}
-
-.pushable:hover .front {
-  transform: translateY(-6px);
-  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-}
-
-.pushable:active .front {
-  transform: translateY(-2px);
-  transition: transform 34ms;
-}
-
-.pushable:hover .shadow {
-  transform: translateY(6px);
-  transition: transform 650ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
-}
-
-.pushable:active .shadow {
-  transform: translateY(1px);
-  transition: transform 34ms;
-}
-
-.pushable:focus:not(:focus-visible) {
-  outline: none;
-}
- */
-
 .pricing-title h1 {
   font-size: 90px;
   text-transform: uppercase;
@@ -1647,6 +1379,10 @@ hero.logo-menu-under-heading  {
   }
 }
 
+.fourth-emoji {
+  white-space: nowrap;
+}
+
 .sample-logos {
   margin-top: 50px;
   margin-bottom: -30px;
@@ -1665,7 +1401,7 @@ hero.logo-menu-under-heading  {
   width: 80%;
   height: 75vh;
   border-radius: 20px;
-  margin-top: -50px;
+  margin-top: -30px;
   background: #f8f5f0;
   transition: box-shadow 0.3s ease-in-out;
   box-shadow: 20px 20px 60px rgb(190, 190, 190), -20px -20px 60px rgb(247, 247, 247);
@@ -1715,7 +1451,7 @@ hero.logo-menu-under-heading  {
   width: 80%;
   height: 75vh;
   border-radius: 20px;
-  margin-bottom: 0px;
+  margin-top: -30px;
   background: #f8f5f0;
   transition: box-shadow 0.3s ease-in-out;
   box-shadow: 20px 20px 60px rgb(190, 190, 190), -20px -20px 60px rgb(247, 247, 247);
