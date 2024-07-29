@@ -27,6 +27,7 @@
     content="Discover the easiest way to create your brand's logo with LogoMinter. Use AI to design a unique logo that stands out.">
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/frontend/css/sample-images.css" />
+  <link rel="stylesheet" href="/public/output.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="/logo-minter-apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/logo-minter-favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/logo-minter-favicon-16x16.png">
@@ -148,8 +149,8 @@
       </p>
 
       <div class="home-button-wrapper">
-        <a href="/public/option-1.html" class="button-link">
-          <span class="button-top">Let's Do It</span>
+        <a href="/public/option-1.html" class="button-link button-link-home-top">
+          <span class="button-top">Let's Do It !</span>
         </a>
       </div>
 
@@ -160,7 +161,7 @@
 
       </section>
       <div class="sample-card">
-        <section class="more-samples">
+        <div class="">
 
           <div class="sample-logo-menu-wrapper">
             <div class="hero logo-menu sample-logo-menu">
@@ -205,8 +206,7 @@
             <img src="/frontend/images/logos/samples/34.png" alt="Sample Image 34">
           </div>
 
-          <section class="features">
-          </section>
+        </div>
 
       </div>
 
@@ -215,20 +215,50 @@
           <h1>Pricing</h1>
         </div>
         <section class="pricing pricing-menu-popup">
-          <div class="pricing-grid">
 
-            <a href="/public/option-1.html" class="pricing-card">
-              <h2>A Single<br> Logo</h2>
-              <p class="price">$6.00</p>
-              <ul>
-                <li class="pricing-first-li">1 Logo</li>
-                <li>Below Market Price</li>
-                <li>Starter Package</li>
-              </ul>
-              <button type="button" class="button-link pricing-grid-button">
-                <span class="button-top">Choose</span>
-              </button>
-            </a>
+          <h2 class="pricing-title-home-page">
+            <div class="flex flex-col gap-10 justify-between">
+              <li class="flex justify-between pricing-li">Each Logo costs $3.00 + 1.50 for each iteration
+                <span>🐋</span></li>
+              <li class="flex justify-between pricing-li">You own the rights to the images you create <span>🥳</span>
+              </li>
+              <li class="flex justify-between pricing-li">Garenteed to get a cool looking and 100% original logo
+                <span>🐉</span></li>
+              <li class="flex justify-between pricing-li">Please share my site with your friends if you like the image
+                you get ! <span>🫸🫷</span></li>
+            </div>
+
+
+            <!--           <div class="pricing-grid">
+
+          <a href="/public/option-1.html" class="pricing-card-2">
+            <h2>Minimalistic logo<br> </h2>
+            <p class="price">$3</p>
+            <ul>
+              <li class="pricing-first-li">1 Logo</li>
+              <li>+ $1.50</li>
+              <li>For each version on top of that</li>
+            </ul>
+            <button type="button" class="button-link pricing-grid-button">
+              <span class="button-top">Choose</span>
+            </button>
+          </a>
+
+          <a href="/public/option-1.html" class="pricing-card-2">
+            <h2>Minimalistic logo<br> </h2>
+            <p class="price">$3.00</p>
+            <ul>
+              <li class="pricing-first-li">1 Logo</li>
+              <li>+ $1.50</li>
+              <li>For each version on top of that</li>
+            </ul>
+            <button type="button" class="button-link pricing-grid-button">
+              <span class="button-top">Choose</span>
+            </button>
+          </a>
+          </div> -->
+
+            <!-- <div class="pricing-grid">
 
             <a href="/public/option-2.html" class="pricing-card">
               <h2>A Handful<br>Of Logos</h2>
@@ -238,10 +268,10 @@
                 <li>Save $4</li>
                 <li>Try Different Looks</li>
               </ul>
-              <!--               <button class="pricing-grid-button">
+                             <button class="pricing-grid-button">
                 <span> Choose
                 </span>
-              </button> -->
+              </button> 
               <button type="button" class="button-link pricing-grid-button">
                 <span class="button-top">Choose</span>
               </button>
@@ -281,14 +311,14 @@
               <button type="button" class="button-link pricing-grid-button">
                 <span class="button-top">Choose</span>
               </button>
-            </a>
-
-          </div>
-
-          <section class="features">
-          </section>
+            </a> -->
 
       </div>
+
+      <section class="features">
+      </section>
+
+    </div>
 
     </div>
     </section>
@@ -449,7 +479,7 @@
 
         <a class="pricing-card shift-down alt-pricing-card">
           <p class="use-p">
-            & your branding 😌
+            or your branding 😌
           </p>
           <img class="example-img use-3" src="/images/example4.jpg" alt="Example 1">
         </a>
@@ -517,7 +547,7 @@
         <div id="fourth-section-div-2">
           <div class="home-button-wrapper">
             <a href="/public/option-1.html" class="button-link">
-              <span class="button-top">I'd love to try it out</span>
+              <span class="button-top">I'd love to try it out ↗</span>
             </a>
           </div>
         </div>
@@ -543,7 +573,7 @@
       </div>
     </div>
 
-<!--     <div class="footer-bottom">
+    <!--     <div class="footer-bottom">
       <div class="footer-section">
         <h4>About</h4>
         <a href="/public/blog.html">Blog ✍️</a>
@@ -605,7 +635,8 @@
     </div>
   </div>
 
-  <script defer src="/scripts.js"></script>
+  <!--   <script defer src="/scripts.js"></script>
+ -->
   <script defer src="/frontend/js/toggle-sample.js"></script>
   <script defer src="/frontend/js/toggle-pricing.js"></script>
   <script defer src="/frontend/js/comparison.js"></script>

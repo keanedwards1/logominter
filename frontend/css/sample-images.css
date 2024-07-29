@@ -6,11 +6,77 @@
     padding: 20px 0 0 0;
 }
 
+.more-samples {
+    height: min-content;
+    z-index: 9999;
+}
+
+.sample-logo-menu-wrapper {
+    width: 100%;
+}
+
+.sample-card {
+    padding: 20px 0 0 0;
+}
+
+.sample-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px;
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    transform: scale(1);
+    margin-top: -735px;
+    margin-bottom: -535px;
+}
+
+.sample-image-grid img {
+    width: 25rem;
+    height: min-content;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
 @media screen and (max-width: 768px) {
     .sample-card {
-        padding: 20px 15px 40px 15px
+        padding: 20px 15px 40px 15px;
     }
 }
+
+@media (max-width: 1090px) {
+    .sample-image-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 934px) {
+    .sample-logo-menu h1 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 600px) {
+    .sample-logo-menu h1 {
+        font-size: 24px;
+    }
+
+    .sample-image-grid {
+        gap: 1rem;
+    }
+
+    .sample-image-grid {
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sample-card {
+        padding: 20px 15px 40px 15px;
+    }
 
 .sample-image-grid {
     display: grid;
@@ -22,136 +88,40 @@
     align-items: center;
     justify-items: center;
     justify-content: center;
-    transform: scale(0.8);
-    margin-top: -735px;
-    margin-bottom: -535px;
+    transform: scale(1);
     margin-left: 0;
     margin-right: 0;
-  }
+}
 
-  .sample-image-grid img {
-    width: 25rem; 
-    height: 25rem; 
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); 
+.sample-image-grid img {
+    width: 25rem;
+    height: min-content;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
 }
 
+}
 
-  
-  @media (max-width: 1090px) {
+@media (max-width: 1090px) {
     .sample-image-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
-        margin-top: -1805px;
-        margin-bottom: -1605px;
-      }
-      .sample-image-grid img {
-        width: 60vh; 
-        height: 60vh; 
-      }
-  }
+    }
 
-  @media (max-width: 934px) {
+    .sample-image-grid img {
+        width: 60vh;
+        height: min-content;
+    }
+}
+
+@media (max-width: 934px) {
     .sample-logo-menu h1 {
         font-size: 34px;
     }
-  }
-  
-  
-  @media (max-width: 600px) {
+}
 
+@media (max-width: 600px) {
     .sample-logo-menu h1 {
         font-size: 24px;
     }
-
-    .sample-image-grid {
-        margin-top: -1255px;
-        margin-bottom: -1055px;
-    }
-
-
-    .sample-image-grid img {
-        width: 40vh; 
-        height: 40vh; 
-      }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .sample-logo-menu-wrapper {
-      width: 100%;
-  }
-  
-  .sample-card {
-      padding: 20px 0 0 0;
-  }
-  
-  .sample-image-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 45px;
-      width: calc(100% - 40px); 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      align-items: center;
-      justify-items: center;
-      justify-content: center;
-      transform: scale(0.8);
-      margin-top: -735px;
-      margin-bottom: -535px;
-  }
-  
-  .sample-image-grid img {
-      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-      border-radius: 20px;
-  }
-  
-  @media screen and (max-width: 768px) {
-      .sample-card {
-          padding: 20px 15px 40px 15px;
-      }
-  }
-    
-  @media (max-width: 1090px) {
-      .sample-image-grid {
-          grid-template-columns: 1fr;
-          gap: 2.5rem;
-          margin-top: -1805px;
-          margin-bottom: -1605px;
-      }
-  }
-  
-  @media (max-width: 934px) {
-      .sample-logo-menu h1 {
-          font-size: 34px;
-      }
-  }
-    
-  @media (max-width: 600px) {
-      .sample-logo-menu h1 {
-          font-size: 24px;
-      }
-  
-      .sample-image-grid {
-          gap: 1rem;
-      }
-
-      .sample-image-grid {
-        margin-top: -1175px;
-        margin-bottom: -975px;
-    }
-  }
+}

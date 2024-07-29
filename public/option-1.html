@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/frontend/css/logos.css" />
   <link rel="stylesheet" href="/frontend/css/wizard.css" />
+  <link rel="stylesheet" href="/public/output.css"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/logo-minter-apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/logo-minter-favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/logo-minter-favicon-16x16.png">
@@ -36,16 +37,6 @@
   <link rel="mask-icon" href="/logo-minter-safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-  <meta http-equiv="Content-Security-Policy" content="
-  default-src 'self'; 
-  script-src 'self' https://js.stripe.com 'unsafe-inline'; 
-  style-src 'self' 'unsafe-inline'; 
-  connect-src 'self' https://api.stripe.com http://146.190.132.152:5000; 
-  img-src 'self' data: blob:; 
-  frame-src 'self' https://js.stripe.com; 
-  font-src 'self' https://js.stripe.com;">
-
-  <script src="https://js.stripe.com/v3/"></script>
   <script type="application/ld+json">
       {
         "@context": "http://schema.org",
@@ -258,7 +249,7 @@
         </div>
 
         <div class="next">
-          <a onclick="sendPromptOne()">🌻 Create Your Logo →</a> <!-- onclick="firstLogoOption()" -->
+          <a onclick="sendPromptOne()">🌻 Create Your Logo Now →</a> <!-- onclick="firstLogoOption()" -->
           <!-- rel="noopener" target="_blank" href="https://buy.stripe.com/aEUcNpdCB8uw5AAeV0" -->
         </div>
 
@@ -271,7 +262,7 @@
         </script>
 
         <div class="wizard-card-title-container">
-          <div class="wizard-card-title">Design Your Logo✨</div>
+          <div class="wizard-card-title">Logo Creation Station</div>
           <!--           <div class="wizard-card-subtitle">Create and design your logo for free using our logo maker tool.</div>
         -->
         </div>
