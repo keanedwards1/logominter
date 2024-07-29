@@ -238,15 +238,14 @@ select.input {
 
 
 .sample-card, .pricing-popup {
-  margin-top: -170px;
   overflow-y: auto;
 }
 
-.overlay.show {
-  height: 98.3% !important;
+.overlay {
+  height: 95.3% !important;
 }
 
-@media (max-width: 1250px) {
+/* @media (max-width: 1250px) {
   .sample-card, .pricing-popup {
     margin-top: -150px;
   }
@@ -267,12 +266,12 @@ select.input {
 @media (max-width: 600px) {
   .sample-card, .pricing-popup {
     margin-top: -350px;
-  }
+  } 
 
   .overlay.show {
     
   }
-}
+}*/
 
 .home-button-wrapper {
   justify-self: center;

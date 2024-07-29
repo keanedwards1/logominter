@@ -1,5 +1,5 @@
 // Shared overlay and event handler initialization
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const toggleSampleCardLink = document.querySelector('.samples-menu');
     const togglePricingCardLink = document.querySelector('.pricing-menu');
     const sampleCard = document.querySelector('.sample-card');
@@ -16,22 +16,38 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.style.top = '63px';
         overlay.style.left = '0';
         overlay.style.width = '100%';
-        overlay.style.height = '98.45%';
+        overlay.style.height = '100vh';
         overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
         overlay.style.zIndex = '998';
         document.body.appendChild(overlay);
     }
 
+    // Function to disable scrolling
+    function disableScroll() {
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+    }
+
+    // Function to enable scrolling
+    function enableScroll() {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+    }
+
     function updateOverlayVisibility() {
         if (sampleCard.classList.contains('show') || pricingCard.classList.contains('show')) {
             overlay.classList.add('show');
+            disableScroll();
         } else {
             overlay.classList.remove('show');
+            enableScroll();
         }
     }
 
     // Toggle visibility of the sample card
-    toggleSampleCardLink.addEventListener('click', function(e) {
+    toggleSampleCardLink.addEventListener('click', function (e) {
         e.preventDefault();
         sampleCard.classList.toggle('show');
         pricingCard.classList.remove('show'); // Ensure pricing card is closed
@@ -41,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Toggle visibility of the pricing card
-    togglePricingCardLink.addEventListener('click', function(e) {
+    togglePricingCardLink.addEventListener('click', function (e) {
         e.preventDefault();
         pricingCard.classList.toggle('show');
         sampleCard.classList.remove('show'); // Ensure sample card is closed
@@ -51,24 +67,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Hide both cards and overlay when overlay is clicked
-    overlay.addEventListener('click', function() {
+    overlay.addEventListener('click', function () {
         sampleCard.classList.remove('show');
         pricingCard.classList.remove('show');
         updateOverlayVisibility();
     });
 
-navbar.addEventListener('click', function(e) {
-    // Check if the clicked target is not one of the menu items
-    if (!toggleSampleCardLink.contains(e.target) && !togglePricingCardLink.contains(e.target)) {
-        // Only hide the overlay if it's currently showing
-        if (overlay.classList.contains('show')) {
-            overlay.classList.remove('show');
-            sampleCard.classList.remove('show');
-            pricingCard.classList.remove('show');
-            updateOverlayVisibility();
+    navbar.addEventListener('click', function (e) {
+        // Check if the clicked target is not one of the menu items
+        if (!toggleSampleCardLink.contains(e.target) && !togglePricingCardLink.contains(e.target)) {
+            // Only hide the overlay if it's currently showing
+            if (overlay.classList.contains('show')) {
+                overlay.classList.remove('show');
+                sampleCard.classList.remove('show');
+                pricingCard.classList.remove('show');
+                updateOverlayVisibility();
+            }
         }
-    }
-});
+    });
 });
 
 
