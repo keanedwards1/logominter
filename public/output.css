@@ -1140,7 +1140,7 @@ visibility: visible;
   font-size: 22px;
   font-weight: 400;
   margin-bottom: 40px;
-  margin-top: 14px;
+  margin-top: 6px;
   width: 80%;
 }
 
@@ -1656,6 +1656,7 @@ logo-slider > div img {
   background-color: rgb(236, 228, 228);
   background-color: #f1efe3;
   color: rgb(61, 61, 61);
+  width: 100%;
 }
 
 .use-p {
@@ -1965,6 +1966,11 @@ footer {
 
 .footer-icons a {
   margin-right: 10px;
+}
+
+.footer-icons {
+  display: flex;
+  flex-direction: row;
 }
 
 .footer-icons img {
