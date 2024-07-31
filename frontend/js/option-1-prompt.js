@@ -13,7 +13,42 @@ document.addEventListener('DOMContentLoaded', function () {
   } else if (logoContainer) {
     logoContainer.style.display = 'none';
   }
+
+  const downloadButton = document.getElementById('download-button');
+  if (downloadButton) {
+    downloadButton.addEventListener('click', downloadCurrentImage);
+  } else {
+    console.error('Download button not found');
+  }
 });
+
+
+function downloadCurrentImage() {
+  // Try to get the image from localStorage first
+  let imageData = localStorage.getItem('savedLogo');
+
+  // If not in localStorage, get it from the img element
+  if (!imageData) {
+    const generatedLogo = document.getElementById('generated-logo');
+    if (generatedLogo && generatedLogo.src) {
+      imageData = generatedLogo.src;
+    }
+  }
+
+  // If we have image data, initiate the download
+  if (imageData) {
+    const link = document.createElement('a');
+    link.href = imageData;
+    link.download = 'generated_logo.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } else {
+    console.error('No image data found to download');
+    alert('No image available to download. Please generate a logo first.');
+  }
+}
+
 
 async function sendPromptOne() {
   const imageOfInput = document.querySelector('input[name="Image Of"]');
