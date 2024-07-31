@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const generatedLogo = document.getElementById('generated-logo');
   const logoContainer = document.getElementById('generated-logo-container');
+  const loaderContainer = document.getElementById('loader-container');
 
   // Check for saved image on page load
   const savedImageData = localStorage.getItem('savedLogoData');
@@ -14,15 +15,16 @@ document.addEventListener('DOMContentLoaded', function () {
       if (generatedLogo && logoContainer) {
         generatedLogo.src = image;
         logoContainer.style.display = 'flex';
+        loaderContainer.style.display = 'none';
       }
     } else {
       localStorage.removeItem('savedLogoData');
-      if (logoContainer) {
-        logoContainer.style.display = 'none';
-      }
+      logoContainer.style.display = 'none';
+      loaderContainer.style.display = 'none';
     }
-  } else if (logoContainer) {
+  } else {
     logoContainer.style.display = 'none';
+    loaderContainer.style.display = 'none';
   }
 
   const downloadButton = document.getElementById('download-button');
@@ -65,6 +67,34 @@ function downloadCurrentImage() {
 }
 
 async function sendPromptOne() {
+  const submitButton = document.getElementById('submit-button');
+  const statusMessage = document.getElementById('status-message');
+  
+  // Disable the submit button and show "Generating..." text
+  submitButton.classList.add('disabled');
+  submitButton.querySelector('.button-top').textContent = 'Generating...';
+
+  // Initialize counter
+  let counter = 15;
+
+  // Function to update status message
+  function updateStatusMessage() {
+    if (submitButton.classList.contains('disabled')) {
+      statusMessage.textContent = `Estimated time to generate logo: ${counter} seconds`;
+      statusMessage.style.display = 'block';
+      statusMessage.style.color = 'black';
+      
+      if (counter > 0) {
+        counter--;
+        setTimeout(updateStatusMessage, 1000); // Update every second
+      }
+    }
+  }
+
+  // Start updating status message
+  updateStatusMessage();
+
+  // Rest of your code remains the same
   const imageOfInput = document.querySelector('input[name="Image Of"]');
   const backgroundInput = document.querySelector('input[name="Background"]');
   const colorSelect = document.querySelector('select[title="color"]');
@@ -75,6 +105,10 @@ async function sendPromptOne() {
   const prompt = `Imagine a simple logo using the style of vector art with a mono-colored background of ${imageOfInput.value}. In the background, there is ${backgroundInput.value},
                   with pronounced ${colorSelect.value}, and bathed in a beautiful ${lightingSelect.value} lighting. 
                   The style is reminiscent of ${styleSelect.value}, in the artistic style of ${artistSelect.value}.`;
+
+  // Show loader
+  document.getElementById('generated-logo-container').style.display = 'none';
+  document.getElementById('loader-container').style.display = 'flex';
 
   try {
     const response = await fetch('https://api.logominter.com/generate', {
@@ -111,17 +145,37 @@ async function sendPromptOne() {
         console.error('Element with id "generated-logo" not found');
       }
 
+      // Hide loader and show logo container
+      document.getElementById('loader-container').style.display = 'none';
       if (logoContainer) {
         logoContainer.style.display = 'flex';
       } else {
         console.error('Element with id "generated-logo-container" not found');
       }
+
+      // Reset submit button
+      submitButton.classList.remove('disabled');
+      submitButton.querySelector('.button-top').textContent = 'Submit';
+
+      // Clear status message
+      statusMessage.style.display = 'none';
     }
 
     reader.readAsDataURL(blob);
   } catch (error) {
     console.error('Error:', error);
-    alert('An error occurred while generating the logo. Please try again.');
+    
+    // Display error message
+    statusMessage.textContent = 'An error occurred while generating the logo. Please try again.';
+    statusMessage.style.display = 'block';
+    statusMessage.style.color = 'red';
+
+    // Hide loader on error
+    document.getElementById('loader-container').style.display = 'none';
+
+    // Reset submit button
+    submitButton.classList.remove('disabled');
+    submitButton.querySelector('.button-top').textContent = 'Submit';
   }
 }
 
