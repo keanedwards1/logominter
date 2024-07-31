@@ -1427,12 +1427,15 @@ hero.logo-menu-under-heading  {
 }
 
 
-.pricing-popup {
+.pricing-popup, .sample-card {
   margin-top: 62px !important;
 }
 
-.sample-card {
-  margin-top: 62px !important;
+@media screen and (max-width: 868px) {
+  .sample-card, .pricing-popup {
+    margin-top: 80px !important;
+  }
+  
 }
 
 .sample-card.show, .pricing-popup.show {

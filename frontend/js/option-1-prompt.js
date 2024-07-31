@@ -6,10 +6,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const logoContainer = document.getElementById('generated-logo-container');
 
   // Check for saved image on page load
-  const savedImage = localStorage.getItem('savedLogo');
-  if (savedImage && generatedLogo && logoContainer) {
-    generatedLogo.src = savedImage;
-    logoContainer.style.display = 'flex';
+  const savedImageData = localStorage.getItem('savedLogoData');
+  if (savedImageData) {
+    const { image, timestamp } = JSON.parse(savedImageData);
+    const currentTime = new Date().getTime();
+    if (currentTime - timestamp < 3600000) { // 3600000 ms = 1 hour
+      if (generatedLogo && logoContainer) {
+        generatedLogo.src = image;
+        logoContainer.style.display = 'flex';
+      }
+    } else {
+      localStorage.removeItem('savedLogoData');
+      if (logoContainer) {
+        logoContainer.style.display = 'none';
+      }
+    }
   } else if (logoContainer) {
     logoContainer.style.display = 'none';
   }
@@ -22,12 +33,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-
 function downloadCurrentImage() {
-  // Try to get the image from localStorage first
-  let imageData = localStorage.getItem('savedLogo');
+  let imageData;
+  const savedImageData = localStorage.getItem('savedLogoData');
+  if (savedImageData) {
+    const { image, timestamp } = JSON.parse(savedImageData);
+    const currentTime = new Date().getTime();
+    if (currentTime - timestamp < 3600000) { // 3600000 ms = 1 hour
+      imageData = image;
+    }
+  }
 
-  // If not in localStorage, get it from the img element
   if (!imageData) {
     const generatedLogo = document.getElementById('generated-logo');
     if (generatedLogo && generatedLogo.src) {
@@ -35,7 +51,6 @@ function downloadCurrentImage() {
     }
   }
 
-  // If we have image data, initiate the download
   if (imageData) {
     const link = document.createElement('a');
     link.href = imageData;
@@ -48,7 +63,6 @@ function downloadCurrentImage() {
     alert('No image available to download. Please generate a logo first.');
   }
 }
-
 
 async function sendPromptOne() {
   const imageOfInput = document.querySelector('input[name="Image Of"]');
@@ -81,8 +95,12 @@ async function sendPromptOne() {
     reader.onloadend = function () {
       const base64data = reader.result;
 
-      // Save to local storage
-      localStorage.setItem('savedLogo', base64data);
+      // Save to local storage with timestamp
+      const savedLogoData = {
+        image: base64data,
+        timestamp: new Date().getTime()
+      };
+      localStorage.setItem('savedLogoData', JSON.stringify(savedLogoData));
 
       const generatedLogo = document.getElementById('generated-logo');
       const logoContainer = document.getElementById('generated-logo-container');
