@@ -1,6 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const submitButton = document.getElementById('submit-button');
   submitButton.addEventListener('click', sendPromptOne);
+
+  const generatedLogo = document.getElementById('generated-logo');
+  const logoContainer = document.getElementById('generated-logo-container');
+
+  // Check for saved image on page load
+  const savedImage = localStorage.getItem('savedLogo');
+  if (savedImage && generatedLogo && logoContainer) {
+    generatedLogo.src = savedImage;
+    logoContainer.style.display = 'flex';
+  } else if (logoContainer) {
+    logoContainer.style.display = 'none';
+  }
 });
 
 async function sendPromptOne() {
@@ -29,21 +41,31 @@ async function sendPromptOne() {
     }
 
     const blob = await response.blob();
-    const imageUrl = URL.createObjectURL(blob);
-    
-    const generatedLogo = document.getElementById('generated-logo');
-    if (generatedLogo) {
-      generatedLogo.src = imageUrl;
-    } else {
-      console.error('Element with id "generated-logo" not found');
+    const reader = new FileReader();
+
+    reader.onloadend = function () {
+      const base64data = reader.result;
+
+      // Save to local storage
+      localStorage.setItem('savedLogo', base64data);
+
+      const generatedLogo = document.getElementById('generated-logo');
+      const logoContainer = document.getElementById('generated-logo-container');
+
+      if (generatedLogo) {
+        generatedLogo.src = base64data;
+      } else {
+        console.error('Element with id "generated-logo" not found');
+      }
+
+      if (logoContainer) {
+        logoContainer.style.display = 'flex';
+      } else {
+        console.error('Element with id "generated-logo-container" not found');
+      }
     }
-    
-    const logoContainer = document.getElementById('generated-logo-container');
-    if (logoContainer) {
-      logoContainer.style.display = 'block';
-    } else {
-      console.error('Element with id "generated-logo-container" not found');
-    }
+
+    reader.readAsDataURL(blob);
   } catch (error) {
     console.error('Error:', error);
     alert('An error occurred while generating the logo. Please try again.');
