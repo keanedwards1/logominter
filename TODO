@@ -1,38 +1,15 @@
-# TODO
+## Ways to improve App
 
-## Where I left off:
-While it's technically possible to add an IP address to a .env file on the frontend and load it, it's generally not recommended for a few reasons:
+# Add login:
+-- with a paid tier with the ability of the llm to prompt 
+   the user to make their prompt for the logo more comprehensive
 
-Security: .env files are typically used for sensitive information, and storing them on the client-side (frontend) makes them accessible to anyone who can view your website's source code.
-Reliability: IP addresses can change, especially if you're using a dynamic IP. Having a hardcoded IP in your frontend could lead to connectivity issues if the IP changes.
-Best Practices: Environment variables in .env files are typically used in server-side code, not client-side JavaScript.
+-- be able to save images on first paid tier
+   have a lot of queries / month for first paid tier
 
-Instead of storing the IP address in a frontend .env file, here are some better alternatives:
-
-Use a domain name: Instead of an IP address, use a domain name that points to your server. This is more flexible and user-friendly.
-Store the IP or domain in a configuration file: You can create a separate configuration file (like config.js) that stores your server address. This makes it easier to update if needed.
-Use environment variables during build time: If you're using a build tool like webpack, you can use environment variables during the build process to inject the IP address into your code.
-Fetch the server address from your backend: Have a simple endpoint on your server that returns the correct address to use. This allows you to change the address server-side without updating the frontend code.
-
-In your specific case, you're making a request to 'http://yourserverip:5000/generate'. Instead of hardcoding this, you could create a config.js file:
-javascriptCopy// config.js
-export const SERVER_URL = 'http://yourserverip:5000';
-Then in your main JavaScript file:
-javascriptCopyimport { SERVER_URL } from './config.js';
-
-// ...
-
-async function sendPromptOne() {
-  // ...
-  const response = await fetch(`${SERVER_URL}/generate`, {
-    // ...
-  });
-  // ...
-}
+-- crazy paid tier gets infinite queries / month
+   get's custom color themes
+   maybe brainstorm some other things
 
 
-...
 
-## Make changes to the home page largeness of the center element (make it larger)
-
-## Clone the project and make a version of it that has the selector for how many images you want from the option-1.html and delete option-2, option-3, and option-4

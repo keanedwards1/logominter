@@ -1,121 +1,237 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const submitButton = document.getElementById('submit-button');
-  submitButton.addEventListener('click', sendPromptOne);
+// Pub/Sub Pattern implementation for event-driven architecture
+class EventEmitter {
+  constructor() {
+    this.events = {}; // Store event callbacks
+  }
 
-  const generatedLogo = document.getElementById('generated-logo');
-  const logoContainer = document.getElementById('generated-logo-container');
-  const loaderContainer = document.getElementById('loader-container');
+  // Register an event listener
+  on(eventName, callback) {
+    if (!this.events[eventName]) {
+      this.events[eventName] = [];
+    }
+    this.events[eventName].push(callback);
+  }
 
-  // Check for saved image on page load
-  const savedImageData = localStorage.getItem('savedLogoData');
-  if (savedImageData) {
-    const { image, timestamp } = JSON.parse(savedImageData);
-    const currentTime = new Date().getTime();
-    if (currentTime - timestamp < 3600000) { // 3600000 ms = 1 hour
-      if (generatedLogo && logoContainer) {
-        generatedLogo.src = image;
-        logoContainer.style.display = 'flex';
-        loaderContainer.style.display = 'none';
+  // Trigger an event
+  emit(eventName, data) {
+    const eventCallbacks = this.events[eventName];
+    if (eventCallbacks) {
+      eventCallbacks.forEach(callback => callback(data));
+    }
+  }
+}
+
+// Manages UI interactions and updates
+class UIManager extends EventEmitter {
+  constructor() {
+    super();
+    // Cache DOM elements for efficiency
+    this.elements = {
+      submitButton: document.getElementById('submit-button'),
+      logoContainer: document.getElementById('generated-logo-container'),
+      downloadButton: document.getElementById('download-button'),
+      statusMessage: document.getElementById('status-message')
+    };
+    this.bindEvents();
+  }
+
+  // Set up event listeners for UI elements
+  bindEvents() {
+    this.elements.submitButton.addEventListener('click', () => this.emit('submitClicked'));
+    this.elements.downloadButton.addEventListener('click', () => this.emit('downloadClicked'));
+  }
+
+  // Update submit button state and text
+  updateSubmitButton(isGenerating) {
+    this.elements.submitButton.classList.toggle('disabled', isGenerating);
+    this.elements.submitButton.querySelector('.button-top').textContent = isGenerating ? 'Generating...' : 'Submit';
+  }
+
+  // Update status message display
+  updateStatusMessage(message, isError = false) {
+    this.elements.statusMessage.textContent = message;
+    this.elements.statusMessage.style.display = 'block';
+    this.elements.statusMessage.style.color = isError ? 'red' : 'black';
+    this.elements.statusMessage.style.marginTop = '20px';
+  }
+
+  // Show Lottie loader
+  showLoader() {
+    const lottieLoader = `
+      <dotlottie-player 
+        src="https://lottie.host/f7e3c668-4a9f-4ffd-aa03-892c525e1407/N8z3EeoIjg.json" 
+        background="transparent" 
+        speed="1" 
+        style="width: 4000px; height: 400px;" 
+        loop 
+        autoplay>
+      </dotlottie-player>
+    `;
+    this.elements.logoContainer.innerHTML = lottieLoader;
+    this.elements.logoContainer.style.display = 'flex';
+  }
+
+  // Display generated logo
+  displayLogo(imageData) {
+    const img = document.createElement('img');
+    img.src = imageData;
+    img.alt = 'Generated Logo';
+    img.style.maxWidth = '100%';
+    img.style.height = 'auto';
+    
+    this.elements.logoContainer.innerHTML = '';
+    this.elements.logoContainer.appendChild(img);
+    this.elements.logoContainer.style.display = 'flex';
+    this.elements.statusMessage.style.display = 'none';
+  }
+
+  // Collect form values for logo generation
+  getFormValues() {
+    return {
+      imageOf: document.querySelector('input[name="Image Of"]').value,
+      background: document.querySelector('input[name="Background"]').value,
+      color: document.querySelector('select[title="color"]').value,
+      lighting: document.querySelector('select[title="lighting and time of day"]').value,
+      style: document.querySelector('select[title="style and technique"]').value,
+      artist: document.querySelector('select[title="artist"]').value
+    };
+  }
+}
+
+// Manages logo image data and storage
+class ImageManager {
+  constructor() {
+    this.savedImageKey = 'savedLogoData';
+  }
+
+  // Check for a previously saved image
+  checkSavedImage() {
+    const savedImageData = localStorage.getItem(this.savedImageKey);
+    if (savedImageData) {
+      const { image, timestamp } = JSON.parse(savedImageData);
+      const currentTime = new Date().getTime();
+      if (currentTime - timestamp < 3600000) { // 3600000 ms = 1 hour
+        return image;
+      } else {
+        this.clearSavedImage();
       }
-    } else {
-      localStorage.removeItem('savedLogoData');
-      logoContainer.style.display = 'none';
-      loaderContainer.style.display = 'none';
     }
-  } else {
-    logoContainer.style.display = 'none';
-    loaderContainer.style.display = 'none';
+    return null;
   }
 
-  const downloadButton = document.getElementById('download-button');
-  if (downloadButton) {
-    downloadButton.addEventListener('click', downloadCurrentImage);
-  } else {
-    console.error('Download button not found');
-  }
-});
-
-function downloadCurrentImage() {
-  let imageData;
-  const savedImageData = localStorage.getItem('savedLogoData');
-  if (savedImageData) {
-    const { image, timestamp } = JSON.parse(savedImageData);
-    const currentTime = new Date().getTime();
-    if (currentTime - timestamp < 3600000) { // 3600000 ms = 1 hour
-      imageData = image;
-    }
+  // Clear saved image data
+  clearSavedImage() {
+    localStorage.removeItem(this.savedImageKey);
   }
 
-  if (!imageData) {
-    const generatedLogo = document.getElementById('generated-logo');
-    if (generatedLogo && generatedLogo.src) {
-      imageData = generatedLogo.src;
-    }
+  // Save new image data
+  saveImage(imageData) {
+    const savedLogoData = {
+      image: imageData,
+      timestamp: new Date().getTime()
+    };
+    localStorage.setItem(this.savedImageKey, JSON.stringify(savedLogoData));
   }
 
-  if (imageData) {
+  // Get current image data (saved or from DOM)
+  getCurrentImageData() {
+    return this.checkSavedImage() || document.getElementById('generated-logo')?.src || null;
+  }
+
+  // Trigger image download
+  triggerDownload(imageData) {
     const link = document.createElement('a');
     link.href = imageData;
     link.download = 'generated_logo.png';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  } else {
-    console.error('No image data found to download');
-    alert('No image available to download. Please generate a logo first.');
   }
 }
 
-async function sendPromptOne() {
-  const submitButton = document.getElementById('submit-button');
-  const statusMessage = document.getElementById('status-message');
-  
-  // Disable the submit button and show "Generating..." text
-  submitButton.classList.add('disabled');
-  submitButton.querySelector('.button-top').textContent = 'Generating...';
+// Generates prompts for logo creation
+class PromptGenerator {
+  generatePrompt(formValues) {
+    const { imageOf, background, color, lighting, style, artist } = formValues;
+    return `Imagine a simple logo using the style of vector art with a mono-colored background of ${imageOf}. In the background, there is ${background},
+            with pronounced ${color}, and bathed in a beautiful ${lighting} lighting. 
+            The style is reminiscent of ${style}, in the artistic style of ${artist}.`;
+  }
+}
 
-  // Initialize counter
-  let counter = 20;
+// Main class orchestrating logo generation process
+class LogoGenerator {
+  constructor() {
+    this.uiManager = new UIManager();
+    this.imageManager = new ImageManager();
+    this.promptGenerator = new PromptGenerator();
+    this.countdownTimer = null;
+    this.bindEvents();
+  }
 
-  // Function to update status message
-  function updateStatusMessage() {
-    if (submitButton.classList.contains('disabled')) {
-      statusMessage.textContent = `Estimated time to generate logo: ${counter} seconds`;
-      statusMessage.style.display = 'block';
-      statusMessage.style.color = 'black';
-      
-      if (counter > 0) {
-        counter--;
-        setTimeout(updateStatusMessage, 1000); // Update every second
-      }
+  // Bind event listeners
+  bindEvents() {
+    this.uiManager.on('submitClicked', () => this.generateLogo());
+    this.uiManager.on('downloadClicked', () => this.downloadLogo());
+  }
+
+  // Initialize the application
+  initialize() {
+    const savedImage = this.imageManager.checkSavedImage();
+    if (savedImage) {
+      this.uiManager.displayLogo(savedImage);
     }
   }
 
-  // Start updating status message
-  updateStatusMessage();
+  // Generate a new logo
+  async generateLogo() {
+    this.uiManager.updateSubmitButton(true);
+    this.startCountdown();
+    this.uiManager.showLoader();
 
-  // Rest of your code remains the same
-  const imageOfInput = document.querySelector('input[name="Image Of"]');
-  const backgroundInput = document.querySelector('input[name="Background"]');
-  const colorSelect = document.querySelector('select[title="color"]');
-  const lightingSelect = document.querySelector('select[title="lighting and time of day"]');
-  const styleSelect = document.querySelector('select[title="style and technique"]');
-  const artistSelect = document.querySelector('select[title="artist"]');
+    try {
+      const formValues = this.uiManager.getFormValues();
+      const prompt = this.promptGenerator.generatePrompt(formValues);
+      const imageData = await this.fetchGeneratedLogo(prompt);
+      this.imageManager.saveImage(imageData);
+      this.uiManager.displayLogo(imageData);
+    } catch (error) {
+      this.handleError(error);
+    } finally {
+      this.stopCountdown();
+      this.uiManager.updateSubmitButton(false);
+    }
+  }
 
-  const prompt = `Imagine a simple logo using the style of vector art with a mono-colored background of ${imageOfInput.value}. In the background, there is ${backgroundInput.value},
-                  with pronounced ${colorSelect.value}, and bathed in a beautiful ${lightingSelect.value} lighting. 
-                  The style is reminiscent of ${styleSelect.value}, in the artistic style of ${artistSelect.value}.`;
+  // Start the countdown timer
+  startCountdown() {
+    let counter = 24;
+    this.stopCountdown(); // Clear any existing countdown
 
-  // Show loader
-  document.getElementById('generated-logo-container').style.display = 'none';
-  document.getElementById('loader-container').style.display = 'flex';
+    const updateStatusMessage = () => {
+      if (counter >= 0) {
+        this.uiManager.updateStatusMessage(`Estimated time to generate logo: ${counter} seconds`);
+        counter--;
+        this.countdownTimer = setTimeout(updateStatusMessage, 1000);
+      }
+    };
 
-  try {
+    updateStatusMessage();
+  }
+
+  // Stop the countdown timer
+  stopCountdown() {
+    if (this.countdownTimer) {
+      clearTimeout(this.countdownTimer);
+      this.countdownTimer = null;
+    }
+  }
+
+  // Fetch generated logo from API
+  async fetchGeneratedLogo(prompt) {
     const response = await fetch('https://api.logominter.com/generate', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: prompt }),
     });
 
@@ -124,130 +240,42 @@ async function sendPromptOne() {
     }
 
     const blob = await response.blob();
-    const reader = new FileReader();
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  }
 
-    reader.onloadend = function () {
-      const base64data = reader.result;
-
-      // Save to local storage with timestamp
-      const savedLogoData = {
-        image: base64data,
-        timestamp: new Date().getTime()
-      };
-      localStorage.setItem('savedLogoData', JSON.stringify(savedLogoData));
-
-      const generatedLogo = document.getElementById('generated-logo');
-      const logoContainer = document.getElementById('generated-logo-container');
-
-      if (generatedLogo) {
-        generatedLogo.src = base64data;
-      } else {
-        console.error('Element with id "generated-logo" not found');
-      }
-
-      // Hide loader and show logo container
-      document.getElementById('loader-container').style.display = 'none';
-      if (logoContainer) {
-        logoContainer.style.display = 'flex';
-      } else {
-        console.error('Element with id "generated-logo-container" not found');
-      }
-
-      // Reset submit button
-      submitButton.classList.remove('disabled');
-      submitButton.querySelector('.button-top').textContent = 'Submit';
-
-      // Clear status message
-      statusMessage.style.display = 'none';
-    }
-
-    reader.readAsDataURL(blob);
-  } catch (error) {
+  // Handle errors during logo generation
+  handleError(error) {
     console.error('Error:', error);
-    
-    // Display error message
-    statusMessage.textContent = 'An error occurred while generating the logo. Please try again.';
-    statusMessage.style.display = 'block';
-    statusMessage.style.color = 'red';
+    this.uiManager.updateStatusMessage('An error occurred while generating the logo. Please try again.', true);
+  }
 
-    // Hide loader on error
-    document.getElementById('loader-container').style.display = 'none';
-
-    // Reset submit button
-    submitButton.classList.remove('disabled');
-    submitButton.querySelector('.button-top').textContent = 'Submit';
+  // Download the current logo
+  downloadLogo() {
+    const imageData = this.imageManager.getCurrentImageData();
+    if (imageData) {
+      this.imageManager.triggerDownload(imageData);
+    } else {
+      this.uiManager.updateStatusMessage('No image available to download. Please generate a logo first.', true);
+    }
   }
 }
 
+// Initialize the application when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Load the Lottie player script
+  const script = document.createElement('script');
+  script.src = "https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs";
+  script.type = "module";
+  document.head.appendChild(script);
 
-/* document.addEventListener("DOMContentLoaded", function () {
-  const submitButton = document.getElementById("submit-button");
-  const stripe = Stripe(
-    "pk_test_51OxMMsAXpFBkWrM5u2vjHetldxTDnQuy5QTlNrWWgswAbhdrGVUtl6VUFT7NbIKpEtJet9OusmvVmsHpEUHwvS8g00mtMhzn5m"
-  );
-
-  if (submitButton) {
-    submitButton.addEventListener("click", async function () {
-      const prompt = gatherPrompt();
-
-      function gatherPrompt() {
-        const mainObjectElement = document.querySelector(
-          'input[name="Image Of"]'
-        );
-        const mainObject = mainObjectElement ? mainObjectElement.value : "";
-
-        const backgroundElement = document.querySelector(
-          'input[name="Background"]'
-        );
-        const background = backgroundElement ? backgroundElement.value : "";
-
-        const colorElement = document.querySelector('select[title="color"]');
-        const color = colorElement ? colorElement.value : "";
-
-        const lightingElement = document.querySelector(
-          'select[title="lighting and time of day"]'
-        );
-        const lighting = lightingElement ? lightingElement.value : "";
-
-        const styleElement = document.querySelector(
-          'select[title="style and technique"]'
-        );
-        const style = styleElement ? styleElement.value : "";
-
-        const atmosphereElement = document.querySelector(
-          'select[title="emotion and atmosphere"]'
-        );
-        const atmosphere = atmosphereElement ? atmosphereElement.value : "";
-
-        const artistElement = document.querySelector(
-          'select[title="artist"]'
-        );
-        const artist = artistElement ? artistElement.value : "";
-
-        const compositionElement = document.querySelector(
-          'select[title="composition"]'
-        );
-        const composition = compositionElement ? compositionElement.value : "";
-
-        let prompt = `Imagine a logo of ${mainObject}`;
-        if (atmosphere) prompt += `, with a ${atmosphere} atmostphere`;
-        if (lighting) prompt += `, and bathed in a beautiful ${lighting} lighting`;
-        if (background) prompt += `. In the background, there is ${background}`;
-        if (style) prompt += `. The style is reminiscent of ${style}`;
-        if (color) prompt += `, with pronounced ${color} perfectly capturing the mood of the scene`;
-        if (composition) prompt += `. The ${composition} composition draws the viewers eyes towards ${mainObject}`;
-        if (artist) prompt += `, in the artistic style of ${artist}`;
-
-        console.log("Normal Prompt: " + prompt); // Debugging
-        return prompt;
-      }
-
-      const jsonPrompt = JSON.stringify(prompt);
-      console.log("JSON Prompt: " + jsonPrompt);
-
-      localStorage.setItem("prompt", jsonPrompt);
-
-    });
-  }
+  // Initialize the LogoGenerator after ensuring the script is loaded
+  script.onload = () => {
+    const logoGenerator = new LogoGenerator();
+    logoGenerator.initialize();
+  };
 });
- */
