@@ -21,7 +21,7 @@ class EventEmitter {
   }
 }
 
-// Manages UI interactions and updates
+// Manages user interface
 class UIManager extends EventEmitter {
   constructor() {
     super();
@@ -29,6 +29,7 @@ class UIManager extends EventEmitter {
     this.elements = {
       submitButton: document.getElementById('submit-button'),
       logoContainer: document.getElementById('generated-logo-container'),
+      generatedLogo: document.getElementById('generated-logo'),
       downloadButton: document.getElementById('download-button'),
       statusMessage: document.getElementById('status-message')
     };
@@ -58,31 +59,42 @@ class UIManager extends EventEmitter {
   // Show Lottie loader
   showLoader() {
     const lottieLoader = `
+      <h3>Generating Your Logo 🚀</h3>
       <dotlottie-player 
         src="https://lottie.host/f7e3c668-4a9f-4ffd-aa03-892c525e1407/N8z3EeoIjg.json" 
         background="transparent" 
         speed="1" 
-        style="width: 4000px; height: 400px;" 
+        style="width: 400px; height: 400px;" 
         loop 
         autoplay>
       </dotlottie-player>
     `;
     this.elements.logoContainer.innerHTML = lottieLoader;
-    this.elements.logoContainer.style.display = 'flex';
+    this.elements.logoContainer.style.display = 'flex'; // Show the container
   }
 
   // Display generated logo
   displayLogo(imageData) {
-    const img = document.createElement('img');
-    img.src = imageData;
-    img.alt = 'Generated Logo';
-    img.style.maxWidth = '100%';
-    img.style.height = 'auto';
-    
-    this.elements.logoContainer.innerHTML = '';
-    this.elements.logoContainer.appendChild(img);
+    this.elements.logoContainer.innerHTML = `
+      <h3>Your Logo 🪐</h3>
+      <img id="generated-logo" src="${imageData}" alt="Generated Logo">
+      <div class="home-button-wrapper">
+        <a id="download-button" class="button-link">
+          <span class="button-top">Download</span>
+        </a>
+      </div>
+    `;
     this.elements.logoContainer.style.display = 'flex';
     this.elements.statusMessage.style.display = 'none';
+    
+    // Rebind the download button event as we've recreated it
+    this.elements.downloadButton = document.getElementById('download-button');
+    this.elements.downloadButton.addEventListener('click', () => this.emit('downloadClicked'));
+  }
+
+  // Hide logo container
+  hideLogo() {
+    this.elements.logoContainer.style.display = 'none';
   }
 
   // Collect form values for logo generation
