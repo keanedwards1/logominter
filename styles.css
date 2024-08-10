@@ -1893,6 +1893,42 @@ input:hover:checked+.slider:before {
 }
 
 
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: #f4bd4f;
+  }
+  33% {
+    color: #444444;
+  }
+  66% {
+    color: #000000;
+  }
+  100% {
+    color: #a9a9a9;
+  }
+}
+
+.home-arrow-animation {
+  transition: all 0.3s ease-in-out;
+}
+
+.button-top:hover .home-arrow-animation {
+  display: inline-block;
+  transform: translate(3px, -3px);
+  animation: 
+     colorChange 4s linear infinite;
+}
+
+
 
  
 

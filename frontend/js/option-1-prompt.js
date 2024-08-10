@@ -75,7 +75,7 @@ async function sendPromptOne() {
   submitButton.querySelector('.button-top').textContent = 'Generating...';
 
   // Initialize counter
-  let counter = 15;
+  let counter = 20;
 
   // Function to update status message
   function updateStatusMessage() {
