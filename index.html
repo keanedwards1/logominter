@@ -32,6 +32,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/x-icon" href="/logo-minter-favicon.ico" />
   <link rel="mask-icon" href="/logo-minter-safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="stylesheet" href="/frontend/css/marquee.css">  <!-- Copy/Paste this line to your .html file -->
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <script type="application/ld+json">
@@ -74,6 +75,14 @@
   </header>
 
   <main>
+
+    <div class="marquee-wrapper">
+      <h1>MarqueeKit Examples</h1>  
+      <section class="image-marquee">
+          <h2>Basic Marquee</h2>
+          <div id="basic-marquee"></div>
+      </section>
+    </div>
     <div id="hero-wrapper" <section class="hero section-1">
       <h1>A Pretty Good Logo Maker
       </h1> <!-- Create Quality Logos -->
@@ -108,12 +117,53 @@
             src="/frontend/images/social/intagram-logo.svg" alt="Instagram"></a>
         <a class="footer-icon" href="#"><img src="/frontend/images/social/x-logo.svg.png" alt="X"></a>
         <a class="footer-icon" href="#"><img src="/frontend/images/social/tiktok-logo.svg" alt="TikTok"></a>
+        
 
       </div>
     </div>
   </footer>
 
+  <script src="/frontend/js/marquee-2.js"></script>
+  <script>
+      /**
+       * Each instance can have unique settings.
+       */
+       const images1 = [
+  "/frontend/images/images/image1.webp",
+  "/frontend/images/images/image2.webp",
+  "/frontend/images/images/image3.webp",
+  "/frontend/images/images/image4.webp",
+  "/frontend/images/images/image5.webp",
+  "/frontend/images/images/image6.webp",
+  "/frontend/images/images/image7.webp",
+  "/frontend/images/images/image8.webp",
+  "/frontend/images/images/image9.webp",
+  "/frontend/images/images/image10.webp",
+  "/frontend/images/images/image11.webp",
+  "/frontend/images/images/image12.webp",
+  "/frontend/images/images/image13.webp",
+  "/frontend/images/images/image14.webp",
+  "/frontend/images/images/image15.webp",
+  "/frontend/images/images/image16.webp",
+  "/frontend/images/images/image17.webp",
+  "/frontend/images/images/image18.webp",
+  "/frontend/images/images/image19.webp",
+  "/frontend/images/images/image20.webp",
+];
 
+      // Example of basic marquee with default settings
+      new MarqueeKit("#basic-marquee", {
+          images: images1,
+          height: 300,   
+          imageWidth: 250,     
+          speed: 1000,        
+          gap: 20, 
+          reverse: false,
+          imageScale: 1,
+          pauseOnHover: false,
+          borderRadius: 8        
+      });
+  </script>
   <script src="/scripts.js"></script>
 </body>
 

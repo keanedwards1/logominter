@@ -1,51 +1,47 @@
 .
 ├── LICENSE
 ├── TODO
-├── api
-│   ├── archive
-│   │   ├── main.py
-│   │   ├── may 20th
-│   │   │   ├── option-1.js
-│   │   │   ├── option-2.js
-│   │   │   ├── option-3.js
-│   │   │   └── option-4.js
-│   │   ├── may 20th-2
-│   │   ├── may-21th
-│   │   │   ├── check-status-1.js
-│   │   │   └── option-1.js
-│   │   ├── option-1.py
-│   │   ├── option-2.py
-│   │   ├── option-3.py
-│   │   ├── option-4.py
-│   │   └── requirements.txt
-│   ├── check-status-1.js
-│   └── option-1.js
-├── backend
-│   ├── app
-│   │   ├── images
-│   │   │   ├── Craft_a_logo_with_the_fractal_patterns_seen_in_coral.png
-│   │   │   ├── Create_a_logo_inspired_by_the_Sierpinski_Triangle,_featuring_recursive.png
-│   │   │   ├── Create_a_logo_that_abstracts_the_fractal_geometry_of_mountain.png
-│   │   │   ├── Create_a_logo_with_the_dynamic_and_fluid_fractal_patterns.png
-│   │   │   ├── Design_a_logo_based_on_the_Julia_set_fractal,_creating.png
-│   │   │   ├── Design_a_logo_inspired_by_the_repetitive_patterns_of_Romanesco.png
-│   │   │   ├── Design_a_logo_using_the_fractal_pattern_of_a_snowflake,.png
-│   │   │   ├── Develop_a_logo_inspired_by_the_branching_patterns_of_trees,.png
-│   │   │   ├── Generate_a_logo_based_on_fractal_art,_specifically_inspired_by.png
-│   │   │   ├── Generate_a_logo_based_on_fractal_art,_using_a_Mandelbrot.png
-│   │   │   ├── Generate_a_logo_that_incorporates_the_fractal_patterns_of_lightning.png
-│   │   │   └── Generate_a_logo_that_resembles_the_intricate_spirals_of_a.png
-│   │   ├── logo-concurrent.py
-│   │   ├── logo-simple.js
-│   │   ├── logo-simple.py
-│   │   ├── logo.py
-│   │   └── ls.sh
-│   └── backend-structure.txt
-├── browserconfig.xml
-├── c.sh
-├── demo.html
-├── footer.txt
-├── frontend
+├── archive
+│   ├── api
+│   │   ├── archive
+│   │   │   ├── main.py
+│   │   │   ├── may 20th
+│   │   │   │   ├── option-1.js
+│   │   │   │   ├── option-2.js
+│   │   │   │   ├── option-3.js
+│   │   │   │   └── option-4.js
+│   │   │   ├── may 20th-2
+│   │   │   ├── may-21th
+│   │   │   │   ├── check-status-1.js
+│   │   │   │   └── option-1.js
+│   │   │   ├── option-1.py
+│   │   │   ├── option-2.py
+│   │   │   ├── option-3.py
+│   │   │   ├── option-4.py
+│   │   │   └── requirements.txt
+│   │   ├── check-status-1.js
+│   │   └── option-1.js
+│   ├── backend
+│   │   ├── app
+│   │   │   ├── images
+│   │   │   │   ├── Craft_a_logo_with_the_fractal_patterns_seen_in_coral.png
+│   │   │   │   ├── Create_a_logo_inspired_by_the_Sierpinski_Triangle,_featuring_recursive.png
+│   │   │   │   ├── Create_a_logo_that_abstracts_the_fractal_geometry_of_mountain.png
+│   │   │   │   ├── Create_a_logo_with_the_dynamic_and_fluid_fractal_patterns.png
+│   │   │   │   ├── Design_a_logo_based_on_the_Julia_set_fractal,_creating.png
+│   │   │   │   ├── Design_a_logo_inspired_by_the_repetitive_patterns_of_Romanesco.png
+│   │   │   │   ├── Design_a_logo_using_the_fractal_pattern_of_a_snowflake,.png
+│   │   │   │   ├── Develop_a_logo_inspired_by_the_branching_patterns_of_trees,.png
+│   │   │   │   ├── Generate_a_logo_based_on_fractal_art,_specifically_inspired_by.png
+│   │   │   │   ├── Generate_a_logo_based_on_fractal_art,_using_a_Mandelbrot.png
+│   │   │   │   ├── Generate_a_logo_that_incorporates_the_fractal_patterns_of_lightning.png
+│   │   │   │   └── Generate_a_logo_that_resembles_the_intricate_spirals_of_a.png
+│   │   │   ├── logo-concurrent.py
+│   │   │   ├── logo-simple.js
+│   │   │   ├── logo-simple.py
+│   │   │   ├── logo.py
+│   │   │   └── ls.sh
+│   │   └── backend-structure.txt
 │   ├── components
 │   │   ├── dropzone-01
 │   │   │   ├── dropzone.html
@@ -99,8 +95,30 @@
 │   │       │   └── video.svg
 │   │       ├── index.html
 │   │       └── style.css
+│   ├── for-the-future
+│   ├── hex-animation
+│   │   ├── LICENSE.txt
+│   │   ├── README.md
+│   │   ├── dist
+│   │   │   ├── index.html
+│   │   │   ├── script.js
+│   │   │   └── style.css
+│   │   └── src
+│   │       ├── index.html
+│   │       ├── script.js
+│   │       └── style.css
+│   ├── server.js
+│   └── tmp
+│       ├── data
+│       └── img
+├── browserconfig.xml
+├── c.sh
+├── demo.html
+├── footer.txt
+├── frontend
 │   ├── css
 │   │   ├── blog.css
+│   │   ├── coming-soon.css
 │   │   ├── demo.css
 │   │   ├── legal.css
 │   │   ├── logos.css
@@ -139,18 +157,6 @@
 │   │   │   ├── PTZ55F.ttf
 │   │   │   └── PTZ56F.ttf
 │   │   └── pt-serif.zip
-│   ├── for-the-future
-│   │   └── hex-animation
-│   │       ├── LICENSE.txt
-│   │       ├── README.md
-│   │       ├── dist
-│   │       │   ├── index.html
-│   │       │   ├── script.js
-│   │       │   └── style.css
-│   │       └── src
-│   │           ├── index.html
-│   │           ├── script.js
-│   │           └── style.css
 │   ├── images
 │   │   ├── logos
 │   │   │   ├── logo-beige.png
@@ -206,7 +212,7 @@
 │   │   │   ├── resize-images.py
 │   │   │   └── sm
 │   │   │       ├── resized_free-logo.png
-│   │   │       ├── resized_image-1.png`
+│   │   │       ├── resized_image-1.png
 │   │   │       ├── resized_image-10.png
 │   │   │       ├── resized_image-11.png
 │   │   │       ├── resized_image-2.png
@@ -223,16 +229,18 @@
 │   │       ├── x-logo.svg.png
 │   │       └── youtube-logo.svg
 │   └── js
+│       ├── archive
+│       │   ├── option-2-prompt.js
+│       │   ├── option-3-prompt.js
+│       │   ├── option-4-prompt.js
+│       │   └── success.js
 │       ├── blog.js
 │       ├── comparison.js
 │       ├── info-container.js
 │       ├── marquee.js
 │       ├── menu-dropdown.js
 │       ├── option-1-prompt.js
-│       ├── option-2-prompt.js
-│       ├── option-3-prompt.js
-│       ├── option-4-prompt.js
-│       ├── success.js
+│       ├── stripe.js
 │       ├── toggle-pricing.js
 │       ├── toggle-sample.js
 │       └── wizard.js
@@ -258,28 +266,27 @@
 ├── logos
 │   └── 13.png
 ├── model-setup.txt
+├── package-lock.json
 ├── package.json
 ├── public
 │   ├── archive
-│   │   └── pros-cons.html
+│   │   ├── cancel.html
+│   │   ├── logos.html
+│   │   ├── option-2.html
+│   │   ├── option-3.html
+│   │   ├── option-4.html
+│   │   ├── pros-cons.html
+│   │   └── success.html
 │   ├── blog.html
-│   ├── cancel.html
+│   ├── coming-soon.html
 │   ├── home.html
 │   ├── legal.html
-│   ├── logos.html
 │   ├── option-1.html
-│   ├── option-2.html
-│   ├── option-3.html
-│   ├── option-4.html
-│   └── success.html
-├── server.js
+│   └── output.css
 ├── site.webmanifest
 ├── styles.css
 ├── tailwind.config.js
-├── tmp
-│   ├── data
-│   └── img
 ├── tree.txt
 └── vercel.json
 
-47 directories, 236 files
+49 directories, 241 files

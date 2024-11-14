@@ -1929,9 +1929,41 @@ input:hover:checked+.slider:before {
 }
 
 
+/* #payment-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+#card-element {
+  margin-bottom: 20px;
+}
+
+#submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submit-button:hover {
+  background-color: #45a049;
+}
+
+#card-errors {
+  color: #fa755a;
+  margin-top: 10px;
+}
+
 
  
 
 
 
 
+ */
