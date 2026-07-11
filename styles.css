@@ -121,6 +121,14 @@ header {
   margin-left: 10px;
 }
 
+/* Fix the logo box before the SVG loads so the header doesn't render tall
+   then snap. An <object> has no intrinsic size until its content loads. */
+.logo-title object {
+  width: 40px;
+  height: 40px;
+  flex: none;
+}
+
 #logo-text {
   margin-left: 0px;
   /* Adds space between the SVG and the text */
