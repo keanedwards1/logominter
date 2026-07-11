@@ -253,14 +253,19 @@ class LogoGenerator {
     });
 
     if (!response.ok) {
-      let detail = '';
+      let serverMessage = '';
+      let retryAfter = Number(response.headers.get('Retry-After')) || null;
       try {
         const data = await response.json();
-        detail = data?.error ? ` — ${data.error}` : '';
+        serverMessage = data?.error || '';
+        if (!retryAfter && data?.retryAfter) retryAfter = Number(data.retryAfter);
       } catch {
         // non-JSON error body (e.g. the login page); ignore
       }
-      throw new Error(`Logo generation failed (HTTP ${response.status})${detail}`);
+      const err = new Error(serverMessage || `Request failed (HTTP ${response.status})`);
+      err.status = response.status;
+      err.retryAfter = retryAfter;
+      throw err;
     }
 
     const blob = await response.blob();
@@ -275,7 +280,40 @@ class LogoGenerator {
   // Handle errors during logo generation
   handleError(error) {
     console.error('Error:', error);
-    this.uiManager.updateStatusMessage('An error occurred while generating the logo. Please try again.', true);
+    this.uiManager.hideLogo();
+    this.uiManager.updateStatusMessage(this.friendlyErrorMessage(error), true);
+  }
+
+  // Map an error to a friendly, actionable message for the user.
+  friendlyErrorMessage(error) {
+    const wait = error?.retryAfter ? this.formatWait(error.retryAfter) : null;
+
+    switch (error?.status) {
+      case 429:
+        // Distinguish our per-user throttle from the shared daily cap by message.
+        if (/daily/i.test(error.message)) {
+          return "We've hit today's free logo limit 🌙 It refreshes daily — please check back later.";
+        }
+        return wait
+          ? `Whoa, slow down a sec! You're generating logos quickly. Try again in ${wait}.`
+          : "You're generating logos quickly. Please wait a moment and try again.";
+      case 400:
+        return "Something looks off with those details. Please tweak your inputs and try again.";
+      case 503:
+        return "Logo generation is temporarily unavailable. Please try again shortly.";
+      case 502:
+        return "Our design engine hiccuped 🎨 Please try generating again.";
+      default:
+        return "Something went wrong while creating your logo. Please try again.";
+    }
+  }
+
+  // Turn a seconds value into a short human phrase ("30 seconds", "2 minutes").
+  formatWait(seconds) {
+    const s = Math.max(1, Math.round(seconds));
+    if (s < 60) return `${s} second${s === 1 ? '' : 's'}`;
+    const m = Math.round(s / 60);
+    return `${m} minute${m === 1 ? '' : 's'}`;
   }
 
   // Download the current logo

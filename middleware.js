@@ -6,8 +6,12 @@
 // HTTP-only cookie so they stay in for SESSION_DAYS. The password itself lives
 // only in an env var on Vercel's edge and is never sent to the browser.
 //
+// The gate is OFF by default — the site is public. To turn it back on, set
+// SITE_GATE_ENABLED=true (and SITE_PASSWORD) in Vercel's env vars, then redeploy.
+//
 // Environment variables (Vercel → Settings → Environment Variables):
-//   SITE_PASSWORD  (required — the gate fails CLOSED if this is unset)
+//   SITE_GATE_ENABLED  set to "true" to enable the gate (default: off)
+//   SITE_PASSWORD      required when the gate is enabled (fails CLOSED if unset)
 //
 // The cookie value is an HMAC-SHA-256 signature (keyed by SITE_PASSWORD) over
 // an expiry timestamp, so it cannot be forged without knowing the password and
@@ -323,6 +327,12 @@ function setCookieAndRedirect(token, url) {
 // --- Main -------------------------------------------------------------------
 
 export default async function middleware(request) {
+  // Gate is opt-in. When disabled, pass every request straight through so the
+  // site is fully public. Flip SITE_GATE_ENABLED=true to re-enable it.
+  if (process.env.SITE_GATE_ENABLED !== "true") {
+    return;
+  }
+
   const url = new URL(request.url);
   const { pathname } = url;
 
