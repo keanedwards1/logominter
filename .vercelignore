@@ -1,0 +1,12 @@
+node_modules
+.git
+.env.local
+.env*
+.vercel
+.gpt-runner
+.vscode
+tree.txt
+TODO
+*.md
+model-setup.txt
+great-prompts.txt
