@@ -85,6 +85,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+
+    // Open the pricing popup automatically when arriving with #pricing
+    // (e.g. the "Pricing" link from another page in the footer).
+    function openPricingFromHash() {
+        if (window.location.hash === '#pricing' && pricingCard) {
+            pricingCard.classList.add('show');
+            sampleCard.classList.remove('show');
+            updateOverlayVisibility();
+            mainContent.style.position = 'relative';
+            pricingCard.style.zIndex = '999';
+        }
+    }
+    openPricingFromHash();
+    window.addEventListener('hashchange', openPricingFromHash);
 });
 
 
