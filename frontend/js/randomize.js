@@ -74,8 +74,16 @@
       .forEach(randomizeSelect);
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
+  function init() {
     const btn = document.getElementById("random-button");
     if (btn) btn.addEventListener("click", randomize);
-  });
+  }
+
+  // With `defer`, DOMContentLoaded may already have fired by the time this
+  // runs — so attach immediately if the DOM is ready, else wait for it.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
