@@ -154,10 +154,15 @@ class ImageManager {
   triggerDownload(imageData) {
     const link = document.createElement('a');
     link.href = imageData;
-    link.download = 'generated_logo.png';
+    link.download = `generated_logo.${this.extensionFor(imageData)}`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  }
+
+  extensionFor(imageData) {
+    const mime = /^data:(image\/[^;]+)/.exec(imageData)?.[1];
+    return { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/svg+xml': 'svg' }[mime] || 'png';
   }
 }
 
@@ -241,7 +246,7 @@ class LogoGenerator {
 
   // Fetch generated logo from API
   async fetchGeneratedLogo(prompt) {
-    const response = await fetch('https://api.logominter.com/generate', {
+    const response = await fetch('/api/generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: prompt }),

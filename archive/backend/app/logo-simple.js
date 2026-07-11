@@ -4,7 +4,7 @@
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/artificialguybr/LogoRedmond-LogoLoraForSDXL-V2",
 		{
-			headers: { Authorization: "Bearer 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" },
+			headers: { Authorization: "Bearer <REVOKED_HUGGINGFACE_TOKEN>" },
 			method: "POST",
 			body: JSON.stringify(data),
 		}
