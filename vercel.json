@@ -2,10 +2,6 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/", "destination": "/coming-soon.html" },
-    { "source": "/home", "destination": "/public/home.html" },
-    { "source": "/option-1", "destination": "/public/option-1.html" },
-    { "source": "/blog", "destination": "/public/blog.html" },
-    { "source": "/legal", "destination": "/public/legal.html" }
+    { "source": "/", "destination": "/home.html" }
   ]
 }
