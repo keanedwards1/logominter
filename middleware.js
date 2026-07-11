@@ -337,7 +337,14 @@ export default async function middleware(request) {
     return loginPage({ status: 503 });
   }
 
-  // Handle a login submission (form POSTs the password).
+  // Already authenticated? Check the signed cookie first, so authenticated
+  // POSTs (e.g. the logo API) pass through instead of being read as a login.
+  const cookies = parseCookies(request);
+  if (await isValidToken(cookies[COOKIE_NAME], expectedPassword)) {
+    return; // let the request through to the real page / API
+  }
+
+  // Unauthenticated login submission (the login form POSTs the password).
   if (request.method === "POST") {
     let submitted = "";
     try {
@@ -353,12 +360,6 @@ export default async function middleware(request) {
       return setCookieAndRedirect(token, url.origin + "/");
     }
     return loginPage({ error: true, status: 401 });
-  }
-
-  // Already authenticated? Check the signed cookie.
-  const cookies = parseCookies(request);
-  if (await isValidToken(cookies[COOKIE_NAME], expectedPassword)) {
-    return; // let the request through to the real page
   }
 
   // Not authenticated — show the on-page login.
