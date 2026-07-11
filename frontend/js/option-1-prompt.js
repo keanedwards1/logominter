@@ -253,7 +253,14 @@ class LogoGenerator {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      let detail = '';
+      try {
+        const data = await response.json();
+        detail = data?.error ? ` — ${data.error}` : '';
+      } catch {
+        // non-JSON error body (e.g. the login page); ignore
+      }
+      throw new Error(`Logo generation failed (HTTP ${response.status})${detail}`);
     }
 
     const blob = await response.blob();
