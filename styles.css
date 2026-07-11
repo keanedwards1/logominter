@@ -1246,6 +1246,48 @@ footer {
   transform: scale(1.05);
 }
 
+/* "Coming soon" tooltip for socials that aren't live yet. Applied to any
+   .footer-icon carrying .soon; Instagram (a real link) is left untouched. */
+.footer-icon.soon {
+  position: relative;
+  cursor: default;
+}
+
+.footer-icon.soon .soon-tip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #072406;
+  color: #f3f1e5;
+  font-family: libre, Georgia, serif;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 20;
+}
+
+.footer-icon.soon .soon-tip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #072406;
+}
+
+.footer-icon.soon:hover .soon-tip,
+.footer-icon.soon:focus-visible .soon-tip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .footer-section {
   display: flex;
   flex-direction: column;
