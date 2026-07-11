@@ -145,3 +145,5 @@ dmypy.json
 # Legacy code kept locally, not deployed (already tracked; ignored to stop future churn)
 archive/
 .env*.local
+
+CLAUDE.md

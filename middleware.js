@@ -22,8 +22,12 @@ const COOKIE_NAME = "lm_gate";
 const SESSION_DAYS = 7;
 const SESSION_MS = SESSION_DAYS * 24 * 60 * 60 * 1000;
 
-// Files that must load before/around the login page (icons, manifest, robots).
+// Exact assets that must load before login: the browser-chrome icons/manifest
+// and the brand assets (logo + fonts) the login page itself renders. Kept as a
+// tight allowlist so no actual site content (sample logos, pages) leaks to
+// unauthenticated visitors.
 const PUBLIC_PATHS = new Set([
+  // Favicons / manifest / browser chrome
   "/favicon.ico",
   "/robots.txt",
   "/site.webmanifest",
@@ -36,12 +40,14 @@ const PUBLIC_PATHS = new Set([
   "/logo-minter-android-chrome-512x512.png",
   "/logo-minter-mstile-150x150.png",
   "/logo-minter-safari-pinned-tab.svg",
+  // Brand assets rendered on the login page
+  "/frontend/images/logos/logominter-white-bg.svg",
+  "/frontend/fonts/PlayfairDisplay-VariableFont_wght.ttf",
+  "/frontend/fonts/libre-baskerville/LibreBaskerville-Regular.ttf",
 ]);
 
 function isPublicAsset(pathname) {
-  if (PUBLIC_PATHS.has(pathname)) return true;
-  // Icon/manifest asset extensions needed by the browser chrome.
-  return /\.(?:ico|png|svg|webmanifest)$/i.test(pathname);
+  return PUBLIC_PATHS.has(pathname);
 }
 
 // Constant-time-ish string comparison to avoid trivial timing leaks.
@@ -134,33 +140,34 @@ function loginHtml(errorHtml) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LogoMinter — Enter Password</title>
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#0b0b0f" />
+  <meta name="theme-color" content="#f3f1e5" />
   <link rel="apple-touch-icon" sizes="180x180" href="/logo-minter-apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/logo-minter-favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/logo-minter-favicon-16x16.png" />
   <link rel="icon" type="image/x-icon" href="/logo-minter-favicon.ico" />
+  <link rel="mask-icon" href="/logo-minter-safari-pinned-tab.svg" color="#072406" />
   <style>
-    :root {
-      --bg: #0b0b0f;
-      --bg-glow: #17131f;
-      --fg: #f5f4f7;
-      --muted: #9a97a6;
-      --accent: #c8a24a;
-      --border: rgba(255, 255, 255, 0.1);
-      --field: rgba(255, 255, 255, 0.04);
-      --danger: #e06a6a;
+    /* Site brand fonts — same files the main site loads. */
+    @font-face {
+      font-family: Playfair;
+      src: url('/frontend/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+      font-display: swap;
     }
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #faf9f7;
-        --bg-glow: #f1ede4;
-        --fg: #16151a;
-        --muted: #6a6772;
-        --accent: #b8901f;
-        --border: rgba(0, 0, 0, 0.1);
-        --field: rgba(0, 0, 0, 0.03);
-        --danger: #c0392b;
-      }
+    @font-face {
+      font-family: libre;
+      src: url('/frontend/fonts/libre-baskerville/LibreBaskerville-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    :root {
+      --bg: #f3f1e5;          /* site body cream */
+      --bg-glow: #e7e2cf;
+      --fg: #072406;          /* site dark green */
+      --muted: #5d6b57;
+      --accent: #072406;
+      --card: #ffffff;
+      --border: rgba(7, 36, 6, 0.14);
+      --field: #ffffff;
+      --danger: #a1341f;
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; }
@@ -170,8 +177,7 @@ function loginHtml(errorHtml) {
       align-items: center;
       justify-content: center;
       padding: 2rem;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-        Helvetica, Arial, sans-serif;
+      font-family: libre, "Libre Baskerville", Georgia, serif;
       color: var(--fg);
       background:
         radial-gradient(60rem 60rem at 50% -20%, var(--bg-glow), transparent 60%),
@@ -181,91 +187,99 @@ function loginHtml(errorHtml) {
     }
     main {
       width: 100%;
-      max-width: 26rem;
+      max-width: 27rem;
       text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.75rem 2rem 2.25rem;
+      box-shadow: 0 20px 50px -20px rgba(7, 36, 6, 0.25);
       animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
     }
     @keyframes rise { from { opacity: 0; transform: translateY(12px); } }
     .logo {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 1.75rem;
+      width: 200px;
+      max-width: 70%;
+      height: auto;
+      margin: 0 auto 1.5rem;
       display: block;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.02);
     }
     .eyebrow {
       display: inline-block;
-      margin-bottom: 1.25rem;
-      padding: 0.35rem 0.85rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+      margin-bottom: 1.1rem;
+      padding: 0.3rem 0.85rem;
+      font-family: libre, Georgia, serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--muted);
       border: 1px solid var(--border);
       border-radius: 999px;
     }
     h1 {
       margin: 0 0 0.5rem;
-      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-family: Playfair, Georgia, serif;
+      font-size: clamp(1.9rem, 5vw, 2.4rem);
       line-height: 1.1;
-      letter-spacing: -0.02em;
-      font-weight: 700;
+      font-weight: 600;
     }
     p.sub {
       margin: 0 auto 1.75rem;
       max-width: 22rem;
       color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.98rem;
+      line-height: 1.65;
     }
-    .brand { color: var(--accent); }
+    .brand { color: var(--accent); font-weight: 600; }
     form { display: flex; flex-direction: column; gap: 0.75rem; }
     input[type="password"] {
       width: 100%;
       padding: 0.85rem 1rem;
+      font-family: libre, Georgia, serif;
       font-size: 1rem;
       color: var(--fg);
       background: var(--field);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 10px;
       outline: none;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    input[type="password"]:focus { border-color: var(--accent); }
-    input[type="password"]::placeholder { color: var(--muted); }
+    input[type="password"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(7, 36, 6, 0.1);
+    }
+    input[type="password"]::placeholder { color: #9a9885; }
     button {
       width: 100%;
-      padding: 0.85rem 1rem;
-      font-size: 1rem;
+      padding: 0.9rem 1rem;
+      font-family: Playfair, Georgia, serif;
+      font-size: 1.02rem;
       font-weight: 600;
-      color: #0b0b0f;
+      letter-spacing: 0.01em;
+      color: #f3f1e5;
       background: var(--accent);
       border: none;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       transition: transform 0.15s ease, filter 0.2s ease;
     }
-    button:hover { transform: translateY(-1px); filter: brightness(1.05); }
+    button:hover { transform: translateY(-1px); filter: brightness(1.15); }
     button:active { transform: translateY(0); }
     .error {
       margin: 0;
       color: var(--danger);
       font-size: 0.9rem;
-      font-weight: 500;
     }
     footer {
-      margin-top: 2.5rem;
-      font-size: 0.8rem;
+      margin-top: 2rem;
+      font-size: 0.78rem;
       color: var(--muted);
     }
   </style>
 </head>
 <body>
   <main>
-    <img class="logo" src="/logo-minter-android-chrome-192x192.png" alt="LogoMinter" width="72" height="72" />
+    <img class="logo" src="/frontend/images/logos/logominter-white-bg.svg" alt="LogoMinter" />
     <span class="eyebrow">Under Construction</span>
     <h1>Enter Password</h1>
     <p class="sub">
