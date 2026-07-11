@@ -1,0 +1,4 @@
+# Site is under construction and password-protected. Disallow all crawling.
+# Relax this once the site launches.
+User-agent: *
+Disallow: /

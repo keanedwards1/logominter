@@ -1,101 +1,11 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/*.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "demo.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "styles.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "scripts.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "site.webmanifest",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "logo-minter-android-chrome-192x192.png",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "logo-minter-android-chrome-512x512.png",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "logo-minter-apple-touch-icon.png",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "logo-minter-favicon-16x16.png",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "logo-minter-favicon-32x32.png",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "logo-minter-favicon.ico",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "logo-minter-mstile-150x150.png",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "logo-minter-safari-pinned-tab.svg",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "images/**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    { "src": "/api/option-1", "dest": "/api/option-1.js" },
-    { "src": "/api/check-status", "dest": "/api/check-status-1.js" },
-    { "src": "/demo", "dest": "/demo.html" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/option-1", "dest": "/public/option-1.html" },
-    { "src": "/option-2", "dest": "/public/option-2.html" },
-    { "src": "/option-3", "dest": "/public/option-3.html" },
-    { "src": "/option-4", "dest": "/public/option-4.html" },
-    { "src": "/success", "dest": "/public/success.html" },
-    { "src": "/cancel", "dest": "/public/cancel.html" },
-    { "src": "/legal", "dest": "/public/legal.html" },
-    { "src": "/logos", "dest": "/public/logos.html" },
-    { "src": "/blog", "dest": "/public/blog.html" },
-    { "src": "/home", "dest": "/public/home.html" },
-    { "src": "/archive/pros-cons", "dest": "/public/archive/pros-cons.html" },
-    { "src": "/site.webmanifest", "dest": "/site.webmanifest" },
-    { "src": "/logo-minter-android-chrome-192x192.png", "dest": "/logo-minter-android-chrome-192x192.png" },
-    { "src": "/logo-minter-android-chrome-512x512.png", "dest": "/logo-minter-android-chrome-512x512.png" },
-    { "src": "/logo-minter-apple-touch-icon.png", "dest": "/logo-minter-apple-touch-icon.png" },
-    { "src": "/logo-minter-favicon-16x16.png", "dest": "/logo-minter-favicon-16x16.png" },
-    { "src": "/logo-minter-favicon-32x32.png", "dest": "/logo-minter-favicon-32x32.png" },
-    { "src": "/logo-minter-favicon.ico", "dest": "/logo-minter-favicon.ico" },
-    { "src": "/logo-minter-mstile-150x150.png", "dest": "/logo-minter-mstile-150x150.png" },
-    { "src": "/logo-minter-safari-pinned-tab.svg", "dest": "/logo-minter-safari-pinned-tab.svg" },
-    { "src": "/frontend/(.*)", "dest": "/frontend/$1" },
-    { "src": "/images/(.*)", "dest": "/images/$1" }
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/coming-soon.html" },
+    { "source": "/home", "destination": "/public/home.html" },
+    { "source": "/option-1", "destination": "/public/option-1.html" },
+    { "source": "/blog", "destination": "/public/blog.html" },
+    { "source": "/legal", "destination": "/public/legal.html" }
   ]
 }

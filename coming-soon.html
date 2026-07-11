@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LogoMinter — Coming Soon</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="LogoMinter is coming soon." />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/logo-minter-apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/logo-minter-favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/logo-minter-favicon-16x16.png" />
+  <link rel="icon" type="image/x-icon" href="/logo-minter-favicon.ico" />
+  <link rel="mask-icon" href="/logo-minter-safari-pinned-tab.svg" color="#5bbad5" />
+
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --bg-glow: #17131f;
+      --fg: #f5f4f7;
+      --muted: #9a97a6;
+      --accent: #c8a24a;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #faf9f7;
+        --bg-glow: #f1ede4;
+        --fg: #16151a;
+        --muted: #6a6772;
+        --accent: #b8901f;
+        --border: rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      color: var(--fg);
+      background:
+        radial-gradient(60rem 60rem at 50% -20%, var(--bg-glow), transparent 60%),
+        var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    main {
+      width: 100%;
+      max-width: 34rem;
+      text-align: center;
+      animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+    }
+
+    .logo {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.75rem;
+      display: block;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2.25rem, 7vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: 26rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .brand {
+      color: var(--accent);
+    }
+
+    .social {
+      margin-top: 2.5rem;
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.15rem;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .social a:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .social svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <img class="logo" src="/logo-minter-android-chrome-192x192.png" alt="LogoMinter" width="72" height="72" />
+
+    <span class="eyebrow">Under Construction</span>
+
+    <h1>Coming&nbsp;Soon</h1>
+
+    <p>
+      <span class="brand">LogoMinter</span> is being minted. We're putting the
+      finishing touches on a better way to create quality logos — check back
+      shortly.
+    </p>
+
+    <div class="social">
+      <a href="https://www.instagram.com/logominter_/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        Follow along
+      </a>
+    </div>
+
+    <footer>&copy; <span id="year"></span> LogoMinter</footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
